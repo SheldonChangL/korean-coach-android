@@ -12,11 +12,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.data.local.dao.DailyPronunciationRow
 import com.koreancoach.app.domain.model.DailyStudyMinutes
 import com.koreancoach.app.domain.model.QuizAccuracyPoint
@@ -25,6 +27,7 @@ import com.koreancoach.app.ui.theme.SuccessGreen
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,8 +41,8 @@ fun AnalyticsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Progress", fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Back") } },
+                title = { Text(stringResource(R.string.analytics_title), fontWeight = FontWeight.Bold) },
+                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, stringResource(R.string.back)) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
             )
         }
@@ -66,19 +69,19 @@ fun AnalyticsScreen(
                     modifier = Modifier.weight(1f),
                     emoji = "🔥",
                     value = "${state.currentStreak}",
-                    label = "Day streak"
+                    label = stringResource(R.string.analytics_day_streak)
                 )
                 StatSummaryCard(
                     modifier = Modifier.weight(1f),
                     emoji = "⏱️",
                     value = "${state.weeklyTotalMinutes}",
-                    label = "Min this week"
+                    label = stringResource(R.string.analytics_minutes_this_week)
                 )
                 StatSummaryCard(
                     modifier = Modifier.weight(1f),
                     emoji = "🎯",
                     value = state.averageAccuracy?.let { "${it.toInt()}%" } ?: "—",
-                    label = "Avg accuracy"
+                    label = stringResource(R.string.analytics_avg_accuracy)
                 )
             }
 
@@ -88,16 +91,16 @@ fun AnalyticsScreen(
                     modifier = Modifier.fillMaxWidth(),
                     emoji = "🎤",
                     value = "${avg.toInt()}%",
-                    label = "Overall pronunciation score"
+                    label = stringResource(R.string.analytics_overall_pronunciation_score)
                 )
             }
 
             // Weekly study minutes chart
-            AnalyticsCard(title = "Weekly Study Time") {
+            AnalyticsCard(title = stringResource(R.string.analytics_weekly_study_time)) {
                 if (state.weeklyStudyMinutes.isEmpty()) {
                     EmptyChartState(
                         icon = "📅",
-                        message = "Complete your first lesson to see study time here!"
+                        message = stringResource(R.string.analytics_empty_study_time)
                     )
                 } else {
                     StudyMinutesBarChart(data = state.weeklyStudyMinutes)
@@ -105,11 +108,11 @@ fun AnalyticsScreen(
             }
 
             // Quiz accuracy trend
-            AnalyticsCard(title = "Quiz Accuracy Trend") {
+            AnalyticsCard(title = stringResource(R.string.analytics_quiz_accuracy_trend)) {
                 if (state.quizAccuracyTrend.isEmpty()) {
                     EmptyChartState(
                         icon = "📝",
-                        message = "Take a quiz to track your accuracy over time!"
+                        message = stringResource(R.string.analytics_empty_quiz_accuracy)
                     )
                 } else {
                     AccuracyLineChart(data = state.quizAccuracyTrend)
@@ -117,11 +120,11 @@ fun AnalyticsScreen(
             }
 
             // Pronunciation trend (last 7 days)
-            AnalyticsCard(title = "Pronunciation Score — Last 7 Days") {
+            AnalyticsCard(title = stringResource(R.string.analytics_pronunciation_last_7_days)) {
                 if (state.weeklyPronunciationTrend.isEmpty()) {
                     EmptyChartState(
                         icon = "🎤",
-                        message = "Practice pronunciation to see your score trend here!"
+                        message = stringResource(R.string.analytics_empty_pronunciation)
                     )
                 } else {
                     PronunciationTrendChart(data = state.weeklyPronunciationTrend)
@@ -193,7 +196,7 @@ private fun EmptyChartState(icon: String, message: String) {
 @Composable
 private fun StudyMinutesBarChart(data: List<DailyStudyMinutes>) {
     val maxMinutes = data.maxOfOrNull { it.minutes } ?: 1
-    val dayFormatter = DateTimeFormatter.ofPattern("EEE").withZone(ZoneId.systemDefault())
+    val dayFormatter = DateTimeFormatter.ofPattern("EEE", Locale.getDefault()).withZone(ZoneId.systemDefault())
     val barColor = MaterialTheme.colorScheme.primary
 
     Row(
@@ -210,7 +213,7 @@ private fun StudyMinutesBarChart(data: List<DailyStudyMinutes>) {
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
-                    "${day.minutes}m",
+                    stringResource(R.string.minutes_short, day.minutes),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -233,7 +236,7 @@ private fun StudyMinutesBarChart(data: List<DailyStudyMinutes>) {
 private fun AccuracyLineChart(data: List<QuizAccuracyPoint>) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         data.forEach { point ->
-            val dateLabel = DateTimeFormatter.ofPattern("MMM d")
+            val dateLabel = DateTimeFormatter.ofPattern("MMM d", Locale.getDefault())
                 .withZone(ZoneId.systemDefault())
                 .format(Instant.ofEpochMilli(point.completedAtMs))
             Row(
@@ -276,7 +279,7 @@ private fun AccuracyLineChart(data: List<QuizAccuracyPoint>) {
 
 @Composable
 private fun PronunciationTrendChart(data: List<DailyPronunciationRow>) {
-    val dayFormatter = DateTimeFormatter.ofPattern("EEE").withZone(ZoneId.systemDefault())
+    val dayFormatter = DateTimeFormatter.ofPattern("EEE", Locale.getDefault()).withZone(ZoneId.systemDefault())
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         data.forEach { row ->
             val dayLabel = dayFormatter.format(Instant.ofEpochMilli(row.dayEpoch * 86400000L))

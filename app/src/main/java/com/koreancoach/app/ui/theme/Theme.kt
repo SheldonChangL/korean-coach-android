@@ -45,14 +45,24 @@ private val DarkColorScheme = darkColorScheme(
     onPrimaryContainer = KoreanRedDark,
     secondary = GoldAccent,
     onSecondary = OnGoldAccent,
+    secondaryContainer = GoldAccentContainerDark,
+    onSecondaryContainer = GoldAccentContainer,
     tertiary = KoreanBlueDark,
     onTertiary = OnKoreanBlueContainer,
+    tertiaryContainer = KoreanBlueContainerDark,
+    onTertiaryContainer = KoreanBlueDark,
     surface = SurfaceDark,
     onSurface = OnSurfaceDark,
-    surfaceVariant = OnSurfaceVariantDark,
+    surfaceVariant = SurfaceVariantDark,
     onSurfaceVariant = OnSurfaceVariantDark,
     background = BackgroundDark,
-    onBackground = OnSurfaceDark
+    onBackground = OnSurfaceDark,
+    outline = OutlineDark,
+    outlineVariant = OutlineVariantDark,
+    error = KoreanRedDark,
+    onError = OnKoreanRedContainer,
+    errorContainer = ErrorContainerDark,
+    onErrorContainer = KoreanRedDark
 )
 
 @Composable

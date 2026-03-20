@@ -1,8 +1,10 @@
 package com.koreancoach.app.ui.feature.lesson
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.koreancoach.app.R
 import com.koreancoach.app.data.datastore.UserPreferencesDataStore
 import com.koreancoach.app.data.repository.LessonRepository
 import com.koreancoach.app.domain.model.Lesson
@@ -74,10 +76,10 @@ data class LessonDetailUiState(
     val speechState: SpeechPlaybackState = SpeechPlaybackState()
 )
 
-enum class LessonTab(val label: String) {
-    VOCABULARY("Vocabulary"),
-    PHRASES("Phrases"),
-    PRONUNCIATION("Pronunciation"),
-    DIALOGUE("Dialogue"),
-    MEMORY("Memory Hooks")
+enum class LessonTab(@StringRes val labelRes: Int) {
+    VOCABULARY(R.string.lesson_tab_vocabulary),
+    PHRASES(R.string.lesson_tab_phrases),
+    PRONUNCIATION(R.string.lesson_tab_pronunciation),
+    DIALOGUE(R.string.lesson_tab_dialogue),
+    MEMORY(R.string.lesson_tab_memory)
 }

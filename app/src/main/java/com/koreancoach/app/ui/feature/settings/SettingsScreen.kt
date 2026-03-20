@@ -114,7 +114,7 @@ fun SettingsScreen(
                         FilterChip(
                             selected = state.themeMode == mode,
                             onClick = { viewModel.updateTheme(mode) },
-                            label = { Text(mode.label) },
+                            label = { Text(stringResource(themeModeLabelRes(mode))) },
                             modifier = Modifier.weight(1f)
                         )
                     }
@@ -150,7 +150,7 @@ fun SettingsScreen(
                         FilterChip(
                             selected = state.speechRatePreset == rate,
                             onClick = { viewModel.updateSpeechRate(rate) },
-                            label = { Text(rate.name.lowercase().replaceFirstChar { it.uppercase() }) },
+                            label = { Text(stringResource(rate.labelRes)) },
                             modifier = Modifier.weight(1f)
                         )
                     }
@@ -207,4 +207,10 @@ private fun SettingsSection(title: String, content: @Composable ColumnScope.() -
         content()
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
     }
+}
+
+private fun themeModeLabelRes(mode: ThemeMode): Int = when (mode) {
+    ThemeMode.SYSTEM -> R.string.theme_system
+    ThemeMode.LIGHT -> R.string.theme_light
+    ThemeMode.DARK -> R.string.theme_dark
 }

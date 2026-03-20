@@ -1,5 +1,8 @@
 package com.koreancoach.app.domain.model
 
+import androidx.annotation.StringRes
+import com.koreancoach.app.R
+
 const val DEFAULT_SPEECH_LOCALE = "ko-KR"
 
 enum class LessonKind {
@@ -7,9 +10,9 @@ enum class LessonKind {
     SURVIVAL
 }
 
-enum class SpeechRatePreset(val ttsRate: Float) {
-    SLOW(0.72f),
-    NORMAL(1.0f)
+enum class SpeechRatePreset(val ttsRate: Float, @StringRes val labelRes: Int) {
+    SLOW(0.72f, R.string.speed_slow),
+    NORMAL(1.0f, R.string.speed_normal)
 }
 
 data class SpeechSpec(

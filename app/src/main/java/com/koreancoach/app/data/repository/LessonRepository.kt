@@ -60,7 +60,20 @@ class LessonRepository @Inject constructor(
 
     suspend fun seedCurriculum(lessons: List<Lesson>, cards: List<FlashCard>) {
         lessonDao.insertLessons(lessons.map { it.toEntity() })
-        flashCardDao.insertCards(cards.map { it.toFlashCardEntity() })
+        val existingCards = flashCardDao.getAllCards().associateBy { it.id }
+        flashCardDao.insertCards(
+            cards.map { card ->
+                val entity = card.toFlashCardEntity()
+                existingCards[entity.id]?.let { existing ->
+                    entity.copy(
+                        reviewState = existing.reviewState,
+                        nextReviewTimestamp = existing.nextReviewTimestamp,
+                        easeFactor = existing.easeFactor,
+                        intervalDays = existing.intervalDays
+                    )
+                } ?: entity
+            }
+        )
     }
 
     private fun LessonEntity.toDomain(): Lesson {

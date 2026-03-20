@@ -113,7 +113,7 @@ fun LessonDetailScreen(
                                 onClick = { viewModel.selectTab(tab) },
                                 text = { 
                                     Text(
-                                        tab.label, 
+                                        stringResource(tab.labelRes),
                                         style = MaterialTheme.typography.labelLarge,
                                         fontWeight = if (state.selectedTab == tab) FontWeight.Bold else FontWeight.Normal
                                     ) 
@@ -217,9 +217,9 @@ private fun LessonHeaderCard(lesson: Lesson) {
             Text(lesson.title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onPrimaryContainer)
             Spacer(Modifier.height(12.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                LessonTag(text = "Week ${lesson.weekNumber}", containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
-                LessonTag(text = "${lesson.estimatedMinutes} min", containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
-                LessonTag(text = "${lesson.vocabulary.size} words", containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
+                LessonTag(text = stringResource(R.string.lesson_week_tag, lesson.weekNumber), containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
+                LessonTag(text = stringResource(R.string.lesson_minutes_tag, lesson.estimatedMinutes), containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
+                LessonTag(text = stringResource(R.string.lesson_words_tag, lesson.vocabulary.size), containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
             }
         }
     }
@@ -439,7 +439,7 @@ private fun PronunciationCard(tip: PronunciationTip) {
                 }
                 Column {
                     Text(stringResource(R.string.sound_tip), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("Like: ${tip.englishComparison}", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.lesson_like, tip.englishComparison), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
                 }
             }
             Spacer(Modifier.height(4.dp))

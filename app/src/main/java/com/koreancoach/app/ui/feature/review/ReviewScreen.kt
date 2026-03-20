@@ -13,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.ui.feature.flashcard.FlipCard
 import com.koreancoach.app.ui.theme.*
 
@@ -32,8 +34,8 @@ fun ReviewScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Daily Review", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Back") } },
+                title = { Text(stringResource(R.string.review_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
+                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, stringResource(R.string.back)) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
             )
         }
@@ -64,7 +66,7 @@ fun ReviewScreen(
                             )
                             Spacer(Modifier.height(8.dp))
                             Text(
-                                text = "Item ${state.currentIndex + 1} of ${state.cards.size}", 
+                                text = stringResource(R.string.review_item_progress, state.currentIndex + 1, state.cards.size),
                                 style = MaterialTheme.typography.labelMedium, 
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -95,19 +97,19 @@ fun ReviewScreen(
                                 horizontalArrangement = Arrangement.spacedBy(spacing.sm)
                             ) {
                                 ReviewButton(
-                                    label = "Again",
+                                    label = stringResource(R.string.review_again),
                                     color = ErrorRed,
                                     modifier = Modifier.weight(1f),
                                     onClick = { viewModel.recordAnswer(0) }
                                 )
                                 ReviewButton(
-                                    label = "Hard",
+                                    label = stringResource(R.string.review_hard),
                                     color = GoldAccent,
                                     modifier = Modifier.weight(1f),
                                     onClick = { viewModel.recordAnswer(3) }
                                 )
                                 ReviewButton(
-                                    label = "Easy",
+                                    label = stringResource(R.string.review_easy),
                                     color = SuccessGreen,
                                     modifier = Modifier.weight(1f),
                                     onClick = { viewModel.recordAnswer(5) }
@@ -123,7 +125,7 @@ fun ReviewScreen(
                             ) {
                                 Icon(Icons.Default.TouchApp, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(16.dp))
                                 Spacer(Modifier.width(8.dp))
-                                Text("Tap to see the answer", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                Text(stringResource(R.string.review_tap_to_see_answer), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                             }
                         }
                     }
@@ -169,7 +171,7 @@ private fun ReviewDoneState(correct: Int, total: Int, onBack: () -> Unit) {
         Spacer(Modifier.height(spacing.xl))
         
         Text(
-            text = if (total == 0) "All caught up!" else "Review Complete!",
+            text = if (total == 0) stringResource(R.string.review_all_caught_up) else stringResource(R.string.review_complete_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Black,
             textAlign = TextAlign.Center
@@ -178,7 +180,7 @@ private fun ReviewDoneState(correct: Int, total: Int, onBack: () -> Unit) {
         if (total > 0) {
             Spacer(Modifier.height(spacing.sm))
             Text(
-                text = "You've reviewed $total items today.", 
+                text = stringResource(R.string.review_total_today, total),
                 style = MaterialTheme.typography.bodyLarge, 
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
@@ -188,7 +190,7 @@ private fun ReviewDoneState(correct: Int, total: Int, onBack: () -> Unit) {
         Spacer(Modifier.height(spacing.lg))
         
         Text(
-            text = if (total == 0) "No more cards due for review right now. Come back later!" else "Great job! Keep showing up every day to build a lasting memory.",
+            text = if (total == 0) stringResource(R.string.review_empty_message) else stringResource(R.string.review_complete_message),
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -201,7 +203,7 @@ private fun ReviewDoneState(correct: Int, total: Int, onBack: () -> Unit) {
             modifier = Modifier.fillMaxWidth().height(56.dp), 
             shape = MaterialTheme.shapes.medium
         ) {
-            Text("Back to Dashboard", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.back_to_dashboard), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
         }
     }
 }

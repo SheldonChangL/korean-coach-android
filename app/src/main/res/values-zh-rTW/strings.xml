@@ -15,6 +15,14 @@
     <string name="cd_progress">進度</string>
     <string name="cd_settings">設定</string>
     <string name="cd_close">關閉</string>
+    <string name="cd_play_audio">播放音訊</string>
+    <string name="cd_stop_audio">停止音訊</string>
+    <string name="cd_record">錄音</string>
+    <string name="cd_locked">已鎖定</string>
+    <string name="cd_completed">已完成</string>
+    <string name="cd_start">開始</string>
+    <string name="minutes_short">%1$d 分</string>
+    <string name="continue_lesson">繼續 %1$s</string>
 
     <!-- Dashboard -->
     <string name="greeting_morning">좋은 아침이에요</string>
@@ -36,6 +44,10 @@
     <string name="stages_complete">%1$d / %2$d 階段完成</string>
     <string name="guided_path">引導路徑</string>
     <string name="explore_40">探索 40 音</string>
+    <string name="hangul_explore_title">探索韓文字母</string>
+    <string name="hangul_explore_instruction">點選任一字母聽它的韓文名稱，再進入對應階段用情境練習。</string>
+    <string name="hangul_path_hero_title">先把讀音信心建立起來</string>
+    <string name="hangul_path_hero_subtitle">依序完成 6 個引導階段後，再解鎖生存韓文，學習時就不必一直靠猜。</string>
     <string name="day_streak">連續 %1$d 天</string>
     <string name="streak_keep_up">繼續保持！</string>
     <string name="streak_start_today">今天開始你的連續紀錄！</string>
@@ -45,8 +57,12 @@
     <string name="this_week">本週</string>
     <string name="review_session_ready">複習準備就緒</string>
     <string name="items_need_attention">有 %1$d 個項目需要複習</string>
-    <string name="empty_lessons_title">課程準備中...</string>
+    <string name="empty_lessons_title">課程準備中…</string>
     <string name="empty_lessons_subtitle">點選下方「所有課程」開始你的韓文之旅！</string>
+    <string name="lesson_list_loading">正在載入課程…</string>
+    <string name="week_title">第 %1$d 週</string>
+    <string name="week_progress">完成 %1$d / %2$d</string>
+    <string name="lesson_day_minutes">第 %1$d 天 · %2$d 分鐘</string>
 
     <!-- Onboarding -->
     <string name="onboarding_start">開始吧！시작!</string>
@@ -82,6 +98,30 @@
     <string name="ready_subtitle_learn">我們會先從字母衝刺開始，讓你能讀韓文而不是猜羅馬拼音。</string>
     <string name="starting_path_label">起始路徑：</string>
 
+    <!-- Onboarding Option Labels -->
+    <string name="reason_travel">韓國旅遊</string>
+    <string name="reason_kpop">K-pop &amp; 韓劇</string>
+    <string name="reason_heritage">尋根與家庭</string>
+    <string name="reason_work">工作與商務</string>
+    <string name="reason_challenge">個人挑戰</string>
+
+    <string name="time_morning">早晨</string>
+    <string name="time_afternoon">下午</string>
+    <string name="time_evening">傍晚</string>
+    <string name="time_flexible">彈性時間</string>
+
+    <string name="lang_english">英文</string>
+    <string name="lang_chinese">繁體中文</string>
+    <string name="lang_badge_english">英</string>
+    <string name="lang_badge_chinese">繁</string>
+
+    <string name="hangul_beginner">我還不會讀字母</string>
+    <string name="hangul_some">我知道幾個字母</string>
+    <string name="hangul_can_read">我已經會讀字母了</string>
+
+    <string name="speed_slow">慢速</string>
+    <string name="speed_normal">一般</string>
+
     <!-- Hangul Stage -->
     <string name="hangul_stage_default_title">韓文字母階段</string>
     <string name="back_to_path">返回路徑</string>
@@ -95,6 +135,15 @@
     <string name="mini_dialogue">迷你對話</string>
     <string name="quick_check">隨堂測驗</string>
     <string name="try_again">再試一次，再聽一遍。</string>
+    <string name="hangul_check_prefix">檢查：%1$s</string>
+    <string name="survival_read_and_listen">讀一讀，聽一聽</string>
+    <string name="survival_dialogue_title">%1$s 迷你對話</string>
+    <string name="survival_speaker_you">你</string>
+    <string name="survival_speaker_local">對方</string>
+    <string name="survival_default_reply_translation">好的，沒問題。</string>
+    <string name="survival_dialogue_question">哪一句是這段對話的開頭？</string>
+    <string name="survival_checkpoint_prompt">哪一個韓文對應「%1$s」？</string>
+    <string name="survival_checkpoint_explanation">%1$s 的意思是 %2$s。</string>
 
     <!-- Lesson Detail -->
     <string name="lesson_default_title">課程</string>
@@ -106,6 +155,15 @@
     <string name="sound_tip">發音提示</string>
     <string name="take_quiz">開始測驗</string>
     <string name="practice_pronunciation">發音練習</string>
+    <string name="lesson_week_tag">第 %1$d 週</string>
+    <string name="lesson_minutes_tag">%1$d 分鐘</string>
+    <string name="lesson_words_tag">%1$d 個單字</string>
+    <string name="lesson_like">像：%1$s</string>
+    <string name="lesson_tab_vocabulary">單字</string>
+    <string name="lesson_tab_phrases">片語</string>
+    <string name="lesson_tab_pronunciation">發音</string>
+    <string name="lesson_tab_dialogue">對話</string>
+    <string name="lesson_tab_memory">記憶鉤子</string>
 
     <!-- Quiz -->
     <string name="quiz_title">測驗</string>
@@ -140,6 +198,44 @@
     <string name="finish_session">結束練習</string>
     <string name="no_cards">此課程沒有字卡。</string>
 
+    <!-- Review -->
+    <string name="review_title">每日複習</string>
+    <string name="review_item_progress">第 %1$d / %2$d 張</string>
+    <string name="review_again">再來一次</string>
+    <string name="review_hard">困難</string>
+    <string name="review_easy">簡單</string>
+    <string name="review_tap_to_see_answer">點一下查看答案</string>
+    <string name="review_all_caught_up">全部複習完成！</string>
+    <string name="review_complete_title">複習完成！</string>
+    <string name="review_total_today">你今天已複習 %1$d 個項目。</string>
+    <string name="review_empty_message">目前沒有需要複習的卡片，稍後再回來看看。</string>
+    <string name="review_complete_message">做得很好！每天持續出現，記憶才會越來越穩固。</string>
+
+    <!-- Pronunciation -->
+    <string name="pronunciation_practice_title">發音練習</string>
+    <string name="pronunciation_heard">辨識到：「%1$s」</string>
+    <string name="pronunciation_analyzing">分析中...</string>
+    <string name="pronunciation_tap_to_speak">點一下開始說</string>
+    <string name="pronunciation_listening_tap_to_stop">聆聽中... 點一下停止</string>
+    <string name="pronunciation_tap_to_try_again">點一下再試一次</string>
+    <string name="pronunciation_tap_to_retry">點一下重試</string>
+    <string name="pronunciation_session_avg">本次平均：%1$d%%（%2$d 次）</string>
+    <string name="error_microphone_permission_denied">麥克風權限遭拒</string>
+    <string name="error_analysis_failed">分析失敗：%1$s</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">學習進度</string>
+    <string name="analytics_day_streak">連續天數</string>
+    <string name="analytics_minutes_this_week">本週分鐘</string>
+    <string name="analytics_avg_accuracy">平均正確率</string>
+    <string name="analytics_overall_pronunciation_score">整體發音分數</string>
+    <string name="analytics_weekly_study_time">每週學習時間</string>
+    <string name="analytics_empty_study_time">完成第一課後，這裡會顯示你的學習時間。</string>
+    <string name="analytics_quiz_accuracy_trend">測驗正確率趨勢</string>
+    <string name="analytics_empty_quiz_accuracy">完成一次測驗後，這裡會顯示你的正確率趨勢。</string>
+    <string name="analytics_pronunciation_last_7_days">最近 7 天發音分數</string>
+    <string name="analytics_empty_pronunciation">做幾次發音練習後，這裡會顯示你的分數趨勢。</string>
+
     <!-- Settings -->
     <string name="settings_title">設定</string>
     <string name="learning_profile">學習檔案</string>
@@ -162,4 +258,7 @@
     <string name="about">關於</string>
     <string name="app_version">版本 1.0（v2.1 介面優化）</string>
     <string name="about_description">韓語教練用右腦記憶法幫助你掌握實用韓文。</string>
+    <string name="theme_system">跟隨系統</string>
+    <string name="theme_light">淺色</string>
+    <string name="theme_dark">深色</string>
 </resources>

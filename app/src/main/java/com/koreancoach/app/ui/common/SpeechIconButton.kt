@@ -7,6 +7,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.koreancoach.app.R
 
 @Composable
 fun SpeechIconButton(
@@ -17,7 +19,11 @@ fun SpeechIconButton(
     IconButton(onClick = onClick, modifier = modifier) {
         Icon(
             imageVector = if (isPlaying) Icons.Default.Stop else Icons.Default.VolumeUp,
-            contentDescription = if (isPlaying) "Stop audio" else "Play audio"
+            contentDescription = if (isPlaying) {
+                stringResource(R.string.cd_stop_audio)
+            } else {
+                stringResource(R.string.cd_play_audio)
+            }
         )
     }
 }

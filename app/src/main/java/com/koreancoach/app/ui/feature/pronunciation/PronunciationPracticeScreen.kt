@@ -17,11 +17,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.ui.common.SpeechIconButton
 import com.koreancoach.app.ui.theme.*
 
@@ -39,10 +41,10 @@ fun PronunciationPracticeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Pronunciation Practice", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.pronunciation_practice_title), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -133,7 +135,7 @@ fun PronunciationPracticeScreen(
                             )
                             if (state.recognizedText.isNotEmpty()) {
                                 Text(
-                                    text = "Heard: \"${state.recognizedText}\"",
+                                    text = stringResource(R.string.pronunciation_heard, state.recognizedText),
                                     style = MaterialTheme.typography.bodyMedium,
                                     textAlign = TextAlign.Center
                                 )
@@ -189,7 +191,7 @@ fun PronunciationPracticeScreen(
                 when {
                     isProcessing -> {
                         CircularProgressIndicator()
-                        Text("Analyzing...", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(R.string.pronunciation_analyzing), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     else -> {
                         FloatingActionButton(
@@ -202,17 +204,17 @@ fun PronunciationPracticeScreen(
                         ) {
                             Icon(
                                 imageVector = if (isListening) Icons.Default.Stop else Icons.Default.Mic,
-                                contentDescription = if (isListening) "Stop" else "Record",
+                                contentDescription = if (isListening) stringResource(R.string.cd_stop_audio) else stringResource(R.string.cd_record),
                                 modifier = Modifier.size(32.dp),
                                 tint = OnKoreanRed
                             )
                         }
                         Text(
                             text = when (state.phase) {
-                                RecordingPhase.IDLE -> "Tap to speak"
-                                RecordingPhase.LISTENING -> "Listening… tap to stop"
-                                RecordingPhase.RESULT -> "Tap to try again"
-                                RecordingPhase.ERROR -> "Tap to retry"
+                                RecordingPhase.IDLE -> stringResource(R.string.pronunciation_tap_to_speak)
+                                RecordingPhase.LISTENING -> stringResource(R.string.pronunciation_listening_tap_to_stop)
+                                RecordingPhase.RESULT -> stringResource(R.string.pronunciation_tap_to_try_again)
+                                RecordingPhase.ERROR -> stringResource(R.string.pronunciation_tap_to_retry)
                                 else -> ""
                             },
                             style = MaterialTheme.typography.bodyMedium,
@@ -223,7 +225,7 @@ fun PronunciationPracticeScreen(
 
                 state.averageScore?.let { avg ->
                     Text(
-                        text = "Session avg: ${avg.toInt()}% (${state.attemptCount} attempts)",
+                        text = stringResource(R.string.pronunciation_session_avg, avg.toInt(), state.attemptCount),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

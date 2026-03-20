@@ -252,7 +252,7 @@ private fun DialogueCard(
             }
             if (dialogue.comprehensionQuestion.isNotBlank()) {
                 Text(
-                    text = "Check: ${dialogue.comprehensionQuestion}",
+                    text = stringResource(R.string.hangul_check_prefix, dialogue.comprehensionQuestion),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

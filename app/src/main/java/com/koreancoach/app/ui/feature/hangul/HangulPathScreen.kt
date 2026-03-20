@@ -100,9 +100,9 @@ fun HangulPathScreen(
                         modifier = Modifier.padding(spacing.md),
                         verticalArrangement = Arrangement.spacedBy(spacing.sm)
                     ) {
-                        Text("Build reading confidence first", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                        Text(stringResource(R.string.hangul_path_hero_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                         Text(
-                            "Work through 6 guided stages, then unlock Survival Korean with much less guessing.",
+                            stringResource(R.string.hangul_path_hero_subtitle),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -134,15 +134,28 @@ private fun HangulStageCard(
     lesson: Lesson,
     onClick: () -> Unit
 ) {
+    val containerColor = when {
+        lesson.isCompleted -> MaterialTheme.colorScheme.tertiaryContainer
+        lesson.isUnlocked -> MaterialTheme.colorScheme.surface
+        else -> MaterialTheme.colorScheme.surfaceVariant
+    }
+    val contentColor = when {
+        lesson.isCompleted -> MaterialTheme.colorScheme.onTertiaryContainer
+        lesson.isUnlocked -> MaterialTheme.colorScheme.onSurface
+        else -> MaterialTheme.colorScheme.onSurface
+    }
+    val secondaryTextColor = when {
+        lesson.isCompleted -> MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.8f)
+        lesson.isUnlocked -> MaterialTheme.colorScheme.onSurfaceVariant
+        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.72f)
+    }
+
     ElevatedCard(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.elevatedCardColors(
-            containerColor = when {
-                lesson.isCompleted -> MaterialTheme.colorScheme.tertiaryContainer
-                lesson.isUnlocked -> MaterialTheme.colorScheme.surface
-                else -> MaterialTheme.colorScheme.surfaceVariant
-            }
+            containerColor = containerColor,
+            contentColor = contentColor
         )
     ) {
         Row(
@@ -158,9 +171,9 @@ private fun HangulStageCard(
                 label = { Text(lesson.emoji) }
             )
             Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(lesson.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text(lesson.subtitle, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(lesson.learningObjective, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(lesson.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = contentColor)
+                Text(lesson.subtitle, style = MaterialTheme.typography.bodyMedium, color = secondaryTextColor)
+                Text(lesson.learningObjective, style = MaterialTheme.typography.bodySmall, color = secondaryTextColor)
             }
             Icon(
                 imageVector = when {
@@ -168,7 +181,8 @@ private fun HangulStageCard(
                     lesson.isUnlocked -> Icons.Default.PlayArrow
                     else -> Icons.Default.Lock
                 },
-                contentDescription = null
+                contentDescription = null,
+                tint = contentColor
             )
         }
     }

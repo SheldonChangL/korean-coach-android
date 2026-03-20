@@ -13,9 +13,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.data.curriculum.HangulCharacterData
 import com.koreancoach.app.domain.model.HangulCharacter
 import com.koreancoach.app.ui.common.SpeechIconButton
@@ -34,10 +36,10 @@ fun HangulExploreScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Explore Hangul", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.hangul_explore_title), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -63,20 +65,20 @@ fun HangulExploreScreen(
             verticalArrangement = Arrangement.spacedBy(spacing.md)
         ) {
             Text(
-                text = "Tap any character to hear its Korean name. Open its stage to practice it in context.",
+                text = stringResource(R.string.hangul_explore_instruction),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
             ExploreSection(
-                title = "Consonants",
+                title = stringResource(R.string.consonants),
                 characters = HangulCharacterData.consonants,
                 state = state,
                 onOpenStage = onOpenStage,
                 onPlay = viewModel::playCharacter
             )
             ExploreSection(
-                title = "Vowels",
+                title = stringResource(R.string.vowels),
                 characters = HangulCharacterData.vowels,
                 state = state,
                 onOpenStage = onOpenStage,

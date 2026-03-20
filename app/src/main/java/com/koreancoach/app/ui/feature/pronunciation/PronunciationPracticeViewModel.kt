@@ -3,8 +3,10 @@ package com.koreancoach.app.ui.feature.pronunciation
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.koreancoach.app.R
 import com.koreancoach.app.data.datastore.UserPreferencesDataStore
 import com.koreancoach.app.data.repository.LessonRepository
 import com.koreancoach.app.data.repository.PronunciationRepository
@@ -14,6 +16,7 @@ import com.koreancoach.app.domain.pronunciation.PronunciationResult
 import com.koreancoach.app.domain.speech.SpeechPlaybackService
 import com.koreancoach.app.domain.speech.SpeechPlaybackState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -27,6 +30,7 @@ enum class RecordingPhase { IDLE, LISTENING, PROCESSING, RESULT, ERROR }
 
 @HiltViewModel
 class PronunciationPracticeViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val lessonRepository: LessonRepository,
     private val pronunciationRepository: PronunciationRepository,
     private val prefs: UserPreferencesDataStore,
@@ -99,7 +103,12 @@ class PronunciationPracticeViewModel @Inject constructor(
                 }
             }
         } catch (e: SecurityException) {
-            _state.update { it.copy(error = "Microphone permission denied", phase = RecordingPhase.ERROR) }
+            _state.update {
+                it.copy(
+                    error = context.getString(R.string.error_microphone_permission_denied),
+                    phase = RecordingPhase.ERROR
+                )
+            }
         }
     }
 
@@ -146,7 +155,12 @@ class PronunciationPracticeViewModel @Inject constructor(
                     averageScore = newAvg
                 ) }
             } catch (e: Exception) {
-                _state.update { it.copy(phase = RecordingPhase.ERROR, error = "Analysis failed: ${e.message}") }
+                _state.update {
+                    it.copy(
+                        phase = RecordingPhase.ERROR,
+                        error = context.getString(R.string.error_analysis_failed, e.message.orEmpty())
+                    )
+                }
             } finally {
                 teardownAudioRecord()
             }

@@ -1,16 +1,44 @@
 package com.koreancoach.app.ui.feature.onboarding
 
-import androidx.compose.animation.*
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -71,9 +99,11 @@ fun OnboardingScreen(
                 targetState = state.currentPage,
                 transitionSpec = {
                     if (targetState > initialState) {
-                        (slideInHorizontally { it } + fadeIn()).togetherWith(slideOutHorizontally { -it } + fadeOut())
+                        (slideInHorizontally { it } + fadeIn()).togetherWith(
+                            slideOutHorizontally { -it } + fadeOut())
                     } else {
-                        (slideInHorizontally { -it } + fadeIn()).togetherWith(slideOutHorizontally { it } + fadeOut())
+                        (slideInHorizontally { -it } + fadeIn()).togetherWith(
+                            slideOutHorizontally { it } + fadeOut())
                     } using SizeTransform(clip = false)
                 },
                 modifier = Modifier.weight(1f),
@@ -87,32 +117,39 @@ fun OnboardingScreen(
                             onNameChange = viewModel::setName,
                             onContinue = viewModel::nextPage
                         )
+
                         OnboardingPage.REASON -> ReasonPage(
                             selected = state.selectedReason,
                             onSelect = viewModel::setReason
                         )
+
                         OnboardingPage.TIME -> StudyTimePage(
                             selected = state.selectedTime,
                             onSelect = viewModel::setStudyTime
                         )
+
                         OnboardingPage.GOAL -> GoalPage(
                             goalMinutes = state.dailyGoalMinutes,
                             onGoalChange = viewModel::setDailyGoal
                         )
+
                         OnboardingPage.LANGUAGE -> LanguagePage(
                             selected = state.uiLanguage,
                             onSelect = viewModel::setUiLanguage
                         )
+
                         OnboardingPage.HANGUL -> HangulLevelPage(
                             selected = state.hangulLevel,
                             onSelect = viewModel::setHangulLevel
                         )
+
                         OnboardingPage.SPEECH -> SpeechSetupPage(
                             autoPlayHangul = state.autoPlayHangul,
                             selectedRate = state.speechRatePreset,
                             onToggleAutoPlay = viewModel::setAutoPlayHangul,
                             onSelectRate = viewModel::setSpeechRate
                         )
+
                         OnboardingPage.READY -> ReadyPage(
                             name = state.name,
                             hangulLevel = state.hangulLevel
@@ -134,7 +171,10 @@ fun OnboardingScreen(
                         onClick = viewModel::prevPage,
                         colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurfaceVariant)
                     ) {
-                        Text(stringResource(R.string.back), style = MaterialTheme.typography.labelLarge)
+                        Text(
+                            stringResource(R.string.back),
+                            style = MaterialTheme.typography.labelLarge
+                        )
                     }
                 } else {
                     Spacer(modifier = Modifier.width(64.dp))
@@ -146,14 +186,20 @@ fun OnboardingScreen(
                     shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
                         .height(56.dp)
-                        .then(if (isLastPage) Modifier.fillMaxWidth(0.7f) else Modifier.width(140.dp)),
+                        .then(
+                            if (isLastPage) Modifier.fillMaxWidth(0.7f) else Modifier.width(
+                                140.dp
+                            )
+                        ),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = if (isLastPage) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primary
                     ),
                     elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
                 ) {
                     Text(
-                        if (isLastPage) stringResource(R.string.onboarding_start) else stringResource(R.string.continue_button),
+                        if (isLastPage) stringResource(R.string.onboarding_start) else stringResource(
+                            R.string.continue_button
+                        ),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold
                     )
@@ -302,11 +348,15 @@ private fun ReasonPage(
             modifier = Modifier.padding(top = 4.dp)
         )
         Spacer(Modifier.height(spacing.xl))
-        androidx.compose.foundation.lazy.LazyColumn(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
+        androidx.compose.foundation.lazy.LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(
+                spacing.sm
+            )
+        ) {
             items(LearningReason.entries) { reason ->
                 OnboardingOptionCard(
                     emoji = reason.emoji,
-                    label = reason.label,
+                    label = stringResource(reason.labelRes),
                     isSelected = reason == selected,
                     onClick = { onSelect(reason) }
                 )
@@ -336,7 +386,7 @@ private fun StudyTimePage(
         StudyTime.entries.forEach { time ->
             OnboardingOptionCard(
                 emoji = time.emoji,
-                label = time.label,
+                label = stringResource(time.labelRes),
                 isSelected = time == selected,
                 onClick = { onSelect(time) }
             )
@@ -371,7 +421,9 @@ private fun GoalPage(
         Spacer(Modifier.height(spacing.xl))
         options.forEach { (minutes, label) ->
             OnboardingOptionCard(
-                emoji = when (minutes) { 5 -> "⚡"; 10 -> "⭐"; 15 -> "🔥"; else -> "💪" },
+                emoji = when (minutes) {
+                    5 -> "⚡"; 10 -> "⭐"; 15 -> "🔥"; else -> "💪"
+                },
                 label = label,
                 isSelected = goalMinutes == minutes,
                 onClick = { onGoalChange(minutes) }
@@ -401,8 +453,12 @@ private fun LanguagePage(
         Spacer(Modifier.height(spacing.xl))
         UiLanguage.entries.forEach { language ->
             OnboardingOptionCard(
-                emoji = if (language == UiLanguage.TRADITIONAL_CHINESE) "繁" else "EN",
-                label = language.label,
+                emoji = if (language == UiLanguage.TRADITIONAL_CHINESE) {
+                    stringResource(R.string.lang_badge_chinese)
+                } else {
+                    stringResource(R.string.lang_badge_english)
+                },
+                label = stringResource(language.labelRes),
                 isSelected = language == selected,
                 onClick = { onSelect(language) }
             )
@@ -432,7 +488,7 @@ private fun HangulLevelPage(
         HangulLevel.entries.forEach { level ->
             OnboardingOptionCard(
                 emoji = level.emoji,
-                label = level.label,
+                label = stringResource(level.labelRes),
                 isSelected = level == selected,
                 onClick = { onSelect(level) }
             )
@@ -449,7 +505,10 @@ private fun SpeechSetupPage(
     onSelectRate: (SpeechRatePreset) -> Unit
 ) {
     val spacing = LocalSpacing.current
-    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(spacing.lg)) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(spacing.lg)
+    ) {
         Text(
             text = stringResource(R.string.speech_setup_title),
             style = MaterialTheme.typography.headlineLarge
@@ -465,11 +524,15 @@ private fun SpeechSetupPage(
             isSelected = autoPlayHangul,
             onClick = { onToggleAutoPlay(!autoPlayHangul) }
         )
-        Text(stringResource(R.string.playback_speed), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(
+            stringResource(R.string.playback_speed),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold
+        )
         SpeechRatePreset.entries.forEach { rate ->
             OnboardingOptionCard(
                 emoji = if (rate == SpeechRatePreset.SLOW) "🐢" else "⚡",
-                label = rate.name.lowercase().replaceFirstChar { it.uppercase() },
+                label = stringResource(rate.labelRes),
                 isSelected = rate == selectedRate,
                 onClick = { onSelectRate(rate) }
             )
@@ -500,7 +563,10 @@ private fun ReadyPage(
         }
         Spacer(Modifier.height(spacing.xl))
         Text(
-            text = if (name.isNotBlank()) stringResource(R.string.ready_title_named, name) else stringResource(R.string.ready_title_all_set),
+            text = if (name.isNotBlank()) stringResource(
+                R.string.ready_title_named,
+                name
+            ) else stringResource(R.string.ready_title_all_set),
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center
         )
@@ -527,7 +593,11 @@ private fun ReadyPage(
             ) {
                 Text("🇰🇷", fontSize = 32.sp)
                 Column {
-                    Text(stringResource(R.string.starting_path_label), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f))
+                    Text(
+                        stringResource(R.string.starting_path_label),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                    )
                     Text(
                         if (hangulLevel == HangulLevel.CAN_READ) stringResource(R.string.survival_korean)
                         else stringResource(R.string.hangul_sprint),
@@ -553,7 +623,10 @@ private fun OnboardingOptionCard(
         shape = MaterialTheme.shapes.medium,
         color = if (isSelected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
         tonalElevation = if (isSelected) 0.dp else 1.dp,
-        border = if (isSelected) BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+        border = if (isSelected) BorderStroke(
+            2.dp,
+            MaterialTheme.colorScheme.primary
+        ) else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth()
     ) {
         Row(
@@ -577,7 +650,12 @@ private fun OnboardingOptionCard(
             )
             if (isSelected) {
                 Spacer(Modifier.weight(1f))
-                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
+                Icon(
+                    Icons.Default.CheckCircle,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(20.dp)
+                )
             }
         }
     }

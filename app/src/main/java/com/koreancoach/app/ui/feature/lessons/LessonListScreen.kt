@@ -13,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.Lesson
 import com.koreancoach.app.ui.theme.LocalSpacing
 
@@ -33,10 +35,10 @@ fun LessonListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("All Lessons", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.all_lessons), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
@@ -48,7 +50,11 @@ fun LessonListScreen(
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("📖", fontSize = 48.sp)
                     Spacer(Modifier.height(16.dp))
-                    Text("Loading lessons...", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        stringResource(R.string.lesson_list_loading),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
             return@Scaffold
@@ -86,13 +92,13 @@ private fun WeekHeader(week: Int, lessons: List<Lesson>) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            "Week $week",
+            stringResource(R.string.week_title, week),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
         )
         Text(
-            "$completed / ${lessons.size} complete",
+            stringResource(R.string.week_progress, completed, lessons.size),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -131,7 +137,12 @@ private fun LessonRow(lesson: Lesson, onClick: () -> Unit) {
                 contentAlignment = Alignment.Center
             ) {
                 if (isLocked) {
-                    Icon(Icons.Default.Lock, contentDescription = "Locked", tint = MaterialTheme.colorScheme.outline, modifier = Modifier.size(20.dp))
+                    Icon(
+                        Icons.Default.Lock,
+                        contentDescription = stringResource(R.string.cd_locked),
+                        tint = MaterialTheme.colorScheme.outline,
+                        modifier = Modifier.size(20.dp)
+                    )
                 } else {
                     Text(lesson.emoji, fontSize = 22.sp)
                 }
@@ -151,15 +162,15 @@ private fun LessonRow(lesson: Lesson, onClick: () -> Unit) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (isLocked) 0.5f else 1f)
                 )
                 Text(
-                    text = "Day ${lesson.dayNumber} · ${lesson.estimatedMinutes} min",
+                    text = stringResource(R.string.lesson_day_minutes, lesson.dayNumber, lesson.estimatedMinutes),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (isLocked) 0.5f else 1f)
                 )
             }
             when {
-                lesson.isCompleted -> Icon(Icons.Default.CheckCircle, contentDescription = "Completed", tint = MaterialTheme.colorScheme.tertiary)
-                isLocked -> Icon(Icons.Default.Lock, contentDescription = "Locked", tint = MaterialTheme.colorScheme.outline, modifier = Modifier.size(18.dp))
-                else -> Icon(Icons.Default.PlayArrow, contentDescription = "Start", tint = MaterialTheme.colorScheme.primary)
+                lesson.isCompleted -> Icon(Icons.Default.CheckCircle, contentDescription = stringResource(R.string.cd_completed), tint = MaterialTheme.colorScheme.tertiary)
+                isLocked -> Icon(Icons.Default.Lock, contentDescription = stringResource(R.string.cd_locked), tint = MaterialTheme.colorScheme.outline, modifier = Modifier.size(18.dp))
+                else -> Icon(Icons.Default.PlayArrow, contentDescription = stringResource(R.string.cd_start), tint = MaterialTheme.colorScheme.primary)
             }
         }
     }

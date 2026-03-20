@@ -1,6 +1,8 @@
 package com.koreancoach.app.data.curriculum
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.ConfigurationCompat
 import com.koreancoach.app.data.repository.*
 import com.koreancoach.app.domain.model.*
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -16,9 +18,24 @@ class HangulCurriculumLoader @Inject constructor(
     private val json = Json { ignoreUnknownKeys = true }
 
     fun loadLessons(): List<Lesson> {
-        val raw = context.assets.open(HANGUL_ASSET_PATH).bufferedReader().use { it.readText() }
+        val raw = runCatching {
+            context.assets.open(resolveAssetPath()).bufferedReader().use { it.readText() }
+        }.getOrElse {
+            context.assets.open(HANGUL_ASSET_PATH_ZH).bufferedReader().use { it.readText() }
+        }
         val pack = json.decodeFromString(SerializableHangulLessonPack.serializer(), raw)
         return pack.lessons.map { lesson -> lesson.toDomain(pack.version) }
+    }
+
+    private fun resolveAssetPath(): String {
+        val appLocale = AppCompatDelegate.getApplicationLocales()[0]
+        val configurationLocale = ConfigurationCompat.getLocales(context.resources.configuration)[0]
+        val languageTag = (appLocale ?: configurationLocale)?.toLanguageTag().orEmpty()
+        return if (languageTag.startsWith("zh")) {
+            HANGUL_ASSET_PATH_ZH
+        } else {
+            HANGUL_ASSET_PATH_EN
+        }
     }
 
     private fun SerializableHangulLesson.toDomain(version: String): Lesson = Lesson(
@@ -124,7 +141,8 @@ class HangulCurriculumLoader @Inject constructor(
     )
 
     companion object {
-        private const val HANGUL_ASSET_PATH = "curriculum/hangul_sprint_v1.json"
+        private const val HANGUL_ASSET_PATH_ZH = "curriculum/hangul_sprint_v1.json"
+        private const val HANGUL_ASSET_PATH_EN = "curriculum/hangul_sprint_v2.json"
     }
 }
 

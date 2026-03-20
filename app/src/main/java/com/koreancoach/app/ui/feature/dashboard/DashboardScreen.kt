@@ -214,8 +214,8 @@ private fun TodayFocusCard(
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(stringResource(R.string.today), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             val focusText = when {
-                state.nextHangulLesson != null -> "Continue ${state.nextHangulLesson.title}"
-                state.nextSurvivalLesson != null -> "Continue ${state.nextSurvivalLesson.title}"
+                state.nextHangulLesson != null -> stringResource(R.string.continue_lesson, state.nextHangulLesson.title)
+                state.nextSurvivalLesson != null -> stringResource(R.string.continue_lesson, state.nextSurvivalLesson.title)
                 else -> stringResource(R.string.today_focus_review)
             }
             Text(focusText, style = MaterialTheme.typography.bodyLarge)
@@ -340,7 +340,7 @@ private fun StatsCard(state: DashboardUiState) {
                 )
                 StatItem(
                     modifier = Modifier.weight(1f),
-                    value = "${state.weeklyMinutes}m",
+                    value = stringResource(R.string.minutes_short, state.weeklyMinutes),
                     label = stringResource(R.string.this_week),
                     icon = Icons.Default.Timer,
                     color = KoreanBlue

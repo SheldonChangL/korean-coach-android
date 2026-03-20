@@ -1,11 +1,15 @@
 package com.koreancoach.app.data.curriculum
 
+import android.content.Context
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.*
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class CurriculumSeeder @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val hangulCurriculumLoader: HangulCurriculumLoader
 ) {
     fun loadAllLessons(): List<Lesson> {
@@ -46,7 +50,7 @@ class CurriculumSeeder @Inject constructor(
         vocabulary.take(2).map { vocab ->
             ReadingDrill(
                 id = "reading_${id}_${vocab.id}",
-                prompt = "Read and listen",
+                prompt = context.getString(R.string.survival_read_and_listen),
                 displayText = vocab.korean,
                 romanization = vocab.romanization,
                 translation = vocab.english,
@@ -61,7 +65,7 @@ class CurriculumSeeder @Inject constructor(
         val secondLine = phrases.drop(1).firstOrNull()?.let { phrase ->
             DialogueLine(
                 id = "dialogue_${id}_line2",
-                speaker = "Local",
+                speaker = context.getString(R.string.survival_speaker_local),
                 text = phrase.korean,
                 romanization = phrase.romanization,
                 translation = phrase.english,
@@ -69,21 +73,21 @@ class CurriculumSeeder @Inject constructor(
             )
         } ?: DialogueLine(
             id = "dialogue_${id}_line2",
-            speaker = "Local",
+            speaker = context.getString(R.string.survival_speaker_local),
             text = "네, 좋아요.",
             romanization = "ne, joayo",
-            translation = "Yes, that's great.",
+            translation = context.getString(R.string.survival_default_reply_translation),
             speech = SpeechSpec(speechText = "네, 좋아요.")
         )
 
         return listOf(
             DialogueItem(
                 id = "dialogue_$id",
-                title = "$title mini dialogue",
+                title = context.getString(R.string.survival_dialogue_title, title),
                 lines = listOf(
                     DialogueLine(
                         id = "dialogue_${id}_line1",
-                        speaker = "You",
+                        speaker = context.getString(R.string.survival_speaker_you),
                         text = primary.korean,
                         romanization = primary.romanization,
                         translation = primary.english,
@@ -91,7 +95,7 @@ class CurriculumSeeder @Inject constructor(
                     ),
                     secondLine
                 ),
-                comprehensionQuestion = "Which phrase opens the dialogue?",
+                comprehensionQuestion = context.getString(R.string.survival_dialogue_question),
                 comprehensionAnswer = primary.korean
             )
         )
@@ -102,10 +106,10 @@ class CurriculumSeeder @Inject constructor(
         return listOf(
             CheckpointItem(
                 id = "checkpoint_$id",
-                prompt = "Which Korean matches \"${target.english}\"?",
+                prompt = context.getString(R.string.survival_checkpoint_prompt, target.english),
                 options = (vocabulary.take(4).map { it.korean } + target.korean).distinct().take(4),
                 correctAnswer = target.korean,
-                explanation = "${target.korean} means ${target.english}.",
+                explanation = context.getString(R.string.survival_checkpoint_explanation, target.korean, target.english),
                 speech = target.speech
             )
         )

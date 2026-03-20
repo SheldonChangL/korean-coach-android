@@ -6,6 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FlashCardDao {
+    @Query("SELECT * FROM flashcards")
+    suspend fun getAllCards(): List<FlashCardEntity>
+
     @Query("SELECT * FROM flashcards WHERE lessonId = :lessonId")
     fun getCardsByLesson(lessonId: String): Flow<List<FlashCardEntity>>
 

@@ -17,11 +17,34 @@ class CurriculumBootstrapper @Inject constructor(
     suspend fun ensureSeeded() {
         seedMutex.withLock {
             val existingLessons = lessonRepository.getAllLessons().first()
-            if (existingLessons.isNotEmpty()) return
-
             val lessons = curriculumSeeder.loadAllLessons()
+            val shouldReseed = existingLessons.isEmpty() || shouldReseed(existingLessons, lessons)
+            if (!shouldReseed) return
+
+            val existingById = existingLessons.associateBy { it.id }
+            val mergedLessons = lessons.map { lesson ->
+                existingById[lesson.id]?.let { existing ->
+                    lesson.copy(
+                        isUnlocked = existing.isUnlocked,
+                        isCompleted = existing.isCompleted
+                    )
+                } ?: lesson
+            }
             val flashCards = curriculumSeeder.loadAllFlashCards()
-            lessonRepository.seedCurriculum(lessons, flashCards)
+            lessonRepository.seedCurriculum(mergedLessons, flashCards)
+        }
+    }
+
+    private fun shouldReseed(existingLessons: List<com.koreancoach.app.domain.model.Lesson>, targetLessons: List<com.koreancoach.app.domain.model.Lesson>): Boolean {
+        if (existingLessons.size != targetLessons.size) return true
+
+        val existingById = existingLessons.associateBy { it.id }
+        return targetLessons.any { lesson ->
+            val existing = existingById[lesson.id] ?: return@any true
+            existing.contentVersion != lesson.contentVersion ||
+                existing.title != lesson.title ||
+                existing.subtitle != lesson.subtitle ||
+                existing.learningObjective != lesson.learningObjective
         }
     }
 }
