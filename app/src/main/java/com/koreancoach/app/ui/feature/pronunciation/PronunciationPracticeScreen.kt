@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.ui.common.SpeechIconButton
 import com.koreancoach.app.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,6 +84,13 @@ fun PronunciationPracticeScreen(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
+                        SpeechIconButton(
+                            isPlaying = state.speechState.isSpeaking,
+                            onClick = {
+                                if (state.speechState.isSpeaking) viewModel.stopTargetAudio()
+                                else viewModel.playTargetAudio()
+                            }
+                        )
                         Text(
                             text = target.korean,
                             fontSize = 48.sp,

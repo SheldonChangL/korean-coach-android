@@ -2,10 +2,7 @@ package com.koreancoach.app.data.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
-import com.koreancoach.app.domain.model.LearningReason
-import com.koreancoach.app.domain.model.OnboardingData
-import com.koreancoach.app.domain.model.StudyTime
-import com.koreancoach.app.domain.model.ThemeMode
+import com.koreancoach.app.domain.model.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -20,6 +17,11 @@ class UserPreferencesDataStore @Inject constructor(
         val KEY_DAILY_GOAL = intPreferencesKey("daily_goal_minutes")
         val KEY_REASON = stringPreferencesKey("learning_reason")
         val KEY_STUDY_TIME = stringPreferencesKey("study_time")
+        val KEY_UI_LANGUAGE = stringPreferencesKey("ui_language")
+        val KEY_HANGUL_LEVEL = stringPreferencesKey("hangul_level")
+        val KEY_AUTO_PLAY_HANGUL = booleanPreferencesKey("auto_play_hangul")
+        val KEY_SPEECH_RATE = stringPreferencesKey("speech_rate")
+        val KEY_PREFERRED_VOICE_KEY = stringPreferencesKey("preferred_voice_key")
         val KEY_ONBOARDING_COMPLETE = booleanPreferencesKey("onboarding_complete")
         val KEY_STREAK = intPreferencesKey("current_streak")
         val KEY_LAST_STUDY_DATE = longPreferencesKey("last_study_date_ms")
@@ -35,6 +37,11 @@ class UserPreferencesDataStore @Inject constructor(
             dailyGoalMinutes = prefs[KEY_DAILY_GOAL] ?: 10,
             learningReason = prefs[KEY_REASON]?.let { runCatching { LearningReason.valueOf(it) }.getOrNull() } ?: LearningReason.TRAVEL,
             preferredTime = prefs[KEY_STUDY_TIME]?.let { runCatching { StudyTime.valueOf(it) }.getOrNull() } ?: StudyTime.MORNING,
+            uiLanguage = prefs[KEY_UI_LANGUAGE]?.let { runCatching { UiLanguage.valueOf(it) }.getOrNull() } ?: UiLanguage.ENGLISH,
+            hangulLevel = prefs[KEY_HANGUL_LEVEL]?.let { runCatching { HangulLevel.valueOf(it) }.getOrNull() } ?: HangulLevel.COMPLETE_BEGINNER,
+            autoPlayHangul = prefs[KEY_AUTO_PLAY_HANGUL] ?: true,
+            speechRatePreset = prefs[KEY_SPEECH_RATE]?.let { runCatching { SpeechRatePreset.valueOf(it) }.getOrNull() } ?: SpeechRatePreset.NORMAL,
+            preferredVoiceKey = prefs[KEY_PREFERRED_VOICE_KEY] ?: "",
             onboardingComplete = prefs[KEY_ONBOARDING_COMPLETE] ?: false
         )
     }
@@ -59,6 +66,11 @@ class UserPreferencesDataStore @Inject constructor(
             prefs[KEY_DAILY_GOAL] = data.dailyGoalMinutes
             prefs[KEY_REASON] = data.learningReason.name
             prefs[KEY_STUDY_TIME] = data.preferredTime.name
+            prefs[KEY_UI_LANGUAGE] = data.uiLanguage.name
+            prefs[KEY_HANGUL_LEVEL] = data.hangulLevel.name
+            prefs[KEY_AUTO_PLAY_HANGUL] = data.autoPlayHangul
+            prefs[KEY_SPEECH_RATE] = data.speechRatePreset.name
+            prefs[KEY_PREFERRED_VOICE_KEY] = data.preferredVoiceKey
             prefs[KEY_ONBOARDING_COMPLETE] = data.onboardingComplete
         }
     }
@@ -85,6 +97,18 @@ class UserPreferencesDataStore @Inject constructor(
 
     suspend fun updateDailyGoal(minutes: Int) {
         dataStore.edit { it[KEY_DAILY_GOAL] = minutes }
+    }
+
+    suspend fun updateAutoPlayHangul(enabled: Boolean) {
+        dataStore.edit { it[KEY_AUTO_PLAY_HANGUL] = enabled }
+    }
+
+    suspend fun updateSpeechRate(ratePreset: SpeechRatePreset) {
+        dataStore.edit { it[KEY_SPEECH_RATE] = ratePreset.name }
+    }
+
+    suspend fun updatePreferredVoiceKey(voiceKey: String) {
+        dataStore.edit { it[KEY_PREFERRED_VOICE_KEY] = voiceKey }
     }
 
     /** Computes and persists the streak based on the last study date. Call after any study activity. */

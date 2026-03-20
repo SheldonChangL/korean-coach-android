@@ -5,10 +5,14 @@ import android.media.AudioRecord
 import android.media.MediaRecorder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.koreancoach.app.data.datastore.UserPreferencesDataStore
 import com.koreancoach.app.data.repository.LessonRepository
 import com.koreancoach.app.data.repository.PronunciationRepository
+import com.koreancoach.app.domain.model.SpeechRatePreset
 import com.koreancoach.app.domain.model.VocabItem
 import com.koreancoach.app.domain.pronunciation.PronunciationResult
+import com.koreancoach.app.domain.speech.SpeechPlaybackService
+import com.koreancoach.app.domain.speech.SpeechPlaybackState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -24,7 +28,9 @@ enum class RecordingPhase { IDLE, LISTENING, PROCESSING, RESULT, ERROR }
 @HiltViewModel
 class PronunciationPracticeViewModel @Inject constructor(
     private val lessonRepository: LessonRepository,
-    private val pronunciationRepository: PronunciationRepository
+    private val pronunciationRepository: PronunciationRepository,
+    private val prefs: UserPreferencesDataStore,
+    private val speechPlaybackService: SpeechPlaybackService
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(PronunciationPracticeUiState())
@@ -35,6 +41,19 @@ class PronunciationPracticeViewModel @Inject constructor(
     private var scoringJob: Job? = null
 
     val usesOwnRecordingPipeline = pronunciationRepository.scorerUsesOwnRecordingPipeline
+
+    init {
+        viewModelScope.launch {
+            speechPlaybackService.state.collect { speechState ->
+                _state.update { it.copy(speechState = speechState) }
+            }
+        }
+        viewModelScope.launch {
+            prefs.onboardingData.collect { onboarding ->
+                _state.update { it.copy(preferredRate = onboarding.speechRatePreset) }
+            }
+        }
+    }
 
     fun loadLesson(lessonId: String) {
         viewModelScope.launch {
@@ -149,6 +168,16 @@ class PronunciationPracticeViewModel @Inject constructor(
         _state.update { it.copy(error = null, phase = RecordingPhase.IDLE) }
     }
 
+    fun playTargetAudio() {
+        val target = _state.value.targetItem ?: return
+        speechPlaybackService.speak(
+            spec = target.speech.copy(speechRatePreset = _state.value.preferredRate),
+            fallbackText = target.korean
+        )
+    }
+
+    fun stopTargetAudio() = speechPlaybackService.stop()
+
     private fun teardownAudioRecord() {
         recordingJob?.cancel()
         recordingJob = null
@@ -174,5 +203,7 @@ data class PronunciationPracticeUiState(
     val attemptCount: Int = 0,
     val averageScore: Float? = null,
     val error: String? = null,
-    val usesOwnRecordingPipeline: Boolean = false
+    val usesOwnRecordingPipeline: Boolean = false,
+    val preferredRate: SpeechRatePreset = SpeechRatePreset.NORMAL,
+    val speechState: SpeechPlaybackState = SpeechPlaybackState()
 )

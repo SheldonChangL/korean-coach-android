@@ -11,7 +11,7 @@ import androidx.compose.ui.geometry.Offset
 import kotlin.math.sqrt
 
 data class WritingUiState(
-    val characters: List<HangulCharacter> = HangulCharacterData.allCharacters,
+    val characters: List<HangulCharacter> = HangulCharacterData.allCharacters + HangulCharacterData.syllables,
     val currentCharacterIndex: Int = 0,
     val currentStrokeIndex: Int = 0,
     val completedStrokes: List<List<Offset>> = emptyList(),

@@ -3,9 +3,12 @@ package com.koreancoach.app.ui.feature.onboarding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.koreancoach.app.data.datastore.UserPreferencesDataStore
+import com.koreancoach.app.domain.model.HangulLevel
 import com.koreancoach.app.domain.model.LearningReason
 import com.koreancoach.app.domain.model.OnboardingData
+import com.koreancoach.app.domain.model.SpeechRatePreset
 import com.koreancoach.app.domain.model.StudyTime
+import com.koreancoach.app.domain.model.UiLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -33,6 +36,10 @@ class OnboardingViewModel @Inject constructor(
     fun setReason(reason: LearningReason) = _state.update { it.copy(selectedReason = reason) }
     fun setStudyTime(time: StudyTime) = _state.update { it.copy(selectedTime = time) }
     fun setDailyGoal(minutes: Int) = _state.update { it.copy(dailyGoalMinutes = minutes) }
+    fun setUiLanguage(language: UiLanguage) = _state.update { it.copy(uiLanguage = language) }
+    fun setHangulLevel(level: HangulLevel) = _state.update { it.copy(hangulLevel = level) }
+    fun setAutoPlayHangul(enabled: Boolean) = _state.update { it.copy(autoPlayHangul = enabled) }
+    fun setSpeechRate(rate: SpeechRatePreset) = _state.update { it.copy(speechRatePreset = rate) }
     fun nextPage() = _state.update { it.copy(currentPage = (it.currentPage + 1).coerceAtMost(OnboardingPage.entries.size - 1)) }
     fun prevPage() = _state.update { it.copy(currentPage = (it.currentPage - 1).coerceAtLeast(0)) }
 
@@ -45,6 +52,10 @@ class OnboardingViewModel @Inject constructor(
                     dailyGoalMinutes = s.dailyGoalMinutes,
                     learningReason = s.selectedReason,
                     preferredTime = s.selectedTime,
+                    uiLanguage = s.uiLanguage,
+                    hangulLevel = s.hangulLevel,
+                    autoPlayHangul = s.autoPlayHangul,
+                    speechRatePreset = s.speechRatePreset,
                     onboardingComplete = true
                 )
             )
@@ -59,7 +70,11 @@ data class OnboardingUiState(
     val selectedReason: LearningReason = LearningReason.TRAVEL,
     val selectedTime: StudyTime = StudyTime.MORNING,
     val dailyGoalMinutes: Int = 10,
+    val uiLanguage: UiLanguage = UiLanguage.ENGLISH,
+    val hangulLevel: HangulLevel = HangulLevel.COMPLETE_BEGINNER,
+    val autoPlayHangul: Boolean = true,
+    val speechRatePreset: SpeechRatePreset = SpeechRatePreset.NORMAL,
     val isComplete: Boolean = false
 )
 
-enum class OnboardingPage { WELCOME, NAME, REASON, TIME, GOAL, READY }
+enum class OnboardingPage { WELCOME, NAME, REASON, TIME, GOAL, LANGUAGE, HANGUL, SPEECH, READY }

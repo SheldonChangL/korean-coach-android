@@ -11,6 +11,9 @@ import androidx.navigation.navArgument
 import com.koreancoach.app.ui.feature.analytics.AnalyticsScreen
 import com.koreancoach.app.ui.feature.dashboard.DashboardScreen
 import com.koreancoach.app.ui.feature.flashcard.FlashCardScreen
+import com.koreancoach.app.ui.feature.hangul.HangulExploreScreen
+import com.koreancoach.app.ui.feature.hangul.HangulPathScreen
+import com.koreancoach.app.ui.feature.hangul.HangulStageScreen
 import com.koreancoach.app.ui.feature.lesson.LessonDetailScreen
 import com.koreancoach.app.ui.feature.lessons.LessonListScreen
 import com.koreancoach.app.ui.feature.onboarding.OnboardingScreen
@@ -29,6 +32,11 @@ sealed class Screen(val route: String) {
     }
     object FlashCard : Screen("flashcard/{lessonId}") {
         fun createRoute(lessonId: String) = "flashcard/$lessonId"
+    }
+    object HangulPath : Screen("hangul_path")
+    object HangulExplore : Screen("hangul_explore")
+    object HangulStage : Screen("hangul_stage/{lessonId}") {
+        fun createRoute(lessonId: String) = "hangul_stage/$lessonId"
     }
     object Quiz : Screen("quiz/{lessonId}") {
         fun createRoute(lessonId: String) = "quiz/$lessonId"
@@ -58,8 +66,10 @@ fun KoreanCoachNavHost(
     ) {
         composable(Screen.Onboarding.route) {
             OnboardingScreen(
-                onComplete = {
-                    navController.navigate(Screen.Dashboard.route) {
+                onComplete = { startWithHangul ->
+                    navController.navigate(
+                        if (startWithHangul) Screen.HangulPath.route else Screen.Dashboard.route
+                    ) {
                         popUpTo(Screen.Onboarding.route) { inclusive = true }
                     }
                 }
@@ -72,7 +82,32 @@ fun KoreanCoachNavHost(
                 onNavigateToLesson = { id -> navController.navigate(Screen.LessonDetail.createRoute(id)) },
                 onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
                 onNavigateToAnalytics = { navController.navigate(Screen.Analytics.route) },
-                onNavigateToHangulWriting = { navController.navigate(Screen.HangulWriting.route) }
+                onNavigateToHangulWriting = { navController.navigate(Screen.HangulWriting.route) },
+                onNavigateToHangulPath = { navController.navigate(Screen.HangulPath.route) },
+                onNavigateToHangulExplore = { navController.navigate(Screen.HangulExplore.route) }
+            )
+        }
+        composable(Screen.HangulPath.route) {
+            HangulPathScreen(
+                onBack = { navController.popBackStack() },
+                onExplore = { navController.navigate(Screen.HangulExplore.route) },
+                onOpenLesson = { lessonId -> navController.navigate(Screen.HangulStage.createRoute(lessonId)) }
+            )
+        }
+        composable(Screen.HangulExplore.route) {
+            HangulExploreScreen(
+                onBack = { navController.popBackStack() },
+                onOpenStage = { lessonId -> navController.navigate(Screen.HangulStage.createRoute(lessonId)) }
+            )
+        }
+        composable(
+            route = Screen.HangulStage.route,
+            arguments = listOf(navArgument("lessonId") { type = NavType.StringType })
+        ) { backStack ->
+            val lessonId = backStack.arguments?.getString("lessonId") ?: return@composable
+            HangulStageScreen(
+                onBack = { navController.popBackStack() },
+                onOpenWriting = { navController.navigate(Screen.HangulWriting.route) }
             )
         }
         composable(Screen.LessonList.route) {

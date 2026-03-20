@@ -2,6 +2,8 @@ package com.koreancoach.app.ui.feature.quiz
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.koreancoach.app.data.datastore.UserPreferencesDataStore
+import com.koreancoach.app.data.repository.LessonRepository
 import com.koreancoach.app.data.repository.QuizRepository
 import com.koreancoach.app.domain.model.QuizQuestion
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,14 +26,18 @@ data class QuizUiState(
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
-    private val quizRepository: QuizRepository
+    private val quizRepository: QuizRepository,
+    private val lessonRepository: LessonRepository,
+    private val prefs: UserPreferencesDataStore
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(QuizUiState())
     val state: StateFlow<QuizUiState> = _state.asStateFlow()
+    private var currentLessonId: String? = null
 
     fun loadQuiz(lessonId: String) {
         viewModelScope.launch {
+            currentLessonId = lessonId
             val questions = quizRepository.generateQuiz(lessonId)
             _state.update { it.copy(questions = questions, isLoading = false) }
         }
@@ -50,6 +56,10 @@ class QuizViewModel @Inject constructor(
 
         if (nextIndex >= state.questions.size) {
             _state.update { it.copy(score = newScore, isFinished = true) }
+            viewModelScope.launch {
+                currentLessonId?.let { lessonRepository.completeAndUnlockNext(it) }
+                prefs.recordStudyActivity()
+            }
         } else {
             _state.update { it.copy(
                 currentIndex = nextIndex,

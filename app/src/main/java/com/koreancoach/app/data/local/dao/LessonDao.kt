@@ -6,16 +6,22 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LessonDao {
-    @Query("SELECT * FROM lessons ORDER BY weekNumber, dayNumber")
+    @Query("SELECT * FROM lessons ORDER BY stageOrder")
     fun getAllLessons(): Flow<List<LessonEntity>>
 
-    @Query("SELECT * FROM lessons WHERE weekNumber = :week ORDER BY dayNumber")
+    @Query("SELECT * FROM lessons WHERE weekNumber = :week ORDER BY stageOrder")
     fun getLessonsByWeek(week: Int): Flow<List<LessonEntity>>
+
+    @Query("SELECT * FROM lessons WHERE trackId = :trackId ORDER BY stageOrder")
+    fun getLessonsByTrack(trackId: String): Flow<List<LessonEntity>>
 
     @Query("SELECT * FROM lessons WHERE id = :id")
     suspend fun getLessonById(id: String): LessonEntity?
 
-    @Query("SELECT * FROM lessons WHERE isCompleted = 0 AND isUnlocked = 1 LIMIT 1")
+    @Query("SELECT * FROM lessons WHERE id = :id")
+    fun observeLessonById(id: String): Flow<LessonEntity?>
+
+    @Query("SELECT * FROM lessons WHERE isCompleted = 0 AND isUnlocked = 1 ORDER BY stageOrder LIMIT 1")
     suspend fun getNextLesson(): LessonEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

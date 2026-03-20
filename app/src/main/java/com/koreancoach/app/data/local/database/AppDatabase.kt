@@ -21,7 +21,7 @@ import com.koreancoach.app.data.local.entity.StudySessionEntity
         StudySessionEntity::class,
         PronunciationAttemptEntity::class
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

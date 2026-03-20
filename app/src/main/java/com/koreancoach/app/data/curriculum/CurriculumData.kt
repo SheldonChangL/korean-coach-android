@@ -1842,7 +1842,7 @@ object CurriculumData {
         lesson.vocabulary.forEach { vocab ->
             cards.add(
                 FlashCard(
-                    id = "fc_${vocab.id}",
+                    id = "fc_${lesson.id}_${vocab.id}",
                     lessonId = lesson.id,
                     front = vocab.korean,
                     frontSubtext = vocab.romanization,
@@ -1856,7 +1856,7 @@ object CurriculumData {
         lesson.phrases.forEach { phrase ->
             cards.add(
                 FlashCard(
-                    id = "fc_${phrase.id}",
+                    id = "fc_${lesson.id}_${phrase.id}",
                     lessonId = lesson.id,
                     front = phrase.korean,
                     frontSubtext = phrase.romanization,

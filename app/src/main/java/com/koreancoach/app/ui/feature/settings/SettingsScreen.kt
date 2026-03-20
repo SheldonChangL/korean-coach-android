@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.domain.model.SpeechRatePreset
 import com.koreancoach.app.domain.model.ThemeMode
 import com.koreancoach.app.ui.theme.LocalSpacing
 
@@ -113,6 +114,65 @@ fun SettingsScreen(
                             onClick = { viewModel.updateTheme(mode) },
                             label = { Text(mode.label) },
                             modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
+            }
+
+            SettingsSection(title = "Speech") {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text("Auto-play Hangul", style = MaterialTheme.typography.bodyLarge)
+                        Text(
+                            "Play the first Hangul item automatically in guided stages",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                    Switch(
+                        checked = state.autoPlayHangul,
+                        onCheckedChange = { viewModel.updateAutoPlayHangul(it) }
+                    )
+                }
+
+                Text("Playback speed", style = MaterialTheme.typography.bodyLarge)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(spacing.sm)
+                ) {
+                    SpeechRatePreset.entries.forEach { rate ->
+                        FilterChip(
+                            selected = state.speechRatePreset == rate,
+                            onClick = { viewModel.updateSpeechRate(rate) },
+                            label = { Text(rate.name.lowercase().replaceFirstChar { it.uppercase() }) },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                }
+
+                Text("Korean voice", style = MaterialTheme.typography.bodyLarge)
+                if (!state.speechReady) {
+                    Text(
+                        "No Korean TTS engine is ready right now. The learning flow still works without audio.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                } else if (state.availableVoices.isEmpty()) {
+                    Text(
+                        "This device does not expose a Korean system voice yet.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                } else {
+                    state.availableVoices.forEach { voice ->
+                        FilterChip(
+                            selected = state.preferredVoiceKey == voice.key,
+                            onClick = { viewModel.updatePreferredVoiceKey(voice.key) },
+                            label = { Text(voice.label) }
                         )
                     }
                 }

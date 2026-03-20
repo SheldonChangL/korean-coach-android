@@ -24,6 +24,12 @@ class LessonRepository @Inject constructor(
     fun getLessonsByWeek(week: Int): Flow<List<Lesson>> =
         lessonDao.getLessonsByWeek(week).map { it.map { e -> e.toDomain() } }
 
+    fun getLessonsByTrack(trackId: String): Flow<List<Lesson>> =
+        lessonDao.getLessonsByTrack(trackId).map { it.map { entity -> entity.toDomain() } }
+
+    fun observeLessonById(id: String): Flow<Lesson?> =
+        lessonDao.observeLessonById(id).map { it?.toDomain() }
+
     suspend fun getLessonById(id: String): Lesson? =
         lessonDao.getLessonById(id)?.toDomain()
 
@@ -36,9 +42,14 @@ class LessonRepository @Inject constructor(
      * Lessons are ordered by weekNumber then dayNumber; the next one in that sequence is unlocked.
      */
     suspend fun completeAndUnlockNext(lessonId: String) {
+        val lesson = lessonDao.getLessonById(lessonId)?.toDomain() ?: return
         lessonDao.markLessonComplete(lessonId)
-        val allLessons = lessonDao.getAllLessons().first()
-            .sortedWith(compareBy({ it.weekNumber }, { it.dayNumber }))
+        if (lesson.unlockTargetIds.isNotEmpty()) {
+            lesson.unlockTargetIds.forEach { lessonDao.unlockLesson(it) }
+            return
+        }
+
+        val allLessons = lessonDao.getAllLessons().first().sortedBy { it.stageOrder }
         val idx = allLessons.indexOfFirst { it.id == lessonId }
         if (idx >= 0 && idx + 1 < allLessons.size) {
             lessonDao.unlockLesson(allLessons[idx + 1].id)
@@ -59,10 +70,21 @@ class LessonRepository @Inject constructor(
             title = title, subtitle = subtitle, emoji = emoji,
             estimatedMinutes = estimatedMinutes,
             isUnlocked = isUnlocked, isCompleted = isCompleted,
+            trackId = trackId,
+            lessonKind = runCatching { LessonKind.valueOf(lessonKind) }.getOrElse { LessonKind.SURVIVAL },
+            stageOrder = stageOrder,
+            learningObjective = learningObjective,
+            contentVersion = contentVersion,
             vocabulary = content.vocabulary.map { it.toDomain() },
             phrases = content.phrases.map { it.toDomain() },
             pronunciationTips = content.pronunciationTips.map { it.toDomain() },
-            memoryHooks = content.memoryHooks.map { it.toDomain() }
+            memoryHooks = content.memoryHooks.map { it.toDomain() },
+            scriptItems = content.scriptItems.map { it.toDomain() },
+            writingTargets = content.writingTargets.map { it.toDomain() },
+            readingDrills = content.readingDrills.map { it.toDomain() },
+            dialogueItems = content.dialogueItems.map { it.toDomain() },
+            checkpointItems = content.checkpointItems.map { it.toDomain() },
+            unlockTargetIds = content.unlockTargetIds
         )
     }
 
@@ -71,13 +93,24 @@ class LessonRepository @Inject constructor(
             vocabulary = vocabulary.map { it.toSerializable() },
             phrases = phrases.map { it.toSerializable() },
             pronunciationTips = pronunciationTips.map { it.toSerializable() },
-            memoryHooks = memoryHooks.map { it.toSerializable() }
+            memoryHooks = memoryHooks.map { it.toSerializable() },
+            scriptItems = scriptItems.map { it.toSerializable() },
+            writingTargets = writingTargets.map { it.toSerializable() },
+            readingDrills = readingDrills.map { it.toSerializable() },
+            dialogueItems = dialogueItems.map { it.toSerializable() },
+            checkpointItems = checkpointItems.map { it.toSerializable() },
+            unlockTargetIds = unlockTargetIds
         )
         return LessonEntity(
             id = id, weekNumber = weekNumber, dayNumber = dayNumber,
+            trackId = trackId,
+            lessonKind = lessonKind.name,
+            stageOrder = stageOrder,
             title = title, subtitle = subtitle, emoji = emoji,
             estimatedMinutes = estimatedMinutes,
             isUnlocked = isUnlocked, isCompleted = isCompleted,
+            learningObjective = learningObjective,
+            contentVersion = contentVersion,
             contentJson = Json.encodeToString(content)
         )
     }
@@ -93,17 +126,133 @@ class LessonRepository @Inject constructor(
     private fun SerializableVocabItem.toDomain() = VocabItem(
         id = id, korean = korean, romanization = romanization, english = english,
         exampleSentence = exampleSentence, exampleTranslation = exampleTranslation,
-        memoryHook = memoryHook, category = runCatching { VocabCategory.valueOf(category) }.getOrElse { VocabCategory.GENERAL }
+        memoryHook = memoryHook,
+        category = runCatching { VocabCategory.valueOf(category) }.getOrElse { VocabCategory.GENERAL },
+        speech = speech.toDomain()
     )
     private fun VocabItem.toSerializable() = SerializableVocabItem(
         id = id, korean = korean, romanization = romanization, english = english,
         exampleSentence = exampleSentence, exampleTranslation = exampleTranslation,
-        memoryHook = memoryHook, category = category.name
+        memoryHook = memoryHook, category = category.name, speech = speech.toSerializable()
     )
-    private fun SerializablePhraseItem.toDomain() = PhraseItem(id, korean, romanization, english, context, usageTip)
-    private fun PhraseItem.toSerializable() = SerializablePhraseItem(id, korean, romanization, english, context, usageTip)
+    private fun SerializablePhraseItem.toDomain() = PhraseItem(id, korean, romanization, english, context, usageTip, speech.toDomain())
+    private fun PhraseItem.toSerializable() = SerializablePhraseItem(id, korean, romanization, english, context, usageTip, speech.toSerializable())
     private fun SerializablePronunciationTip.toDomain() = PronunciationTip(sound, description, englishComparison, commonMistake)
     private fun PronunciationTip.toSerializable() = SerializablePronunciationTip(sound, description, englishComparison, commonMistake)
     private fun SerializableMemoryHook.toDomain() = MemoryHook(targetWord, story, visualDescription)
     private fun MemoryHook.toSerializable() = SerializableMemoryHook(targetWord, story, visualDescription)
+
+    private fun SerializableScriptItem.toDomain() = ScriptItem(
+        id = id,
+        text = text,
+        romanization = romanization,
+        translation = translation,
+        emphasis = emphasis,
+        speech = speech.toDomain()
+    )
+
+    private fun ScriptItem.toSerializable() = SerializableScriptItem(
+        id = id,
+        text = text,
+        romanization = romanization,
+        translation = translation,
+        emphasis = emphasis,
+        speech = speech.toSerializable()
+    )
+
+    private fun SerializableWritingTarget.toDomain() = WritingTarget(
+        characterId = characterId,
+        prompt = prompt,
+        speech = speech.toDomain()
+    )
+
+    private fun WritingTarget.toSerializable() = SerializableWritingTarget(
+        characterId = characterId,
+        prompt = prompt,
+        speech = speech.toSerializable()
+    )
+
+    private fun SerializableReadingDrill.toDomain() = ReadingDrill(
+        id = id,
+        prompt = prompt,
+        displayText = displayText,
+        romanization = romanization,
+        translation = translation,
+        speech = speech.toDomain()
+    )
+
+    private fun ReadingDrill.toSerializable() = SerializableReadingDrill(
+        id = id,
+        prompt = prompt,
+        displayText = displayText,
+        romanization = romanization,
+        translation = translation,
+        speech = speech.toSerializable()
+    )
+
+    private fun SerializableDialogueItem.toDomain() = DialogueItem(
+        id = id,
+        title = title,
+        lines = lines.map { it.toDomain() },
+        comprehensionQuestion = comprehensionQuestion,
+        comprehensionAnswer = comprehensionAnswer
+    )
+
+    private fun DialogueItem.toSerializable() = SerializableDialogueItem(
+        id = id,
+        title = title,
+        lines = lines.map { it.toSerializable() },
+        comprehensionQuestion = comprehensionQuestion,
+        comprehensionAnswer = comprehensionAnswer
+    )
+
+    private fun SerializableDialogueLine.toDomain() = DialogueLine(
+        id = id,
+        speaker = speaker,
+        text = text,
+        romanization = romanization,
+        translation = translation,
+        speech = speech.toDomain()
+    )
+
+    private fun DialogueLine.toSerializable() = SerializableDialogueLine(
+        id = id,
+        speaker = speaker,
+        text = text,
+        romanization = romanization,
+        translation = translation,
+        speech = speech.toSerializable()
+    )
+
+    private fun SerializableCheckpointItem.toDomain() = CheckpointItem(
+        id = id,
+        prompt = prompt,
+        options = options,
+        correctAnswer = correctAnswer,
+        explanation = explanation,
+        speech = speech.toDomain()
+    )
+
+    private fun CheckpointItem.toSerializable() = SerializableCheckpointItem(
+        id = id,
+        prompt = prompt,
+        options = options,
+        correctAnswer = correctAnswer,
+        explanation = explanation,
+        speech = speech.toSerializable()
+    )
+
+    private fun SerializableSpeechSpec.toDomain() = SpeechSpec(
+        speechText = speechText,
+        speechLocale = speechLocale,
+        speechRatePreset = runCatching { SpeechRatePreset.valueOf(speechRatePreset) }.getOrElse { SpeechRatePreset.NORMAL },
+        preferredVoiceKey = preferredVoiceKey
+    )
+
+    private fun SpeechSpec.toSerializable() = SerializableSpeechSpec(
+        speechText = speechText,
+        speechLocale = speechLocale,
+        speechRatePreset = speechRatePreset.name,
+        preferredVoiceKey = preferredVoiceKey
+    )
 }

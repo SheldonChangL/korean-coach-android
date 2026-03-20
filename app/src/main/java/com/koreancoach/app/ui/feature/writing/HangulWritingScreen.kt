@@ -222,6 +222,7 @@ private fun CharacterSelectorRow(
     onSelect: (Int) -> Unit
 ) {
     val consonants = characters.filter { it.type == HangulCharacterType.CONSONANT }
+    val vowels = characters.filter { it.type == HangulCharacterType.VOWEL }
     val syllables = characters.filter { it.type == HangulCharacterType.SYLLABLE }
 
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -232,11 +233,22 @@ private fun CharacterSelectorRow(
                 CharacterChip(char = char, selected = globalIndex == currentIndex, onClick = { onSelect(globalIndex) })
             }
         }
-        Text("Syllables", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            itemsIndexed(syllables) { _, char ->
-                val globalIndex = characters.indexOf(char)
-                CharacterChip(char = char, selected = globalIndex == currentIndex, onClick = { onSelect(globalIndex) })
+        if (vowels.isNotEmpty()) {
+            Text("Vowels", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                itemsIndexed(vowels) { _, char ->
+                    val globalIndex = characters.indexOf(char)
+                    CharacterChip(char = char, selected = globalIndex == currentIndex, onClick = { onSelect(globalIndex) })
+                }
+            }
+        }
+        if (syllables.isNotEmpty()) {
+            Text("Example Blocks", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                itemsIndexed(syllables) { _, char ->
+                    val globalIndex = characters.indexOf(char)
+                    CharacterChip(char = char, selected = globalIndex == currentIndex, onClick = { onSelect(globalIndex) })
+                }
             }
         }
     }

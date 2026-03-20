@@ -34,6 +34,8 @@ fun DashboardScreen(
     onNavigateToSettings: () -> Unit,
     onNavigateToAnalytics: () -> Unit,
     onNavigateToHangulWriting: () -> Unit,
+    onNavigateToHangulPath: () -> Unit,
+    onNavigateToHangulExplore: () -> Unit,
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -97,6 +99,23 @@ fun DashboardScreen(
                 StatsCard(state = state)
             }
 
+            item {
+                TodayFocusCard(
+                    state = state,
+                    onOpenHangulPath = onNavigateToHangulPath,
+                    onOpenNextLesson = { state.nextSurvivalLesson?.let { onNavigateToLesson(it.id) } }
+                )
+            }
+
+            item {
+                HangulSprintCard(
+                    completed = state.hangulCompletedCount,
+                    total = state.hangulTotalCount,
+                    onOpenPath = onNavigateToHangulPath,
+                    onOpenExplore = onNavigateToHangulExplore
+                )
+            }
+
             // Review due notification
             if (state.reviewDueCount > 0) {
                 item {
@@ -110,7 +129,7 @@ fun DashboardScreen(
             // Continue learning section
             item {
                 SectionHeader(
-                    title = "Your Path",
+                    title = "Survival Korean",
                     actionText = "All Lessons",
                     onActionClick = onNavigateToLessons
                 )
@@ -178,6 +197,69 @@ private fun SectionHeader(
             TextButton(onClick = onActionClick) {
                 Text(actionText, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
                 Icon(Icons.Default.ChevronRight, contentDescription = null, modifier = Modifier.size(16.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private fun TodayFocusCard(
+    state: DashboardUiState,
+    onOpenHangulPath: () -> Unit,
+    onOpenNextLesson: () -> Unit
+) {
+    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text("Today", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            val focusText = when {
+                state.nextHangulLesson != null -> "Continue ${state.nextHangulLesson.title}"
+                state.nextSurvivalLesson != null -> "Continue ${state.nextSurvivalLesson.title}"
+                else -> "Review what you have already unlocked"
+            }
+            Text(focusText, style = MaterialTheme.typography.bodyLarge)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = if (state.nextHangulLesson != null) onOpenHangulPath else onOpenNextLesson) {
+                    Text(if (state.nextHangulLesson != null) "Open Hangul Sprint" else "Open lesson")
+                }
+                OutlinedButton(onClick = onOpenHangulPath) {
+                    Text("Path")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun HangulSprintCard(
+    completed: Int,
+    total: Int,
+    onOpenPath: () -> Unit,
+    onOpenExplore: () -> Unit
+) {
+    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text("Hangul Sprint", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text("$completed / $total stages complete", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Text("한글", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
+            }
+            LinearProgressIndicator(
+                progress = { if (total == 0) 0f else completed.toFloat() / total },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = onOpenPath, modifier = Modifier.weight(1f)) {
+                    Text("Guided Path")
+                }
+                OutlinedButton(onClick = onOpenExplore, modifier = Modifier.weight(1f)) {
+                    Text("Explore 40")
+                }
             }
         }
     }

@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.koreancoach.app.domain.model.*
+import com.koreancoach.app.ui.common.SpeechIconButton
 import com.koreancoach.app.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -128,7 +129,12 @@ fun LessonDetailScreen(
                         item { EmptyTabState("No vocabulary items yet") }
                     } else {
                         items(lesson.vocabulary, key = { it.id }) { vocab ->
-                            VocabCard(vocab = vocab)
+                            VocabCard(
+                                vocab = vocab,
+                                isSpeaking = state.speechState.isSpeaking,
+                                onPlay = { viewModel.playSpeech(vocab.speech, vocab.korean) },
+                                onStop = viewModel::stopSpeech
+                            )
                         }
                     }
                 }
@@ -137,7 +143,12 @@ fun LessonDetailScreen(
                         item { EmptyTabState("No phrases yet") }
                     } else {
                         items(lesson.phrases, key = { it.id }) { phrase ->
-                            PhraseCard(phrase = phrase)
+                            PhraseCard(
+                                phrase = phrase,
+                                isSpeaking = state.speechState.isSpeaking,
+                                onPlay = { viewModel.playSpeech(phrase.speech, phrase.korean) },
+                                onStop = viewModel::stopSpeech
+                            )
                         }
                     }
                 }
@@ -147,6 +158,20 @@ fun LessonDetailScreen(
                     } else {
                         items(lesson.pronunciationTips) { tip ->
                             PronunciationCard(tip = tip)
+                        }
+                    }
+                }
+                LessonTab.DIALOGUE -> {
+                    if (lesson.dialogueItems.isEmpty()) {
+                        item { EmptyTabState("No dialogue yet") }
+                    } else {
+                        items(lesson.dialogueItems, key = { it.id }) { dialogue ->
+                            LessonDialogueCard(
+                                dialogue = dialogue,
+                                isSpeaking = state.speechState.isSpeaking,
+                                onPlay = { spec, fallback -> viewModel.playSpeech(spec, fallback) },
+                                onStop = viewModel::stopSpeech
+                            )
                         }
                     }
                 }
@@ -214,7 +239,12 @@ private fun LessonTag(text: String, containerColor: androidx.compose.ui.graphics
 }
 
 @Composable
-private fun VocabCard(vocab: VocabItem) {
+private fun VocabCard(
+    vocab: VocabItem,
+    isSpeaking: Boolean,
+    onPlay: () -> Unit,
+    onStop: () -> Unit
+) {
     val spacing = LocalSpacing.current
     Surface(
         shape = MaterialTheme.shapes.medium,
@@ -229,7 +259,7 @@ private fun VocabCard(vocab: VocabItem) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Column {
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = vocab.korean, 
                         style = MaterialTheme.typography.headlineMedium, 
@@ -254,6 +284,7 @@ private fun VocabCard(vocab: VocabItem) {
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
                     )
                 }
+                SpeechIconButton(isPlaying = isSpeaking, onClick = if (isSpeaking) onStop else onPlay)
             }
             
             if (vocab.exampleSentence.isNotBlank()) {
@@ -291,7 +322,12 @@ private fun VocabCard(vocab: VocabItem) {
 }
 
 @Composable
-private fun PhraseCard(phrase: PhraseItem) {
+private fun PhraseCard(
+    phrase: PhraseItem,
+    isSpeaking: Boolean,
+    onPlay: () -> Unit,
+    onStop: () -> Unit
+) {
     val spacing = LocalSpacing.current
     Surface(
         shape = MaterialTheme.shapes.medium,
@@ -301,9 +337,18 @@ private fun PhraseCard(phrase: PhraseItem) {
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(spacing.md), verticalArrangement = Arrangement.spacedBy(spacing.xs)) {
-            Text(phrase.korean, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            Text(phrase.romanization, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(phrase.english, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(spacing.xs)) {
+                    Text(phrase.korean, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+                    Text(phrase.romanization, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(phrase.english, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+                }
+                SpeechIconButton(isPlaying = isSpeaking, onClick = if (isSpeaking) onStop else onPlay)
+            }
             
             if (phrase.context.isNotBlank()) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -324,6 +369,49 @@ private fun PhraseCard(phrase: PhraseItem) {
                         Text(phrase.usageTip, style = MaterialTheme.typography.bodySmall)
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun LessonDialogueCard(
+    dialogue: DialogueItem,
+    isSpeaking: Boolean,
+    onPlay: (SpeechSpec, String) -> Unit,
+    onStop: () -> Unit
+) {
+    val spacing = LocalSpacing.current
+    Surface(
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surface,
+        tonalElevation = 1.dp,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f)),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(modifier = Modifier.padding(spacing.md), verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
+            Text(dialogue.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            dialogue.lines.forEach { line ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(line.speaker, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+                        Text(line.text, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
+                        Text(line.translation, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    SpeechIconButton(
+                        isPlaying = isSpeaking,
+                        onClick = {
+                            if (isSpeaking) onStop() else onPlay(line.speech, line.text)
+                        }
+                    )
+                }
+            }
+            if (dialogue.comprehensionQuestion.isNotBlank()) {
+                Text(dialogue.comprehensionQuestion, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
     }

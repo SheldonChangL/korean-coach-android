@@ -22,20 +22,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.domain.model.HangulLevel
 import com.koreancoach.app.domain.model.LearningReason
+import com.koreancoach.app.domain.model.SpeechRatePreset
 import com.koreancoach.app.domain.model.StudyTime
+import com.koreancoach.app.domain.model.UiLanguage
 import com.koreancoach.app.ui.theme.LocalSpacing
 
 @Composable
 fun OnboardingScreen(
-    onComplete: () -> Unit,
+    onComplete: (Boolean) -> Unit,
     viewModel: OnboardingViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val spacing = LocalSpacing.current
 
     LaunchedEffect(state.isComplete) {
-        if (state.isComplete) onComplete()
+        if (state.isComplete) onComplete(state.hangulLevel != HangulLevel.CAN_READ)
     }
 
     Scaffold(
@@ -94,7 +97,24 @@ fun OnboardingScreen(
                             goalMinutes = state.dailyGoalMinutes,
                             onGoalChange = viewModel::setDailyGoal
                         )
-                        OnboardingPage.READY -> ReadyPage(name = state.name)
+                        OnboardingPage.LANGUAGE -> LanguagePage(
+                            selected = state.uiLanguage,
+                            onSelect = viewModel::setUiLanguage
+                        )
+                        OnboardingPage.HANGUL -> HangulLevelPage(
+                            selected = state.hangulLevel,
+                            onSelect = viewModel::setHangulLevel
+                        )
+                        OnboardingPage.SPEECH -> SpeechSetupPage(
+                            autoPlayHangul = state.autoPlayHangul,
+                            selectedRate = state.speechRatePreset,
+                            onToggleAutoPlay = viewModel::setAutoPlayHangul,
+                            onSelectRate = viewModel::setSpeechRate
+                        )
+                        OnboardingPage.READY -> ReadyPage(
+                            name = state.name,
+                            hangulLevel = state.hangulLevel
+                        )
                     }
                 }
             }
@@ -355,7 +375,107 @@ private fun GoalPage(
 }
 
 @Composable
-private fun ReadyPage(name: String) {
+private fun LanguagePage(
+    selected: UiLanguage,
+    onSelect: (UiLanguage) -> Unit
+) {
+    val spacing = LocalSpacing.current
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(
+            text = "Choose your primary interface language",
+            style = MaterialTheme.typography.headlineLarge
+        )
+        Text(
+            text = "We'll keep the content format iOS-ready either way.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 4.dp)
+        )
+        Spacer(Modifier.height(spacing.xl))
+        UiLanguage.entries.forEach { language ->
+            OnboardingOptionCard(
+                emoji = if (language == UiLanguage.TRADITIONAL_CHINESE) "繁" else "EN",
+                label = language.label,
+                isSelected = language == selected,
+                onClick = { onSelect(language) }
+            )
+            Spacer(Modifier.height(spacing.sm))
+        }
+    }
+}
+
+@Composable
+private fun HangulLevelPage(
+    selected: HangulLevel,
+    onSelect: (HangulLevel) -> Unit
+) {
+    val spacing = LocalSpacing.current
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(
+            text = "How comfortable are you with Hangul?",
+            style = MaterialTheme.typography.headlineLarge
+        )
+        Text(
+            text = "This decides whether we start you in Hangul Sprint or jump into Survival Korean.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 4.dp)
+        )
+        Spacer(Modifier.height(spacing.xl))
+        HangulLevel.entries.forEach { level ->
+            OnboardingOptionCard(
+                emoji = level.emoji,
+                label = level.label,
+                isSelected = level == selected,
+                onClick = { onSelect(level) }
+            )
+            Spacer(Modifier.height(spacing.sm))
+        }
+    }
+}
+
+@Composable
+private fun SpeechSetupPage(
+    autoPlayHangul: Boolean,
+    selectedRate: SpeechRatePreset,
+    onToggleAutoPlay: (Boolean) -> Unit,
+    onSelectRate: (SpeechRatePreset) -> Unit
+) {
+    val spacing = LocalSpacing.current
+    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(spacing.lg)) {
+        Text(
+            text = "Speech setup",
+            style = MaterialTheme.typography.headlineLarge
+        )
+        Text(
+            text = "You can adjust these later in Settings. Hangul stages use system TTS.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        OnboardingOptionCard(
+            emoji = if (autoPlayHangul) "🔊" else "🔈",
+            label = if (autoPlayHangul) "Auto-play Hangul audio is ON" else "Auto-play Hangul audio is OFF",
+            isSelected = autoPlayHangul,
+            onClick = { onToggleAutoPlay(!autoPlayHangul) }
+        )
+        Text("Preferred playback speed", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        SpeechRatePreset.entries.forEach { rate ->
+            OnboardingOptionCard(
+                emoji = if (rate == SpeechRatePreset.SLOW) "🐢" else "⚡",
+                label = rate.name.lowercase().replaceFirstChar { it.uppercase() },
+                isSelected = rate == selectedRate,
+                onClick = { onSelectRate(rate) }
+            )
+            Spacer(Modifier.height(spacing.sm))
+        }
+    }
+}
+
+@Composable
+private fun ReadyPage(
+    name: String,
+    hangulLevel: HangulLevel
+) {
     val spacing = LocalSpacing.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -379,7 +499,10 @@ private fun ReadyPage(name: String) {
         )
         Spacer(Modifier.height(spacing.md))
         Text(
-            text = "Your personalized learning path is ready. Let's start with your very first lesson.",
+            text = if (hangulLevel == HangulLevel.CAN_READ)
+                "We'll drop you into Survival Korean with TTS ready to support every word and phrase."
+            else
+                "We'll start with Hangul Sprint so you can read Korean before guessing from romanization.",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -397,8 +520,13 @@ private fun ReadyPage(name: String) {
             ) {
                 Text("🇰🇷", fontSize = 32.sp)
                 Column {
-                    Text("Today's First Lesson:", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f))
-                    Text("Hello, Korea!", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                    Text("Starting Path:", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f))
+                    Text(
+                        if (hangulLevel == HangulLevel.CAN_READ) "Survival Korean"
+                        else "Hangul Sprint",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                    )
                 }
             }
         }

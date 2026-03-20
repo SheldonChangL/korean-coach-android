@@ -8,12 +8,22 @@ import org.junit.Test
 class HangulCharacterDataTest {
 
     @Test
-    fun `has exactly 5 consonants`() {
-        assertEquals(5, HangulCharacterData.consonants.size)
+    fun `has exactly 19 consonants`() {
+        assertEquals(19, HangulCharacterData.consonants.size)
     }
 
     @Test
-    fun `has exactly 5 syllables`() {
+    fun `has exactly 21 vowels`() {
+        assertEquals(21, HangulCharacterData.vowels.size)
+    }
+
+    @Test
+    fun `has exactly 40 hangul characters for sprint`() {
+        assertEquals(40, HangulCharacterData.allCharacters.size)
+    }
+
+    @Test
+    fun `keeps 5 example syllables`() {
         assertEquals(5, HangulCharacterData.syllables.size)
     }
 
@@ -28,23 +38,25 @@ class HangulCharacterDataTest {
     }
 
     @Test
-    fun `consonants are the expected five`() {
+    fun `consonants include the beginner core set`() {
         val chars = HangulCharacterData.consonants.map { it.character }
         assertTrue("Should contain ㄱ", "ㄱ" in chars)
         assertTrue("Should contain ㄴ", "ㄴ" in chars)
         assertTrue("Should contain ㄷ", "ㄷ" in chars)
         assertTrue("Should contain ㅁ", "ㅁ" in chars)
         assertTrue("Should contain ㅅ", "ㅅ" in chars)
+        assertTrue("Should contain ㄲ", "ㄲ" in chars)
+        assertTrue("Should contain ㅎ", "ㅎ" in chars)
     }
 
     @Test
-    fun `syllables are the expected five`() {
-        val chars = HangulCharacterData.syllables.map { it.character }
-        assertTrue("Should contain 가", "가" in chars)
-        assertTrue("Should contain 나", "나" in chars)
-        assertTrue("Should contain 다", "다" in chars)
-        assertTrue("Should contain 마", "마" in chars)
-        assertTrue("Should contain 사", "사" in chars)
+    fun `vowels include core and compound examples`() {
+        val chars = HangulCharacterData.vowels.map { it.character }
+        assertTrue("Should contain ㅏ", "ㅏ" in chars)
+        assertTrue("Should contain ㅓ", "ㅓ" in chars)
+        assertTrue("Should contain ㅗ", "ㅗ" in chars)
+        assertTrue("Should contain ㅘ", "ㅘ" in chars)
+        assertTrue("Should contain ㅢ", "ㅢ" in chars)
     }
 
     @Test
