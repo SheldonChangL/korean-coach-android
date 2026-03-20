@@ -1,0 +1,165 @@
+<resources>
+    <string name="app_name">韓語教練</string>
+
+    <!-- General -->
+    <string name="back">返回</string>
+    <string name="next">下一步</string>
+    <string name="done">完成</string>
+    <string name="clear">清除</string>
+    <string name="check">確認</string>
+    <string name="practice">練習</string>
+    <string name="review">複習</string>
+    <string name="go_back">返回</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_progress">進度</string>
+    <string name="cd_settings">設定</string>
+    <string name="cd_close">關閉</string>
+
+    <!-- Dashboard -->
+    <string name="greeting_morning">좋은 아침이에요</string>
+    <string name="greeting_afternoon">좋은 오후예요</string>
+    <string name="greeting_evening">좋은 저녁이에요</string>
+    <string name="greeting_default">안녕하세요!</string>
+    <string name="dashboard_subtitle">今天來學點韓文吧</string>
+    <string name="survival_korean">生存韓文</string>
+    <string name="all_lessons">所有課程</string>
+    <string name="quick_practice">快速練習</string>
+    <string name="writing">書寫</string>
+    <string name="speaking">口說</string>
+    <string name="today">今日</string>
+    <string name="today_focus_review">複習已解鎖的內容</string>
+    <string name="open_hangul_sprint">開始韓文字母衝刺</string>
+    <string name="open_lesson">開啟課程</string>
+    <string name="path">學習路徑</string>
+    <string name="hangul_sprint">韓文字母衝刺</string>
+    <string name="stages_complete">%1$d / %2$d 階段完成</string>
+    <string name="guided_path">引導路徑</string>
+    <string name="explore_40">探索 40 音</string>
+    <string name="day_streak">連續 %1$d 天</string>
+    <string name="streak_keep_up">繼續保持！</string>
+    <string name="streak_start_today">今天開始你的連續紀錄！</string>
+    <string name="level_1">等級 1</string>
+    <string name="lessons">課程</string>
+    <string name="mastered">已精通</string>
+    <string name="this_week">本週</string>
+    <string name="review_session_ready">複習準備就緒</string>
+    <string name="items_need_attention">有 %1$d 個項目需要複習</string>
+    <string name="empty_lessons_title">課程準備中...</string>
+    <string name="empty_lessons_subtitle">點選下方「所有課程」開始你的韓文之旅！</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_start">開始吧！시작!</string>
+    <string name="continue_button">繼續</string>
+    <string name="welcome_hello">你好！</string>
+    <string name="welcome_description">用好記的記憶法掌握實用韓文，每天只要 10 分鐘。</string>
+    <string name="name_page_title">我們該怎麼稱呼你？</string>
+    <string name="name_page_subtitle">我們會用這個名字為你加油！</string>
+    <string name="your_name_label">你的名字</string>
+    <string name="name_placeholder">例如：小明</string>
+    <string name="reason_page_title">為什麼想學韓文？</string>
+    <string name="reason_page_subtitle">我們會根據你的目標量身打造學習旅程。</string>
+    <string name="time_page_title">偏好的學習時間</string>
+    <string name="time_page_subtitle">固定的習慣更容易持續。</string>
+    <string name="goal_page_title">設定每日目標</string>
+    <string name="goal_page_subtitle">每天只要 5 分鐘也能累積實力。</string>
+    <string name="goal_quick">輕鬆（5 分鐘）</string>
+    <string name="goal_standard">標準（10 分鐘）</string>
+    <string name="goal_dedicated">認真（15 分鐘）</string>
+    <string name="goal_intensive">密集（20 分鐘）</string>
+    <string name="language_page_title">選擇你的介面語言</string>
+    <string name="language_page_subtitle">不論選哪種，內容格式都會保持一致。</string>
+    <string name="hangul_page_title">你對韓文字母的熟悉程度？</string>
+    <string name="hangul_page_subtitle">這會決定你從字母衝刺還是生存韓文開始學習。</string>
+    <string name="speech_setup_title">語音設定</string>
+    <string name="speech_setup_subtitle">你可以稍後在設定中調整。字母課程使用系統 TTS。</string>
+    <string name="autoplay_on">自動播放韓文音檔：開啟</string>
+    <string name="autoplay_off">自動播放韓文音檔：關閉</string>
+    <string name="playback_speed">偏好播放速度</string>
+    <string name="ready_title_named">準備好了，%1$s！</string>
+    <string name="ready_title_all_set">一切就緒！</string>
+    <string name="ready_subtitle_read">我們會帶你進入生存韓文，TTS 會為每個字詞和片語提供語音支援。</string>
+    <string name="ready_subtitle_learn">我們會先從字母衝刺開始，讓你能讀韓文而不是猜羅馬拼音。</string>
+    <string name="starting_path_label">起始路徑：</string>
+
+    <!-- Hangul Stage -->
+    <string name="hangul_stage_default_title">韓文字母階段</string>
+    <string name="back_to_path">返回路徑</string>
+    <string name="complete_stage">完成階段</string>
+    <string name="error_loading_stage">無法載入此字母階段。</string>
+    <string name="error_loading_stage_subtitle">請返回路徑並重新開啟。</string>
+    <string name="tts_unavailable">此裝置無法使用 TTS</string>
+    <string name="listen_and_learn">聽 &amp; 學</string>
+    <string name="write_it">寫一寫</string>
+    <string name="read_it">讀一讀</string>
+    <string name="mini_dialogue">迷你對話</string>
+    <string name="quick_check">隨堂測驗</string>
+    <string name="try_again">再試一次，再聽一遍。</string>
+
+    <!-- Lesson Detail -->
+    <string name="lesson_default_title">課程</string>
+    <string name="empty_vocab">還沒有單字</string>
+    <string name="empty_phrases">還沒有片語</string>
+    <string name="empty_pronunciation">還沒有發音提示</string>
+    <string name="empty_dialogue">還沒有對話</string>
+    <string name="empty_memory">還沒有記憶法</string>
+    <string name="sound_tip">發音提示</string>
+    <string name="take_quiz">開始測驗</string>
+    <string name="practice_pronunciation">發音練習</string>
+
+    <!-- Quiz -->
+    <string name="quiz_title">測驗</string>
+    <string name="no_questions">此課程還沒有題目。</string>
+    <string name="question_progress">第 %1$d / %2$d 題</string>
+    <string name="quiz_passed">太棒了！</string>
+    <string name="quiz_failed">繼續加油！</string>
+    <string name="back_to_dashboard">回到主頁</string>
+
+    <!-- Hangul Writing -->
+    <string name="hangul_writing_title">韓文書寫</string>
+    <string name="consonants">子音</string>
+    <string name="vowels">母音</string>
+    <string name="example_blocks">範例音節</string>
+    <string name="stroke_progress">第 %1$d / %2$d 筆</string>
+    <string name="stroke_correct">寫得好！繼續！</string>
+    <string name="stroke_retry">差一點——從提示點重新開始</string>
+    <string name="character_complete">%1$s 完成！</string>
+    <string name="practice_again">再練一次</string>
+    <string name="next_character">下一個字</string>
+    <string name="writing_session_score">本次：%1$d/%2$d 筆正確</string>
+
+    <!-- Flashcards -->
+    <string name="practice_cards">練習字卡</string>
+    <string name="flashcard_progress">第 %1$d / %2$d 張</string>
+    <string name="tap_to_see_answer">點擊卡片查看答案</string>
+    <string name="swipe_to_rate">滑動或點按按鈕評分</string>
+    <string name="still_learning">還在學習中</string>
+    <string name="mastered_button">已精通</string>
+    <string name="flashcard_finished_title">練習完成！</string>
+    <string name="flashcard_finished_subtitle">你已練習 %1$d 個項目，精通了其中 %2$d 個。</string>
+    <string name="finish_session">結束練習</string>
+    <string name="no_cards">此課程沒有字卡。</string>
+
+    <!-- Settings -->
+    <string name="settings_title">設定</string>
+    <string name="learning_profile">學習檔案</string>
+    <string name="settings_name_format">名稱：%1$s</string>
+    <string name="not_set">未設定</string>
+    <string name="settings_goal_format">每日目標：%1$d 分鐘</string>
+    <string name="reminders">提醒</string>
+    <string name="daily_notifications">每日通知</string>
+    <string name="daily_notifications_subtitle">溫馨提醒你該學習囉</string>
+    <string name="reminder_time">提醒時間</string>
+    <string name="appearance">外觀</string>
+    <string name="theme">主題</string>
+    <string name="speech">語音</string>
+    <string name="autoplay_hangul">自動播放韓文</string>
+    <string name="autoplay_hangul_subtitle">在引導階段自動播放第一個韓文項目</string>
+    <string name="playback_speed_label">播放速度</string>
+    <string name="korean_voice">韓文語音</string>
+    <string name="no_tts_error">目前沒有可用的韓文 TTS 引擎。學習流程仍可在沒有音訊的情況下運作。</string>
+    <string name="no_voice_error">此裝置尚未提供韓文系統語音。</string>
+    <string name="about">關於</string>
+    <string name="app_version">版本 1.0（v2.1 介面優化）</string>
+    <string name="about_description">韓語教練用右腦記憶法幫助你掌握實用韓文。</string>
+</resources>
