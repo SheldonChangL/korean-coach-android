@@ -18,11 +18,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.FlashCard
 import com.koreancoach.app.ui.theme.*
 import kotlinx.coroutines.launch
@@ -40,8 +42,8 @@ fun FlashCardScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Practice Cards", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onFinish) { Icon(Icons.Default.Close, "Close") } },
+                title = { Text(stringResource(R.string.practice_cards), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) },
+                navigationIcon = { IconButton(onClick = onFinish) { Icon(Icons.Default.Close, stringResource(R.string.cd_close)) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
             )
         }
@@ -77,7 +79,7 @@ fun FlashCardScreen(
                             )
                             Spacer(Modifier.height(8.dp))
                             Text(
-                                text = "${state.currentIndex + 1} of ${state.cards.size} items",
+                                text = stringResource(R.string.flashcard_progress, state.currentIndex + 1, state.cards.size),
                                 style = MaterialTheme.typography.labelMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -111,7 +113,7 @@ fun FlashCardScreen(
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                     Icon(Icons.Default.TouchApp, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(16.dp))
-                                    Text("Tap card to see the answer", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                    Text(stringResource(R.string.tap_to_see_answer), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 }
                             }
 
@@ -122,7 +124,7 @@ fun FlashCardScreen(
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                     Icon(Icons.Default.SwapHoriz, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(16.dp))
-                                    Text("Swipe or tap buttons to rate", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                    Text(stringResource(R.string.swipe_to_rate), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 }
                             }
                         }
@@ -146,7 +148,7 @@ fun FlashCardScreen(
                                 ) {
                                     Icon(Icons.Default.Close, null, modifier = Modifier.size(20.dp))
                                     Spacer(Modifier.width(8.dp))
-                                    Text("Still learning", fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.still_learning), fontWeight = FontWeight.Bold)
                                 }
                                 Button(
                                     onClick = { viewModel.swipeCard(5) },
@@ -156,7 +158,7 @@ fun FlashCardScreen(
                                 ) {
                                     Icon(Icons.Default.Check, null, modifier = Modifier.size(20.dp))
                                     Spacer(Modifier.width(8.dp))
-                                    Text("Mastered", fontWeight = FontWeight.Bold)
+                                    Text(stringResource(R.string.mastered_button), fontWeight = FontWeight.Bold)
                                 }
                             }
                         }
@@ -350,7 +352,7 @@ private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
         Spacer(Modifier.height(spacing.xl))
         
         Text(
-            text = "Session Complete!", 
+            text = stringResource(R.string.flashcard_finished_title), 
             style = MaterialTheme.typography.headlineMedium, 
             fontWeight = FontWeight.Black
         )
@@ -358,7 +360,7 @@ private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
         Spacer(Modifier.height(spacing.sm))
         
         Text(
-            text = "You've practiced $total items and mastered $correct of them.", 
+            text = stringResource(R.string.flashcard_finished_subtitle, total, correct), 
             style = MaterialTheme.typography.bodyLarge, 
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -371,7 +373,7 @@ private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
             shape = MaterialTheme.shapes.medium, 
             modifier = Modifier.fillMaxWidth().height(56.dp)
         ) {
-            Text("Finish Session", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.finish_session), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -379,8 +381,8 @@ private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
 @Composable
 private fun EmptyCardsState(onFinish: () -> Unit) {
     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-        Text("No cards found for this lesson.", color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(R.string.no_cards), color = MaterialTheme.colorScheme.onSurfaceVariant)
         Spacer(Modifier.height(16.dp))
-        Button(onClick = onFinish) { Text("Go Back") }
+        Button(onClick = onFinish) { Text(stringResource(R.string.go_back)) }
     }
 }

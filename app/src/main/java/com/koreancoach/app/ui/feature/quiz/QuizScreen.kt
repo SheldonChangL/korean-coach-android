@@ -11,11 +11,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.ui.common.ConfettiOverlay
 import com.koreancoach.app.ui.theme.*
 
@@ -34,10 +36,10 @@ fun QuizScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Quiz", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.quiz_title), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -74,7 +76,7 @@ fun QuizScreen(
                 }
                 else -> {
                     Text(
-                        text = "No questions available for this lesson.",
+                        text = stringResource(R.string.no_questions),
                         modifier = Modifier.align(Alignment.Center),
                         style = MaterialTheme.typography.bodyLarge
                     )
@@ -101,7 +103,7 @@ private fun QuizQuestionContent(
             modifier = Modifier.fillMaxWidth()
         )
         Text(
-            text = "Question $questionNumber / $totalQuestions",
+            text = stringResource(R.string.question_progress, questionNumber, totalQuestions),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -177,7 +179,7 @@ private fun QuizQuestionContent(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("Next")
+                    Text(stringResource(R.string.next))
                 }
             }
         }
@@ -212,7 +214,7 @@ private fun QuizResultScreen(
                 color = if (passed) SuccessGreen else MaterialTheme.colorScheme.onSurface
             )
             Text(
-                text = if (passed) "Excellent work!" else "Keep practicing!",
+                text = if (passed) stringResource(R.string.quiz_passed) else stringResource(R.string.quiz_failed),
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center
             )
@@ -222,7 +224,7 @@ private fun QuizResultScreen(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text("Back to Dashboard")
+                Text(stringResource(R.string.back_to_dashboard))
             }
         }
     }

@@ -13,9 +13,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.Lesson
 import com.koreancoach.app.ui.theme.LocalSpacing
 
@@ -33,15 +35,15 @@ fun HangulPathScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Hangul Sprint", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.hangul_sprint), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 actions = {
                     IconButton(onClick = onExplore) {
-                        Icon(Icons.Default.Explore, contentDescription = "Explore Hangul")
+                        Icon(Icons.Default.Explore, contentDescription = stringResource(R.string.explore_40))
                     }
                 }
             )
@@ -71,9 +73,9 @@ fun HangulPathScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(spacing.sm)
                 ) {
-                    Text("Hangul path is still getting ready.", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.error_loading_stage), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                     Text(
-                        "Please go back and reopen this screen. If it still stays empty, let me know because that means the curriculum failed to seed.",
+                        stringResource(R.string.error_loading_stage_subtitle),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -109,7 +111,7 @@ fun HangulPathScreen(
                             modifier = Modifier.fillMaxWidth()
                         )
                         Text(
-                            text = "${state.completedCount} / ${state.totalCount} stages complete",
+                            text = stringResource(R.string.stages_complete, state.completedCount, state.totalCount),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )

@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.HangulLevel
 import com.koreancoach.app.domain.model.LearningReason
 import com.koreancoach.app.domain.model.SpeechRatePreset
@@ -132,7 +134,7 @@ fun OnboardingScreen(
                         onClick = viewModel::prevPage,
                         colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSurfaceVariant)
                     ) {
-                        Text("Back", style = MaterialTheme.typography.labelLarge)
+                        Text(stringResource(R.string.back), style = MaterialTheme.typography.labelLarge)
                     }
                 } else {
                     Spacer(modifier = Modifier.width(64.dp))
@@ -151,7 +153,7 @@ fun OnboardingScreen(
                     elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
                 ) {
                     Text(
-                        if (isLastPage) "Let's start! 시작!" else "Continue",
+                        if (isLastPage) stringResource(R.string.onboarding_start) else stringResource(R.string.continue_button),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold
                     )
@@ -210,13 +212,13 @@ private fun WelcomePage() {
             color = MaterialTheme.colorScheme.primary
         )
         Text(
-            text = "Hello!",
+            text = stringResource(R.string.welcome_hello),
             style = MaterialTheme.typography.headlineSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
         )
         Spacer(Modifier.height(spacing.lg))
         Text(
-            text = "Master practical Korean with memory hacks that stick. 10 minutes a day is all you need.",
+            text = stringResource(R.string.welcome_description),
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = spacing.md),
@@ -243,13 +245,13 @@ private fun NamePage(
         Text("👋", fontSize = 64.sp)
         Spacer(Modifier.height(spacing.lg))
         Text(
-            text = "What should we call you?",
+            text = stringResource(R.string.name_page_title),
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(spacing.sm))
         Text(
-            text = "We'll use this to cheer you on!",
+            text = stringResource(R.string.name_page_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -258,8 +260,8 @@ private fun NamePage(
         OutlinedTextField(
             value = name,
             onValueChange = onNameChange,
-            label = { Text("Your name") },
-            placeholder = { Text("e.g. Alex") },
+            label = { Text(stringResource(R.string.your_name_label)) },
+            placeholder = { Text(stringResource(R.string.name_placeholder)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
             shape = MaterialTheme.shapes.medium,
@@ -290,11 +292,11 @@ private fun ReasonPage(
     val spacing = LocalSpacing.current
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Why learn Korean?",
+            text = stringResource(R.string.reason_page_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "We'll tailor your journey to your goals.",
+            text = stringResource(R.string.reason_page_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)
@@ -321,11 +323,11 @@ private fun StudyTimePage(
     val spacing = LocalSpacing.current
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Study time preference",
+            text = stringResource(R.string.time_page_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "Habits are easier when they're consistent.",
+            text = stringResource(R.string.time_page_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)
@@ -349,14 +351,19 @@ private fun GoalPage(
     onGoalChange: (Int) -> Unit
 ) {
     val spacing = LocalSpacing.current
-    val options = listOf(5 to "Quick (5 min)", 10 to "Standard (10 min)", 15 to "Dedicated (15 min)", 20 to "Intensive (20 min)")
+    val options = listOf(
+        5 to stringResource(R.string.goal_quick),
+        10 to stringResource(R.string.goal_standard),
+        15 to stringResource(R.string.goal_dedicated),
+        20 to stringResource(R.string.goal_intensive)
+    )
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Set your daily goal",
+            text = stringResource(R.string.goal_page_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "Even 5 minutes a day builds fluency.",
+            text = stringResource(R.string.goal_page_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)
@@ -382,11 +389,11 @@ private fun LanguagePage(
     val spacing = LocalSpacing.current
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Choose your primary interface language",
+            text = stringResource(R.string.language_page_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "We'll keep the content format iOS-ready either way.",
+            text = stringResource(R.string.language_page_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)
@@ -412,11 +419,11 @@ private fun HangulLevelPage(
     val spacing = LocalSpacing.current
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "How comfortable are you with Hangul?",
+            text = stringResource(R.string.hangul_page_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "This decides whether we start you in Hangul Sprint or jump into Survival Korean.",
+            text = stringResource(R.string.hangul_page_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = 4.dp)
@@ -444,21 +451,21 @@ private fun SpeechSetupPage(
     val spacing = LocalSpacing.current
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(spacing.lg)) {
         Text(
-            text = "Speech setup",
+            text = stringResource(R.string.speech_setup_title),
             style = MaterialTheme.typography.headlineLarge
         )
         Text(
-            text = "You can adjust these later in Settings. Hangul stages use system TTS.",
+            text = stringResource(R.string.speech_setup_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         OnboardingOptionCard(
             emoji = if (autoPlayHangul) "🔊" else "🔈",
-            label = if (autoPlayHangul) "Auto-play Hangul audio is ON" else "Auto-play Hangul audio is OFF",
+            label = if (autoPlayHangul) stringResource(R.string.autoplay_on) else stringResource(R.string.autoplay_off),
             isSelected = autoPlayHangul,
             onClick = { onToggleAutoPlay(!autoPlayHangul) }
         )
-        Text("Preferred playback speed", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.playback_speed), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         SpeechRatePreset.entries.forEach { rate ->
             OnboardingOptionCard(
                 emoji = if (rate == SpeechRatePreset.SLOW) "🐢" else "⚡",
@@ -493,16 +500,16 @@ private fun ReadyPage(
         }
         Spacer(Modifier.height(spacing.xl))
         Text(
-            text = if (name.isNotBlank()) "You're ready, $name!" else "You're all set!",
+            text = if (name.isNotBlank()) stringResource(R.string.ready_title_named, name) else stringResource(R.string.ready_title_all_set),
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(spacing.md))
         Text(
             text = if (hangulLevel == HangulLevel.CAN_READ)
-                "We'll drop you into Survival Korean with TTS ready to support every word and phrase."
+                stringResource(R.string.ready_subtitle_read)
             else
-                "We'll start with Hangul Sprint so you can read Korean before guessing from romanization.",
+                stringResource(R.string.ready_subtitle_learn),
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -520,10 +527,10 @@ private fun ReadyPage(
             ) {
                 Text("🇰🇷", fontSize = 32.sp)
                 Column {
-                    Text("Starting Path:", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f))
+                    Text(stringResource(R.string.starting_path_label), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f))
                     Text(
-                        if (hangulLevel == HangulLevel.CAN_READ) "Survival Korean"
-                        else "Hangul Sprint",
+                        if (hangulLevel == HangulLevel.CAN_READ) stringResource(R.string.survival_korean)
+                        else stringResource(R.string.hangul_sprint),
                         style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.onSecondaryContainer
                     )

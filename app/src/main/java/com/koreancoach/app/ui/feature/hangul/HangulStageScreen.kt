@@ -10,9 +10,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.data.curriculum.HangulCharacterData
 import com.koreancoach.app.domain.model.CheckpointItem
 import com.koreancoach.app.domain.model.DialogueItem
@@ -42,11 +44,11 @@ fun HangulStageScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(state.lesson?.title ?: "Hangul stage", fontWeight = FontWeight.Bold)
+                    Text(state.lesson?.title ?: stringResource(R.string.hangul_stage_default_title), fontWeight = FontWeight.Bold)
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -60,7 +62,7 @@ fun HangulStageScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.md, vertical = spacing.xs)
                     ) {
-                        Text(if (lesson.isCompleted) "Back to path" else "Complete stage")
+                        Text(if (lesson.isCompleted) stringResource(R.string.back_to_path) else stringResource(R.string.complete_stage))
                     }
                 }
             }
@@ -83,9 +85,9 @@ fun HangulStageScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
-                    Text("This Hangul stage could not be loaded.", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.error_loading_stage), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                     Text(
-                        "Please go back to the path and open it again.",
+                        stringResource(R.string.error_loading_stage_subtitle),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -110,42 +112,42 @@ fun HangulStageScreen(
                         Text(lesson.subtitle, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                         Text(lesson.learningObjective, style = MaterialTheme.typography.bodyMedium)
                         if (!state.speechState.isReady) {
-                            AssistChip(onClick = {}, enabled = false, label = { Text("TTS unavailable on this device") })
+                            AssistChip(onClick = {}, enabled = false, label = { Text(stringResource(R.string.tts_unavailable)) })
                         }
                     }
                 }
             }
 
             if (lesson.scriptItems.isNotEmpty()) {
-                item { Text("Listen & Learn", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                item { Text(stringResource(R.string.listen_and_learn), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.scriptItems, key = { it.id }) { item ->
                     ScriptCard(item = item, isSpeaking = state.speechState.isSpeaking, onPlay = { viewModel.play(item.speech, item.text) }, onStop = viewModel::stopSpeaking)
                 }
             }
 
             if (lesson.writingTargets.isNotEmpty()) {
-                item { Text("Write It", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                item { Text(stringResource(R.string.write_it), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.writingTargets, key = { it.characterId }) { target ->
                     WritingTargetCard(target = target, onOpenWriting = onOpenWriting)
                 }
             }
 
             if (lesson.readingDrills.isNotEmpty()) {
-                item { Text("Read It", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                item { Text(stringResource(R.string.read_it), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.readingDrills, key = { it.id }) { drill ->
                     ReadingDrillCard(drill = drill, isSpeaking = state.speechState.isSpeaking, onPlay = { viewModel.play(drill.speech, drill.displayText) }, onStop = viewModel::stopSpeaking)
                 }
             }
 
             if (lesson.dialogueItems.isNotEmpty()) {
-                item { Text("Mini Dialogue", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                item { Text(stringResource(R.string.mini_dialogue), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.dialogueItems, key = { it.id }) { dialogue ->
                     DialogueCard(dialogue = dialogue, isSpeaking = state.speechState.isSpeaking, onPlay = { spec, fallback -> viewModel.play(spec, fallback) }, onStop = viewModel::stopSpeaking)
                 }
             }
 
             if (lesson.checkpointItems.isNotEmpty()) {
-                item { Text("Quick Check", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                item { Text(stringResource(R.string.quick_check), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.checkpointItems, key = { it.id }) { checkpoint ->
                     CheckpointCard(
                         checkpoint = checkpoint,
@@ -198,7 +200,7 @@ private fun WritingTargetCard(
             FilledTonalButton(onClick = onOpenWriting) {
                 Icon(Icons.Default.Edit, contentDescription = null)
                 Spacer(Modifier.width(6.dp))
-                Text("Practice")
+                Text(stringResource(R.string.practice))
             }
         }
     }
@@ -278,7 +280,7 @@ private fun CheckpointCard(
             }
             if (selectedAnswer != null) {
                 Text(
-                    if (isComplete) checkpoint.explanation else "Try again and listen one more time.",
+                    if (isComplete) checkpoint.explanation else stringResource(R.string.try_again),
                     style = MaterialTheme.typography.bodySmall,
                     color = if (isComplete) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
                 )

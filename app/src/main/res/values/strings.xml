@@ -1,3 +1,165 @@
 <resources>
     <string name="app_name">Korean Coach</string>
+
+    <!-- General -->
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="clear">Clear</string>
+    <string name="check">Check</string>
+    <string name="practice">Practice</string>
+    <string name="review">Review</string>
+    <string name="go_back">Go Back</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_progress">Progress</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_close">Close</string>
+
+    <!-- Dashboard -->
+    <string name="greeting_morning">좋은 아침이에요</string>
+    <string name="greeting_afternoon">좋은 오후예요</string>
+    <string name="greeting_evening">좋은 저녁이에요</string>
+    <string name="greeting_default">안녕하세요!</string>
+    <string name="dashboard_subtitle">Let\'s learn some Korean today</string>
+    <string name="survival_korean">Survival Korean</string>
+    <string name="all_lessons">All Lessons</string>
+    <string name="quick_practice">Quick Practice</string>
+    <string name="writing">Writing</string>
+    <string name="speaking">Speaking</string>
+    <string name="today">Today</string>
+    <string name="today_focus_review">Review what you have already unlocked</string>
+    <string name="open_hangul_sprint">Open Hangul Sprint</string>
+    <string name="open_lesson">Open lesson</string>
+    <string name="path">Path</string>
+    <string name="hangul_sprint">Hangul Sprint</string>
+    <string name="stages_complete">%1$d / %2$d stages complete</string>
+    <string name="guided_path">Guided Path</string>
+    <string name="explore_40">Explore 40</string>
+    <string name="day_streak">%1$d Day Streak</string>
+    <string name="streak_keep_up">Keep it up!</string>
+    <string name="streak_start_today">Start a streak today!</string>
+    <string name="level_1">Level 1</string>
+    <string name="lessons">Lessons</string>
+    <string name="mastered">Mastered</string>
+    <string name="this_week">This week</string>
+    <string name="review_session_ready">Review Session Ready</string>
+    <string name="items_need_attention">%1$d items need your attention</string>
+    <string name="empty_lessons_title">Your lessons are getting ready...</string>
+    <string name="empty_lessons_subtitle">Tap \'View all lessons\' below to start your Korean journey!</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_start">Let\'s start! 시작!</string>
+    <string name="continue_button">Continue</string>
+    <string name="welcome_hello">Hello!</string>
+    <string name="welcome_description">Master practical Korean with memory hacks that stick. 10 minutes a day is all you need.</string>
+    <string name="name_page_title">What should we call you?</string>
+    <string name="name_page_subtitle">We\'ll use this to cheer you on!</string>
+    <string name="your_name_label">Your name</string>
+    <string name="name_placeholder">e.g. Alex</string>
+    <string name="reason_page_title">Why learn Korean?</string>
+    <string name="reason_page_subtitle">We\'ll tailor your journey to your goals.</string>
+    <string name="time_page_title">Study time preference</string>
+    <string name="time_page_subtitle">Habits are easier when they\'re consistent.</string>
+    <string name="goal_page_title">Set your daily goal</string>
+    <string name="goal_page_subtitle">Even 5 minutes a day builds fluency.</string>
+    <string name="goal_quick">Quick (5 min)</string>
+    <string name="goal_standard">Standard (10 min)</string>
+    <string name="goal_dedicated">Dedicated (15 min)</string>
+    <string name="goal_intensive">Intensive (20 min)</string>
+    <string name="language_page_title">Choose your primary interface language</string>
+    <string name="language_page_subtitle">We\'ll keep the content format iOS-ready either way.</string>
+    <string name="hangul_page_title">How comfortable are you with Hangul?</string>
+    <string name="hangul_page_subtitle">This decides whether we start you in Hangul Sprint or jump into Survival Korean.</string>
+    <string name="speech_setup_title">Speech setup</string>
+    <string name="speech_setup_subtitle">You can adjust these later in Settings. Hangul stages use system TTS.</string>
+    <string name="autoplay_on">Auto-play Hangul audio is ON</string>
+    <string name="autoplay_off">Auto-play Hangul audio is OFF</string>
+    <string name="playback_speed">Preferred playback speed</string>
+    <string name="ready_title_named">You\'re ready, %1$s!</string>
+    <string name="ready_title_all_set">You\'re all set!</string>
+    <string name="ready_subtitle_read">We\'ll drop you into Survival Korean with TTS ready to support every word and phrase.</string>
+    <string name="ready_subtitle_learn">We\'ll start with Hangul Sprint so you can read Korean before guessing from romanization.</string>
+    <string name="starting_path_label">Starting Path:</string>
+
+    <!-- Hangul Stage -->
+    <string name="hangul_stage_default_title">Hangul stage</string>
+    <string name="back_to_path">Back to path</string>
+    <string name="complete_stage">Complete stage</string>
+    <string name="error_loading_stage">This Hangul stage could not be loaded.</string>
+    <string name="error_loading_stage_subtitle">Please go back to the path and open it again.</string>
+    <string name="tts_unavailable">TTS unavailable on this device</string>
+    <string name="listen_and_learn">Listen &amp; Learn</string>
+    <string name="write_it">Write It</string>
+    <string name="read_it">Read It</string>
+    <string name="mini_dialogue">Mini Dialogue</string>
+    <string name="quick_check">Quick Check</string>
+    <string name="try_again">Try again and listen one more time.</string>
+
+    <!-- Lesson Detail -->
+    <string name="lesson_default_title">Lesson</string>
+    <string name="empty_vocab">No vocabulary items yet</string>
+    <string name="empty_phrases">No phrases yet</string>
+    <string name="empty_pronunciation">No pronunciation tips yet</string>
+    <string name="empty_dialogue">No dialogue yet</string>
+    <string name="empty_memory">No memory hooks yet</string>
+    <string name="sound_tip">Sound Tip</string>
+    <string name="take_quiz">Take Quiz</string>
+    <string name="practice_pronunciation">Practice Pronunciation</string>
+
+    <!-- Quiz -->
+    <string name="quiz_title">Quiz</string>
+    <string name="no_questions">No questions available for this lesson.</string>
+    <string name="question_progress">Question %1$d / %2$d</string>
+    <string name="quiz_passed">Excellent work!</string>
+    <string name="quiz_failed">Keep practicing!</string>
+    <string name="back_to_dashboard">Back to Dashboard</string>
+
+    <!-- Hangul Writing -->
+    <string name="hangul_writing_title">Hangul Writing</string>
+    <string name="consonants">Consonants</string>
+    <string name="vowels">Vowels</string>
+    <string name="example_blocks">Example Blocks</string>
+    <string name="stroke_progress">Stroke %1$d of %2$d</string>
+    <string name="stroke_correct">Great stroke! Keep going!</string>
+    <string name="stroke_retry">Not quite — try again from the hint point</string>
+    <string name="character_complete">%1$s complete!</string>
+    <string name="practice_again">Practice Again</string>
+    <string name="next_character">Next Character</string>
+    <string name="writing_session_score">Session: %1$d/%2$d correct strokes</string>
+
+    <!-- Flashcards -->
+    <string name="practice_cards">Practice Cards</string>
+    <string name="flashcard_progress">%1$d of %2$d items</string>
+    <string name="tap_to_see_answer">Tap card to see the answer</string>
+    <string name="swipe_to_rate">Swipe or tap buttons to rate</string>
+    <string name="still_learning">Still learning</string>
+    <string name="mastered_button">Mastered</string>
+    <string name="flashcard_finished_title">Session Complete!</string>
+    <string name="flashcard_finished_subtitle">You\'ve practiced %1$d items and mastered %2$d of them.</string>
+    <string name="finish_session">Finish Session</string>
+    <string name="no_cards">No cards found for this lesson.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="learning_profile">Learning Profile</string>
+    <string name="settings_name_format">Name: %1$s</string>
+    <string name="not_set">Not set</string>
+    <string name="settings_goal_format">Daily Goal: %1$d minutes</string>
+    <string name="reminders">Reminders</string>
+    <string name="daily_notifications">Daily Notifications</string>
+    <string name="daily_notifications_subtitle">Get a friendly nudge to study</string>
+    <string name="reminder_time">Reminder Time</string>
+    <string name="appearance">Appearance</string>
+    <string name="theme">Theme</string>
+    <string name="speech">Speech</string>
+    <string name="autoplay_hangul">Auto-play Hangul</string>
+    <string name="autoplay_hangul_subtitle">Play the first Hangul item automatically in guided stages</string>
+    <string name="playback_speed_label">Playback speed</string>
+    <string name="korean_voice">Korean voice</string>
+    <string name="no_tts_error">No Korean TTS engine is ready right now. The learning flow still works without audio.</string>
+    <string name="no_voice_error">This device does not expose a Korean system voice yet.</string>
+    <string name="about">About</string>
+    <string name="app_version">Version 1.0 (v2.1 UI Polish)</string>
+    <string name="about_description">Korean Coach helps you master practical Korean using right-brain memory hacks.</string>
 </resources>

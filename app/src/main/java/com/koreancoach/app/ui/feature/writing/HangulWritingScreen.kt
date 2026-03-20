@@ -21,11 +21,13 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.HangulCharacter
 import com.koreancoach.app.domain.model.HangulCharacterType
 import com.koreancoach.app.domain.model.StrokePoint
@@ -44,10 +46,10 @@ fun HangulWritingScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Hangul Writing", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.hangul_writing_title), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -99,7 +101,7 @@ fun HangulWritingScreen(
                                 Text("✏️", fontSize = 16.sp)
                                 Column {
                                     Text(
-                                        "Stroke ${state.currentStrokeIndex + 1} of ${character.strokeCount}",
+                                        stringResource(R.string.stroke_progress, state.currentStrokeIndex + 1, character.strokeCount),
                                         style = MaterialTheme.typography.labelSmall,
                                         color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
                                     )
@@ -154,8 +156,8 @@ fun HangulWritingScreen(
                                     fontSize = 20.sp
                                 )
                                 Text(
-                                    if (result == StrokeResult.CORRECT) "Great stroke! Keep going!"
-                                    else "Not quite — try again from the hint point",
+                                    if (result == StrokeResult.CORRECT) stringResource(R.string.stroke_correct)
+                                    else stringResource(R.string.stroke_retry),
                                     style = MaterialTheme.typography.bodyMedium,
                                     fontWeight = FontWeight.SemiBold
                                 )
@@ -185,7 +187,7 @@ fun HangulWritingScreen(
                         ) {
                             Icon(Icons.Default.Refresh, null, modifier = Modifier.size(18.dp))
                             Spacer(Modifier.width(4.dp))
-                            Text("Clear")
+                            Text(stringResource(R.string.clear))
                         }
                         Button(
                             onClick = { /* submitStroke called from canvas */ },
@@ -195,7 +197,7 @@ fun HangulWritingScreen(
                         ) {
                             Icon(Icons.Default.Check, null, modifier = Modifier.size(18.dp))
                             Spacer(Modifier.width(4.dp))
-                            Text("Check")
+                            Text(stringResource(R.string.check))
                         }
                     }
                 }
@@ -203,7 +205,7 @@ fun HangulWritingScreen(
                 // Score row
                 if (state.totalAttempts > 0) {
                     Text(
-                        "Session: ${state.totalCorrect}/${state.totalAttempts} correct strokes",
+                        stringResource(R.string.writing_session_score, state.totalCorrect, state.totalAttempts),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
@@ -226,7 +228,7 @@ private fun CharacterSelectorRow(
     val syllables = characters.filter { it.type == HangulCharacterType.SYLLABLE }
 
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text("Consonants", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(R.string.consonants), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             itemsIndexed(consonants) { _, char ->
                 val globalIndex = characters.indexOf(char)
@@ -234,7 +236,7 @@ private fun CharacterSelectorRow(
             }
         }
         if (vowels.isNotEmpty()) {
-            Text("Vowels", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(stringResource(R.string.vowels), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 itemsIndexed(vowels) { _, char ->
                     val globalIndex = characters.indexOf(char)
@@ -243,7 +245,7 @@ private fun CharacterSelectorRow(
             }
         }
         if (syllables.isNotEmpty()) {
-            Text("Example Blocks", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(stringResource(R.string.example_blocks), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 itemsIndexed(syllables) { _, char ->
                     val globalIndex = characters.indexOf(char)
@@ -421,7 +423,7 @@ private fun CharacterCompleteCard(
         ) {
             Text("🎉", fontSize = 40.sp)
             Text(
-                "${character.character} complete!",
+                stringResource(R.string.character_complete, character.character),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = SuccessGreen
@@ -434,11 +436,11 @@ private fun CharacterCompleteCard(
             )
             Row(horizontalArrangement = Arrangement.spacedBy(spacing.sm)) {
                 OutlinedButton(onClick = onRetry, shape = RoundedCornerShape(12.dp)) {
-                    Text("Practice Again")
+                    Text(stringResource(R.string.practice_again))
                 }
                 if (hasNext) {
                     Button(onClick = onNext, shape = RoundedCornerShape(12.dp)) {
-                        Text("Next Character")
+                        Text(stringResource(R.string.next_character))
                         Spacer(Modifier.width(4.dp))
                         Icon(Icons.Default.ArrowForward, null, modifier = Modifier.size(16.dp))
                     }

@@ -15,10 +15,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.*
 import com.koreancoach.app.ui.common.SpeechIconButton
 import com.koreancoach.app.ui.theme.*
@@ -41,12 +43,12 @@ fun LessonDetailScreen(
             TopAppBar(
                 title = { 
                     Column {
-                        Text(state.lesson?.title ?: "Lesson", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                        Text(state.lesson?.title ?: stringResource(R.string.lesson_default_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                         Text(state.lesson?.subtitle ?: "", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Back") }
+                    IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, stringResource(R.string.back)) }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
             )
@@ -126,7 +128,7 @@ fun LessonDetailScreen(
             when (state.selectedTab) {
                 LessonTab.VOCABULARY -> {
                     if (lesson.vocabulary.isEmpty()) {
-                        item { EmptyTabState("No vocabulary items yet") }
+                        item { EmptyTabState(stringResource(R.string.empty_vocab)) }
                     } else {
                         items(lesson.vocabulary, key = { it.id }) { vocab ->
                             VocabCard(
@@ -140,7 +142,7 @@ fun LessonDetailScreen(
                 }
                 LessonTab.PHRASES -> {
                     if (lesson.phrases.isEmpty()) {
-                        item { EmptyTabState("No phrases yet") }
+                        item { EmptyTabState(stringResource(R.string.empty_phrases)) }
                     } else {
                         items(lesson.phrases, key = { it.id }) { phrase ->
                             PhraseCard(
@@ -154,7 +156,7 @@ fun LessonDetailScreen(
                 }
                 LessonTab.PRONUNCIATION -> {
                     if (lesson.pronunciationTips.isEmpty()) {
-                        item { EmptyTabState("No pronunciation tips yet") }
+                        item { EmptyTabState(stringResource(R.string.empty_pronunciation)) }
                     } else {
                         items(lesson.pronunciationTips) { tip ->
                             PronunciationCard(tip = tip)
@@ -163,7 +165,7 @@ fun LessonDetailScreen(
                 }
                 LessonTab.DIALOGUE -> {
                     if (lesson.dialogueItems.isEmpty()) {
-                        item { EmptyTabState("No dialogue yet") }
+                        item { EmptyTabState(stringResource(R.string.empty_dialogue)) }
                     } else {
                         items(lesson.dialogueItems, key = { it.id }) { dialogue ->
                             LessonDialogueCard(
@@ -177,7 +179,7 @@ fun LessonDetailScreen(
                 }
                 LessonTab.MEMORY -> {
                     if (lesson.memoryHooks.isEmpty()) {
-                        item { EmptyTabState("No memory hooks yet") }
+                        item { EmptyTabState(stringResource(R.string.empty_memory)) }
                     } else {
                         items(lesson.memoryHooks) { hook ->
                             MemoryHookCard(hook = hook)
@@ -436,7 +438,7 @@ private fun PronunciationCard(tip: PronunciationTip) {
                     Text(tip.sound, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = OnKoreanBlueContainer)
                 }
                 Column {
-                    Text("Sound Tip", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(stringResource(R.string.sound_tip), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text("Like: ${tip.englishComparison}", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
                 }
             }
@@ -529,7 +531,7 @@ private fun BottomActionBar(
                 ) {
                     Icon(Icons.Default.Style, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text("Review")
+                    Text(stringResource(R.string.review))
                 }
                 Button(
                     onClick = onStartQuiz,
@@ -539,7 +541,7 @@ private fun BottomActionBar(
                 ) {
                     Icon(Icons.Default.Quiz, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(8.dp))
-                    Text("Take Quiz")
+                    Text(stringResource(R.string.take_quiz))
                 }
             }
             
@@ -550,7 +552,7 @@ private fun BottomActionBar(
             ) {
                 Icon(Icons.Default.Mic, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(8.dp))
-                Text("Practice Pronunciation", fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.practice_pronunciation), fontWeight = FontWeight.Bold)
             }
         }
     }

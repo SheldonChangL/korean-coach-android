@@ -10,10 +10,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.SpeechRatePreset
 import com.koreancoach.app.domain.model.ThemeMode
 import com.koreancoach.app.ui.theme.LocalSpacing
@@ -30,8 +32,8 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Settings", fontWeight = FontWeight.Bold) },
-                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, "Back") } },
+                title = { Text(stringResource(R.string.settings_title), fontWeight = FontWeight.Bold) },
+                navigationIcon = { IconButton(onClick = onBack) { Icon(Icons.Default.ArrowBack, stringResource(R.string.back)) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background)
             )
         }
@@ -45,13 +47,13 @@ fun SettingsScreen(
             verticalArrangement = Arrangement.spacedBy(spacing.lg)
         ) {
             // Profile / User Section
-            SettingsSection(title = "Learning Profile") {
+            SettingsSection(title = stringResource(R.string.learning_profile)) {
                 Text(
-                    text = "Name: ${state.learnerName.ifBlank { "Not set" }}",
+                    text = stringResource(R.string.settings_name_format, state.learnerName.ifBlank { stringResource(R.string.not_set) }),
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Text(
-                    text = "Daily Goal: ${state.dailyGoalMinutes} minutes",
+                    text = stringResource(R.string.settings_goal_format, state.dailyGoalMinutes),
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Slider(
@@ -63,16 +65,16 @@ fun SettingsScreen(
             }
 
             // Reminders Section
-            SettingsSection(title = "Reminders") {
+            SettingsSection(title = stringResource(R.string.reminders)) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column {
-                        Text("Daily Notifications", style = MaterialTheme.typography.bodyLarge)
+                        Text(stringResource(R.string.daily_notifications), style = MaterialTheme.typography.bodyLarge)
                         Text(
-                            "Get a friendly nudge to study",
+                            stringResource(R.string.daily_notifications_subtitle),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -89,7 +91,7 @@ fun SettingsScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("Reminder Time", style = MaterialTheme.typography.bodyLarge)
+                        Text(stringResource(R.string.reminder_time), style = MaterialTheme.typography.bodyLarge)
                         TextButton(onClick = { /* Show time picker */ }) {
                             Text(
                                 String.format("%02d:%02d", state.reminderHour, state.reminderMinute),
@@ -102,8 +104,8 @@ fun SettingsScreen(
             }
 
             // Appearance Section
-            SettingsSection(title = "Appearance") {
-                Text("Theme", style = MaterialTheme.typography.bodyLarge)
+            SettingsSection(title = stringResource(R.string.appearance)) {
+                Text(stringResource(R.string.theme), style = MaterialTheme.typography.bodyLarge)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(spacing.sm)
@@ -119,16 +121,16 @@ fun SettingsScreen(
                 }
             }
 
-            SettingsSection(title = "Speech") {
+            SettingsSection(title = stringResource(R.string.speech)) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
-                        Text("Auto-play Hangul", style = MaterialTheme.typography.bodyLarge)
+                        Text(stringResource(R.string.autoplay_hangul), style = MaterialTheme.typography.bodyLarge)
                         Text(
-                            "Play the first Hangul item automatically in guided stages",
+                            stringResource(R.string.autoplay_hangul_subtitle),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -139,7 +141,7 @@ fun SettingsScreen(
                     )
                 }
 
-                Text("Playback speed", style = MaterialTheme.typography.bodyLarge)
+                Text(stringResource(R.string.playback_speed_label), style = MaterialTheme.typography.bodyLarge)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(spacing.sm)
@@ -154,16 +156,16 @@ fun SettingsScreen(
                     }
                 }
 
-                Text("Korean voice", style = MaterialTheme.typography.bodyLarge)
+                Text(stringResource(R.string.korean_voice), style = MaterialTheme.typography.bodyLarge)
                 if (!state.speechReady) {
                     Text(
-                        "No Korean TTS engine is ready right now. The learning flow still works without audio.",
+                        stringResource(R.string.no_tts_error),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 } else if (state.availableVoices.isEmpty()) {
                     Text(
-                        "This device does not expose a Korean system voice yet.",
+                        stringResource(R.string.no_voice_error),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -179,10 +181,10 @@ fun SettingsScreen(
             }
 
             // About Section
-            SettingsSection(title = "About") {
-                Text("Version 1.0 (v2.1 UI Polish)", style = MaterialTheme.typography.bodyMedium)
+            SettingsSection(title = stringResource(R.string.about)) {
+                Text(stringResource(R.string.app_version), style = MaterialTheme.typography.bodyMedium)
                 Text(
-                    "Korean Coach helps you master practical Korean using right-brain memory hacks.",
+                    stringResource(R.string.about_description),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

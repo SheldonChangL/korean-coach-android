@@ -13,10 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.koreancoach.app.R
 import com.koreancoach.app.domain.model.Lesson
 import com.koreancoach.app.ui.theme.LocalSpacing
 import com.koreancoach.app.ui.theme.KoreanBlueContainer
@@ -47,17 +49,17 @@ fun DashboardScreen(
                 title = {
                     Column {
                         val greeting = when (java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)) {
-                            in 0..11 -> "좋은 아침이에요" // Good morning
-                            in 12..17 -> "좋은 오후예요" // Good afternoon
-                            else -> "좋은 저녁이에요" // Good evening
+                            in 0..11 -> stringResource(R.string.greeting_morning)
+                            in 12..17 -> stringResource(R.string.greeting_afternoon)
+                            else -> stringResource(R.string.greeting_evening)
                         }
                         Text(
-                            text = if (state.onboarding.learnerName.isNotBlank()) "$greeting, ${state.onboarding.learnerName}!" else "안녕하세요!",
+                            text = if (state.onboarding.learnerName.isNotBlank()) "$greeting, ${state.onboarding.learnerName}!" else stringResource(R.string.greeting_default),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            "Let's learn some Korean today",
+                            stringResource(R.string.dashboard_subtitle),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -65,10 +67,10 @@ fun DashboardScreen(
                 },
                 actions = {
                     IconButton(onClick = onNavigateToAnalytics) {
-                        Icon(Icons.Default.BarChart, contentDescription = "Progress", tint = MaterialTheme.colorScheme.primary)
+                        Icon(Icons.Default.BarChart, contentDescription = stringResource(R.string.cd_progress), tint = MaterialTheme.colorScheme.primary)
                     }
                     IconButton(onClick = onNavigateToSettings) {
-                        Icon(Icons.Default.Settings, contentDescription = "Settings")
+                        Icon(Icons.Default.Settings, contentDescription = stringResource(R.string.cd_settings))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -129,8 +131,8 @@ fun DashboardScreen(
             // Continue learning section
             item {
                 SectionHeader(
-                    title = "Survival Korean",
-                    actionText = "All Lessons",
+                    title = stringResource(R.string.survival_korean),
+                    actionText = stringResource(R.string.all_lessons),
                     onActionClick = onNavigateToLessons
                 )
             }
@@ -146,7 +148,7 @@ fun DashboardScreen(
             // Quick practice section
             item {
                 Text(
-                    text = "Quick Practice",
+                    text = stringResource(R.string.quick_practice),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(top = spacing.sm)
@@ -159,14 +161,14 @@ fun DashboardScreen(
                 ) {
                     QuickActionCard(
                         emoji = "✍️",
-                        title = "Writing",
+                        title = stringResource(R.string.writing),
                         color = MaterialTheme.colorScheme.secondaryContainer,
                         modifier = Modifier.weight(1f),
                         onClick = onNavigateToHangulWriting
                     )
                     QuickActionCard(
                         emoji = "🎤",
-                        title = "Speaking",
+                        title = stringResource(R.string.speaking),
                         color = KoreanBlueContainer,
                         modifier = Modifier.weight(1f),
                         onClick = onNavigateToLessons
@@ -210,19 +212,19 @@ private fun TodayFocusCard(
 ) {
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text("Today", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.today), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             val focusText = when {
                 state.nextHangulLesson != null -> "Continue ${state.nextHangulLesson.title}"
                 state.nextSurvivalLesson != null -> "Continue ${state.nextSurvivalLesson.title}"
-                else -> "Review what you have already unlocked"
+                else -> stringResource(R.string.today_focus_review)
             }
             Text(focusText, style = MaterialTheme.typography.bodyLarge)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = if (state.nextHangulLesson != null) onOpenHangulPath else onOpenNextLesson) {
-                    Text(if (state.nextHangulLesson != null) "Open Hangul Sprint" else "Open lesson")
+                    Text(if (state.nextHangulLesson != null) stringResource(R.string.open_hangul_sprint) else stringResource(R.string.open_lesson))
                 }
                 OutlinedButton(onClick = onOpenHangulPath) {
-                    Text("Path")
+                    Text(stringResource(R.string.path))
                 }
             }
         }
@@ -244,8 +246,8 @@ private fun HangulSprintCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column {
-                    Text("Hangul Sprint", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                    Text("$completed / $total stages complete", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(stringResource(R.string.hangul_sprint), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.stages_complete, completed, total), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
                 Text("한글", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
             }
@@ -255,10 +257,10 @@ private fun HangulSprintCard(
             )
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = onOpenPath, modifier = Modifier.weight(1f)) {
-                    Text("Guided Path")
+                    Text(stringResource(R.string.guided_path))
                 }
                 OutlinedButton(onClick = onOpenExplore, modifier = Modifier.weight(1f)) {
-                    Text("Explore 40")
+                    Text(stringResource(R.string.explore_40))
                 }
             }
         }
@@ -291,12 +293,12 @@ private fun StatsCard(state: DashboardUiState) {
                     }
                     Column {
                         Text(
-                            text = "${state.currentStreak} Day Streak",
+                            text = stringResource(R.string.day_streak, state.currentStreak),
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = if (state.currentStreak > 0) "Keep it up!" else "Start a streak today!",
+                            text = if (state.currentStreak > 0) stringResource(R.string.streak_keep_up) else stringResource(R.string.streak_start_today),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -308,7 +310,7 @@ private fun StatsCard(state: DashboardUiState) {
                     color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
                 ) {
                     Text(
-                        text = "Level 1",
+                        text = stringResource(R.string.level_1),
                         modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                         style = MaterialTheme.typography.labelSmall,
                         fontWeight = FontWeight.Bold,
@@ -325,21 +327,21 @@ private fun StatsCard(state: DashboardUiState) {
                 StatItem(
                     modifier = Modifier.weight(1f),
                     value = "${state.completedLessons}",
-                    label = "Lessons",
+                    label = stringResource(R.string.lessons),
                     icon = Icons.Default.MenuBook,
                     color = MaterialTheme.colorScheme.primary
                 )
                 StatItem(
                     modifier = Modifier.weight(1f),
                     value = "${state.masteredCards}",
-                    label = "Mastered",
+                    label = stringResource(R.string.mastered),
                     icon = Icons.Default.Star,
                     color = GoldAccent
                 )
                 StatItem(
                     modifier = Modifier.weight(1f),
                     value = "${state.weeklyMinutes}m",
-                    label = "This week",
+                    label = stringResource(R.string.this_week),
                     icon = Icons.Default.Timer,
                     color = KoreanBlue
                 )
@@ -391,13 +393,13 @@ private fun ReviewActionCard(dueCount: Int, onClick: () -> Unit) {
             Spacer(Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Review Session Ready",
+                    text = stringResource(R.string.review_session_ready),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
                 Text(
-                    text = "$dueCount items need your attention",
+                    text = stringResource(R.string.items_need_attention, dueCount),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f)
                 )
@@ -456,7 +458,7 @@ private fun LessonProgressCard(lesson: Lesson, onClick: () -> Unit) {
                         trackColor = MaterialTheme.colorScheme.surfaceVariant
                     )
                     Text(
-                        text = if (lesson.isCompleted) "Done" else "30%",
+                        text = if (lesson.isCompleted) stringResource(R.string.done) else "30%",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -512,12 +514,12 @@ private fun EmptyLessonsState(onNavigateToLessons: () -> Unit) {
     ) {
         Text("📚", fontSize = 48.sp)
         Text(
-            "Your lessons are getting ready...",
+            stringResource(R.string.empty_lessons_title),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
-            "Tap 'View all lessons' below to start your Korean journey!",
+            stringResource(R.string.empty_lessons_subtitle),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
