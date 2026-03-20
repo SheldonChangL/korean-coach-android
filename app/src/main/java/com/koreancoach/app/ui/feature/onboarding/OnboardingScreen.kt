@@ -152,7 +152,7 @@ private fun OnboardingProgressDots(
             val isSelected = index == currentPage
             Box(
                 modifier = Modifier
-                    .clip(RoundedCornerShape(50))
+                    .clip(androidx.compose.foundation.shape.CircleShape)
                     .background(
                         if (isSelected) MaterialTheme.colorScheme.primary
                         else MaterialTheme.colorScheme.outlineVariant
@@ -277,7 +277,7 @@ private fun ReasonPage(
             modifier = Modifier.padding(top = 4.dp)
         )
         Spacer(Modifier.height(spacing.xl))
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
+        androidx.compose.foundation.lazy.LazyColumn(verticalArrangement = Arrangement.spacedBy(spacing.sm)) {
             items(LearningReason.entries) { reason ->
                 OnboardingOptionCard(
                     emoji = reason.emoji,
@@ -362,8 +362,8 @@ private fun ReadyPage(name: String) {
         Box(
             modifier = Modifier
                 .size(120.dp)
-                .clip(CircleShape)
-                .background(SuccessGreen.copy(alpha = 0.1f)),
+                .clip(androidx.compose.foundation.shape.CircleShape)
+                .background(com.koreancoach.app.ui.theme.SuccessGreen.copy(alpha = 0.1f)),
             contentAlignment = Alignment.Center
         ) {
             Text("🎉", fontSize = 64.sp)
@@ -426,7 +426,7 @@ private fun OnboardingOptionCard(
             Box(
                 modifier = Modifier
                     .size(40.dp)
-                    .clip(CircleShape)
+                    .clip(androidx.compose.foundation.shape.CircleShape)
                     .background(if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) else MaterialTheme.colorScheme.surfaceVariant),
                 contentAlignment = Alignment.Center
             ) {
@@ -439,7 +439,7 @@ private fun OnboardingOptionCard(
             )
             if (isSelected) {
                 Spacer(Modifier.weight(1f))
-                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
+                Icon(androidx.compose.material.icons.Icons.Default.CheckCircle, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
             }
         }
     }

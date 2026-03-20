@@ -1,5 +1,6 @@
 package com.koreancoach.app.ui.feature.flashcard
 
+import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -67,7 +68,7 @@ fun FlashCardScreen(
                         Column(modifier = Modifier.fillMaxWidth().padding(vertical = spacing.md)) {
                             LinearProgressIndicator(
                                 progress = { (state.currentIndex.toFloat()) / state.cards.size },
-                                modifier = Modifier.fillMaxWidth().height(8.dp).clip(CircleShape),
+                                modifier = Modifier.fillMaxWidth().height(8.dp).clip(androidx.compose.foundation.shape.CircleShape),
                                 color = MaterialTheme.colorScheme.primary,
                                 trackColor = MaterialTheme.colorScheme.surfaceVariant
                             )
@@ -180,7 +181,7 @@ fun FlipCard(
         animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy, stiffness = Spring.StiffnessLow),
         label = "card_flip"
     )
-    var offsetX by remember { mutableFloatStateOf(0f) }
+    var offsetX by remember { mutableStateOf(0f) }
     val animatedOffset by animateFloatAsState(targetValue = offsetX, label = "card_offset")
 
     Box(
@@ -221,7 +222,7 @@ fun FlipCard(
                     if (card.frontSubtext.isNotBlank()) {
                         Spacer(Modifier.height(16.dp))
                         Surface(
-                            shape = CircleShape,
+                            shape = androidx.compose.foundation.shape.CircleShape,
                             color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.1f)
                         ) {
                             Text(
@@ -284,13 +285,13 @@ fun FlipCard(
         // Swipe overlays
         if (offsetX > 100) {
             Box(Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.TopEnd) {
-                Surface(shape = CircleShape, color = SuccessGreen, tonalElevation = 8.dp) {
+                Surface(shape = androidx.compose.foundation.shape.CircleShape, color = SuccessGreen, tonalElevation = 8.dp) {
                     Icon(Icons.Default.Check, null, modifier = Modifier.padding(12.dp).size(32.dp), tint = androidx.compose.ui.graphics.Color.White)
                 }
             }
         } else if (offsetX < -100) {
             Box(Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.TopStart) {
-                Surface(shape = CircleShape, color = ErrorRed, tonalElevation = 8.dp) {
+                Surface(shape = androidx.compose.foundation.shape.CircleShape, color = ErrorRed, tonalElevation = 8.dp) {
                     Icon(Icons.Default.Close, null, modifier = Modifier.padding(12.dp).size(32.dp), tint = androidx.compose.ui.graphics.Color.White)
                 }
             }
@@ -327,7 +328,7 @@ private fun CardFace(
 @Composable
 private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
     val spacing = LocalSpacing.current
-    val percentage = if (total > 0) (correct.ScorableFloat() / total * 100).toInt() else 0
+    val percentage = if (total > 0) (correct.toFloat() / total * 100).toInt() else 0
     val isSuccess = percentage >= 70
 
     Column(
@@ -336,7 +337,7 @@ private fun FinishedState(correct: Int, total: Int, onFinish: () -> Unit) {
         verticalArrangement = Arrangement.Center
     ) {
         Box(
-            modifier = Modifier.size(140.dp).clip(CircleShape).background(if (isSuccess) SuccessContainer else MaterialTheme.colorScheme.surfaceVariant),
+            modifier = Modifier.size(140.dp).clip(androidx.compose.foundation.shape.CircleShape).background(if (isSuccess) SuccessContainer else MaterialTheme.colorScheme.surfaceVariant),
             contentAlignment = Alignment.Center
         ) {
             Text(text = if (isSuccess) "🎯" else "💪", fontSize = 72.sp)

@@ -19,6 +19,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.koreancoach.app.domain.model.Lesson
 import com.koreancoach.app.ui.theme.LocalSpacing
+import com.koreancoach.app.ui.theme.KoreanBlueContainer
+import com.koreancoach.app.ui.theme.SuccessContainer
+import com.koreancoach.app.ui.theme.SuccessGreen
+import com.koreancoach.app.ui.theme.GoldAccent
+import com.koreancoach.app.ui.theme.KoreanBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -434,43 +439,5 @@ private fun EmptyLessonsState(onNavigateToLessons: () -> Unit) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-    }
-}
-
-@Composable
-private fun PracticeCard(
-    emoji: String,
-    title: String,
-    subtitle: String,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit
-) {
-    val spacing = LocalSpacing.current
-    Surface(
-        onClick = onClick,
-        shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant,
-        tonalElevation = 2.dp,
-        modifier = modifier
-    ) {
-        Column(
-            modifier = Modifier.padding(spacing.md),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(spacing.xs)
-        ) {
-            Text(emoji, fontSize = 32.sp)
-            Text(
-                title,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.SemiBold,
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
-            Text(
-                subtitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
-            )
-        }
     }
 }
