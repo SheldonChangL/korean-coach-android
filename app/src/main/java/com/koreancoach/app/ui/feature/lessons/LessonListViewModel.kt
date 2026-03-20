@@ -13,10 +13,7 @@ class LessonListViewModel @Inject constructor(
     private val lessonRepository: LessonRepository
 ) : ViewModel() {
 
-    val lessons: StateFlow<List<Lesson>> = lessonRepository.getAllLessons()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
-
-    val lessonsByWeek: StateFlow<Map<Int, List<Lesson>>> = lessons.map { list ->
-        list.groupBy { it.weekNumber }.toSortedMap()
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
+    val lessonsByWeek: StateFlow<Map<Int, List<Lesson>>> = lessonRepository.getAllLessons()
+        .map { lessons -> lessons.groupBy { it.weekNumber } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
 }
