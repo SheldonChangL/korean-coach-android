@@ -27,12 +27,18 @@ import com.koreancoach.app.ui.theme.LocalSpacing
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HangulStageScreen(
+    showBackButton: Boolean,
     onBack: () -> Unit,
-    onOpenWriting: () -> Unit,
+    onBackToPath: () -> Unit,
+    onOpenWriting: (String) -> Unit,
     viewModel: HangulStageViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val spacing = LocalSpacing.current
+
+    DisposableEffect(viewModel) {
+        onDispose { viewModel.stopSpeaking() }
+    }
 
     LaunchedEffect(state.lesson?.id, state.autoPlayHangul) {
         if (state.lesson != null) {
@@ -47,8 +53,13 @@ fun HangulStageScreen(
                     Text(state.lesson?.title ?: stringResource(R.string.hangul_stage_default_title), fontWeight = FontWeight.Bold)
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+                    if (showBackButton) {
+                        IconButton(onClick = {
+                            viewModel.stopSpeaking()
+                            onBack()
+                        }) {
+                            Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+                        }
                     }
                 }
             )
@@ -57,7 +68,14 @@ fun HangulStageScreen(
             state.lesson?.let { lesson ->
                 BottomAppBar {
                     Button(
-                        onClick = { viewModel.markComplete(onBack) },
+                        onClick = {
+                            viewModel.stopSpeaking()
+                            if (lesson.isCompleted) {
+                                onBackToPath()
+                            } else {
+                                viewModel.markComplete(onBackToPath)
+                            }
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = spacing.md, vertical = spacing.xs)
@@ -121,14 +139,20 @@ fun HangulStageScreen(
             if (lesson.scriptItems.isNotEmpty()) {
                 item { Text(stringResource(R.string.listen_and_learn), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.scriptItems, key = { it.id }) { item ->
-                    ScriptCard(item = item, isSpeaking = state.speechState.isSpeaking, onPlay = { viewModel.play(item.speech, item.text) }, onStop = viewModel::stopSpeaking)
+                    ScriptCard(item = item)
                 }
             }
 
             if (lesson.writingTargets.isNotEmpty()) {
                 item { Text(stringResource(R.string.write_it), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
                 items(lesson.writingTargets, key = { it.characterId }) { target ->
-                    WritingTargetCard(target = target, onOpenWriting = onOpenWriting)
+                    WritingTargetCard(
+                        target = target,
+                        onOpenWriting = { characterId ->
+                            viewModel.stopSpeaking()
+                            onOpenWriting(characterId)
+                        }
+                    )
                 }
             }
 
@@ -163,21 +187,20 @@ fun HangulStageScreen(
 
 @Composable
 private fun ScriptCard(
-    item: ScriptItem,
-    isSpeaking: Boolean,
-    onPlay: () -> Unit,
-    onStop: () -> Unit
+    item: ScriptItem
 ) {
     ElevatedCard {
-        Row(modifier = Modifier.fillMaxWidth().padding(16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
                 Text(item.text, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Text(item.translation, style = MaterialTheme.typography.bodyMedium)
                 if (item.emphasis.isNotBlank()) {
                     Text(item.emphasis, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-            }
-            SpeechIconButton(isPlaying = isSpeaking, onClick = if (isSpeaking) onStop else onPlay)
         }
     }
 }
@@ -185,22 +208,33 @@ private fun ScriptCard(
 @Composable
 private fun WritingTargetCard(
     target: WritingTarget,
-    onOpenWriting: () -> Unit
+    onOpenWriting: (String) -> Unit
 ) {
     val characterLabel = HangulCharacterData.findById(target.characterId)?.character ?: target.characterId
     ElevatedCard {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(target.prompt, style = MaterialTheme.typography.bodyLarge)
-                Text(characterLabel, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            }
-            FilledTonalButton(onClick = onOpenWriting) {
-                Icon(Icons.Default.Edit, contentDescription = null)
-                Spacer(Modifier.width(6.dp))
-                Text(stringResource(R.string.practice))
+            Text(target.prompt, style = MaterialTheme.typography.bodyLarge)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    characterLabel,
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                FilledTonalButton(onClick = { onOpenWriting(target.characterId) }) {
+                    Icon(Icons.Default.Edit, contentDescription = null)
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.practice))
+                }
             }
         }
     }

@@ -24,6 +24,7 @@ import com.koreancoach.app.ui.theme.LocalSpacing
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HangulPathScreen(
+    showBackButton: Boolean,
     onBack: () -> Unit,
     onExplore: () -> Unit,
     onOpenLesson: (String) -> Unit,
@@ -37,8 +38,10 @@ fun HangulPathScreen(
             TopAppBar(
                 title = { Text(stringResource(R.string.hangul_sprint), fontWeight = FontWeight.Bold) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+                    if (showBackButton) {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.Default.ArrowBack, contentDescription = stringResource(R.string.back))
+                        }
                     }
                 },
                 actions = {

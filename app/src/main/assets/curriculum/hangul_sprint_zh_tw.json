@@ -1,0 +1,2794 @@
+{
+  "version": "hangul-sprint-v4-zh-tw",
+  "lessons": [
+    {
+      "lessonId": "hangul_stage_1",
+      "trackId": "hangul_sprint",
+      "stageOrder": 1,
+      "title": "第 1 階段 · 基本母音",
+      "subtitle": "從字形與聲音學會 10 個韓文基本母音",
+      "emoji": "🔤",
+      "estimatedMinutes": 15,
+      "learningObjective": "認出並唸出 10 個基本韓文母音，並依照字形家族來記憶。",
+      "initiallyUnlocked": true,
+      "unlockTargetIds": [
+        "hangul_stage_2"
+      ],
+      "vocabulary": [
+        {
+          "id": "hv_a",
+          "korean": "ㅏ",
+          "romanization": "a",
+          "english": "a 母音",
+          "exampleSentence": "아",
+          "exampleTranslation": "a",
+          "memoryHook": "一條直線加一筆向右的小橫，嘴巴張開念 ah。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_ya",
+          "korean": "ㅑ",
+          "romanization": "ya",
+          "english": "ya 母音",
+          "exampleSentence": "야",
+          "exampleTranslation": "ya",
+          "memoryHook": "右邊兩筆，表示在 ㅏ 前面多一個 Y 起音：yah。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_eo",
+          "korean": "ㅓ",
+          "romanization": "eo",
+          "english": "eo 母音",
+          "exampleSentence": "어",
+          "exampleTranslation": "eo",
+          "memoryHook": "左邊一筆，是 ㅏ 的鏡像，像驚訝時的 uh。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yeo",
+          "korean": "ㅕ",
+          "romanization": "yeo",
+          "english": "yeo 母音",
+          "exampleSentence": "여",
+          "exampleTranslation": "yeo",
+          "memoryHook": "左邊兩筆，表示在 ㅓ 前面多一個 Y 起音：yuh。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "여",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_o",
+          "korean": "ㅗ",
+          "romanization": "o",
+          "english": "o 母音",
+          "exampleSentence": "오",
+          "exampleTranslation": "o",
+          "memoryHook": "短線往上伸，嘴唇圓起來念 oh。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yo",
+          "korean": "ㅛ",
+          "romanization": "yo",
+          "english": "yo 母音",
+          "exampleSentence": "요",
+          "exampleTranslation": "yo",
+          "memoryHook": "上方兩筆，等於把 o 加上 Y 起音：yo。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "요",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_u",
+          "korean": "ㅜ",
+          "romanization": "u",
+          "english": "u 母音",
+          "exampleSentence": "우",
+          "exampleTranslation": "u",
+          "memoryHook": "短線往下垂，嘴型往下收成 oo。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yu",
+          "korean": "ㅠ",
+          "romanization": "yu",
+          "english": "yu 母音",
+          "exampleSentence": "유",
+          "exampleTranslation": "yu",
+          "memoryHook": "下方兩筆，等於把 u 加上 Y 起音：yoo。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "유",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_eu",
+          "korean": "ㅡ",
+          "romanization": "eu",
+          "english": "eu 母音",
+          "exampleSentence": "으",
+          "exampleTranslation": "eu",
+          "memoryHook": "一條平平的橫線，嘴型扁平，發 eu。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_i",
+          "korean": "ㅣ",
+          "romanization": "i",
+          "english": "i 母音",
+          "exampleSentence": "이",
+          "exampleTranslation": "i",
+          "memoryHook": "一條直線像拉長的微笑線條，念 ee。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "이",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㅓ vs ㅗ",
+          "description": "這兩個母音都會讓嘴唇帶一點圓形，所以很多初學者會混淆。",
+          "englishComparison": "ㅓ（eo）比較像英文 sun 裡的 u／uh，ㅗ（o）則是乾淨圓潤的 oh，像 go。",
+          "commonMistake": "不要把 ㅓ 唸成 oh。念 ㅓ 時嘴巴要更放鬆、更張開。"
+        },
+        {
+          "sound": "ㅡ vs ㅣ",
+          "description": "這兩個字形都很簡單，但聲音差很多。",
+          "englishComparison": "ㅡ（eu）在英語裡沒有完全對應音，嘴唇要保持扁平不微笑。ㅣ（i）則像 see 裡的 ee。",
+          "commonMistake": "念 ㅡ 時不要微笑，嘴唇保持自然，下巴微微打開。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "母音家族",
+          "story": "韓文母音可以分成兩大家族：縱向母音（ㅏ ㅑ ㅓ ㅕ ㅣ）從直幹向左或向右長出分支；橫向母音（ㅗ ㅛ ㅜ ㅠ ㅡ）則從橫線往上或往下長出分支。",
+          "visualDescription": "把縱向母音想成站立的樹幹，把橫向母音想成平放的橋。"
+        },
+        {
+          "targetWord": "Y 母音",
+          "story": "任何有兩個分支的母音，都會在前面多一個 Y 音。單分支是原版，雙分支就是 Y 版。",
+          "visualDescription": "單分支：ㅏ ㅓ ㅗ ㅜ。雙分支：ㅑ ㅕ ㅛ ㅠ。"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s1_intro",
+          "text": "韓文剛好有 10 個基本母音。它們可以整齊分成幾個字形家族，幫你知道嘴型怎麼動。",
+          "romanization": "hangul becomes much easier when you learn the shapes as sound families",
+          "translation": "先看字形規律，聲音就會跟上。",
+          "emphasis": "先看形，再聽音。",
+          "speech": {
+            "speechText": "한글에는 기본 모음이 열 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s1_vertical",
+          "text": "縱向母音：ㅏ (a)、ㅑ (ya)、ㅓ (eo)、ㅕ (yeo)、ㅣ (i)。它們都有一條高高的直線，手臂向左或向右伸。",
+          "romanization": "vertical vowels a ya eo yeo i",
+          "translation": "手臂朝哪邊，聲音就會跟著變。",
+          "speech": {
+            "speechText": "세로 모음: 아, 야, 어, 여, 이.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s1_horizontal",
+          "text": "橫向母音：ㅗ (o)、ㅛ (yo)、ㅜ (u)、ㅠ (yu)、ㅡ (eu)。它們都有一條平平的橫線，分支在上面或下面。",
+          "romanization": "horizontal vowels o yo u yu eu",
+          "translation": "往上比較亮，往下比較沉。",
+          "speech": {
+            "speechText": "가로 모음: 오, 요, 우, 유, 으.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "vowel_a",
+          "prompt": "描一遍 ㅏ：先畫直線，再往右加一小橫。",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_ya",
+          "prompt": "描一遍 ㅑ：一條直線，右邊兩小橫。",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_eo",
+          "prompt": "描一遍 ㅓ：一條直線，左邊一小橫。",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yeo",
+          "prompt": "描一遍 ㅕ：一條直線，左邊兩小橫。",
+          "speech": {
+            "speechText": "여",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_o",
+          "prompt": "描一遍 ㅗ：一條橫線，上方一小豎。",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yo",
+          "prompt": "描一遍 ㅛ：一條橫線，上方兩小豎。",
+          "speech": {
+            "speechText": "요",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_u",
+          "prompt": "描一遍 ㅜ：一條橫線，下方一小豎。",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yu",
+          "prompt": "描一遍 ㅠ：一條橫線，下方兩小豎。",
+          "speech": {
+            "speechText": "유",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_eu",
+          "prompt": "描一遍 ㅡ：一條平平的橫線。",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_i",
+          "prompt": "描一遍 ㅣ：一條直線。",
+          "speech": {
+            "speechText": "이",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s1_1",
+          "prompt": "讀出這個母音",
+          "displayText": "ㅏ",
+          "romanization": "a",
+          "translation": "ah 音",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_2",
+          "prompt": "讀出這個母音",
+          "displayText": "ㅜ",
+          "romanization": "u",
+          "translation": "uh 音",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_3",
+          "prompt": "讀出這個母音",
+          "displayText": "ㅗ",
+          "romanization": "o",
+          "translation": "oh 音",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_4",
+          "prompt": "讀出這個母音",
+          "displayText": "ㅜ",
+          "romanization": "u",
+          "translation": "oo 音",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_5",
+          "prompt": "哪個是加上 Y 音的版本？讀出來",
+          "displayText": "ㅑ",
+          "romanization": "ya",
+          "translation": "yah 音",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_6",
+          "prompt": "讀出這個平直母音",
+          "displayText": "ㅡ",
+          "romanization": "eu",
+          "translation": "eu 音",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s1_1",
+          "title": "縱向母音對比",
+          "lines": [
+            {
+              "id": "dlg_s1_1_l1",
+              "speaker": "教練",
+              "text": "아, 어",
+              "romanization": "a, eo",
+              "translation": "聽聽看：一個手臂朝右，一個手臂朝左。",
+              "speech": {
+                "speechText": "아, 어",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s1_1_l2",
+              "speaker": "你",
+              "text": "ㅏ, ㅓ",
+              "romanization": "a, eo",
+              "translation": "我看得出這個鏡像規律。",
+              "speech": {
+                "speechText": "아, 어",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "哪個母音的手臂朝左？",
+          "comprehensionAnswer": "ㅓ"
+        },
+        {
+          "id": "dlg_s1_2",
+          "title": "橫向母音對比",
+          "lines": [
+            {
+              "id": "dlg_s1_2_l1",
+              "speaker": "教練",
+              "text": "오, 우",
+              "romanization": "o, u",
+              "translation": "聽聽看：一個分支朝上，一個分支朝下。",
+              "speech": {
+                "speechText": "오, 우",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s1_2_l2",
+              "speaker": "你",
+              "text": "ㅗ, ㅜ",
+              "romanization": "o, u",
+              "translation": "往上是 oh，往下是 oo。",
+              "speech": {
+                "speechText": "오, 우",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "哪個母音的分支朝上？",
+          "comprehensionAnswer": "ㅗ"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s1_1",
+          "prompt": "哪個符號是有一隻右手臂的縱向母音？",
+          "options": [
+            "ㅏ",
+            "ㅓ",
+            "ㅗ",
+            "ㅜ"
+          ],
+          "correctAnswer": "ㅏ",
+          "explanation": "ㅏ 是一條直線加上右邊一小橫，所以會發出 a 音。",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s1_2",
+          "prompt": "要怎麼把基本母音變成帶 Y 音的版本？",
+          "options": [
+            "加一個圓圈",
+            "把分支加倍",
+            "整個上下顛倒",
+            "加一個點"
+          ],
+          "correctAnswer": "把分支加倍",
+          "explanation": "一個分支是原本的母音，兩個分支就是加上 Y 音的版本。例如 ㅏ（a）會變成 ㅑ（ya）。",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s1_3",
+          "prompt": "哪個母音是扁平橫線形的 eu 音？",
+          "options": [
+            "ㅣ",
+            "ㅡ",
+            "ㅗ",
+            "ㅏ"
+          ],
+          "correctAnswer": "ㅡ",
+          "explanation": "ㅡ 是一條平平的橫線。念它時嘴唇保持自然、微微張開。",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_2",
+      "trackId": "hangul_sprint",
+      "stageOrder": 2,
+      "title": "第 2 階段 · 基本子音",
+      "subtitle": "認識支撐韓文音節的 14 個基本子音",
+      "emoji": "🧱",
+      "estimatedMinutes": 20,
+      "learningObjective": "認出 14 個基本韓文子音，把字形和口腔動作連起來，並記住它們的韓文字母名稱。",
+      "unlockTargetIds": [
+        "hangul_stage_3"
+      ],
+      "vocabulary": [
+        {
+          "id": "hc_g",
+          "korean": "ㄱ",
+          "romanization": "g/k",
+          "english": "기역（giyeok）",
+          "exampleSentence": "가",
+          "exampleTranslation": "ga",
+          "memoryHook": "像數字 7 或手槍的形狀，發 g/k 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_n",
+          "korean": "ㄴ",
+          "romanization": "n",
+          "english": "니은（nieun）",
+          "exampleSentence": "나",
+          "exampleTranslation": "na",
+          "memoryHook": "像 L 形或鼻樑，發 n 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_d",
+          "korean": "ㄷ",
+          "romanization": "d/t",
+          "english": "디귿（digeut）",
+          "exampleSentence": "다",
+          "exampleTranslation": "da",
+          "memoryHook": "像桌面或門框，發 d/t 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_r",
+          "korean": "ㄹ",
+          "romanization": "r/l",
+          "english": "리을（rieul）",
+          "exampleSentence": "라",
+          "exampleTranslation": "ra",
+          "memoryHook": "像彎曲的河道，也像舌頭一彈，發 r/l 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_m",
+          "korean": "ㅁ",
+          "romanization": "m",
+          "english": "미음（mieum）",
+          "exampleSentence": "마",
+          "exampleTranslation": "ma",
+          "memoryHook": "像閉起來的嘴唇形成的方框，發 m 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_b",
+          "korean": "ㅂ",
+          "romanization": "b/p",
+          "english": "비읍（bieup）",
+          "exampleSentence": "바",
+          "exampleTranslation": "ba",
+          "memoryHook": "像一個桶子，發 b/p 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_s",
+          "korean": "ㅅ",
+          "romanization": "s",
+          "english": "시옷（siot）",
+          "exampleSentence": "사",
+          "exampleTranslation": "sa",
+          "memoryHook": "像山峰或帆，發 s 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_ng",
+          "korean": "ㅇ",
+          "romanization": "ng/silent",
+          "english": "이응（ieung）",
+          "exampleSentence": "아",
+          "exampleTranslation": "a",
+          "memoryHook": "像一個圓圈，開頭不發音，結尾發 ng。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_j",
+          "korean": "ㅈ",
+          "romanization": "j",
+          "english": "지읒（jieut）",
+          "exampleSentence": "자",
+          "exampleTranslation": "ja",
+          "memoryHook": "像戴帽子的折線，發 j 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_ch",
+          "korean": "ㅊ",
+          "romanization": "ch",
+          "english": "치읓（chieut）",
+          "exampleSentence": "차",
+          "exampleTranslation": "cha",
+          "memoryHook": "是 ㅈ 再加一筆，變成送氣的 ch。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "치읓",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_k",
+          "korean": "ㅋ",
+          "romanization": "k",
+          "english": "키읔（kieuk）",
+          "exampleSentence": "카",
+          "exampleTranslation": "ka",
+          "memoryHook": "是 ㄱ 多一筆，變成送氣的 k。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_t",
+          "korean": "ㅌ",
+          "romanization": "t",
+          "english": "티읕（tieut）",
+          "exampleSentence": "타",
+          "exampleTranslation": "ta",
+          "memoryHook": "是 ㄷ 多一筆，變成送氣的 t。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "티읕",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_p",
+          "korean": "ㅍ",
+          "romanization": "p",
+          "english": "피읖（pieup）",
+          "exampleSentence": "파",
+          "exampleTranslation": "pa",
+          "memoryHook": "是 ㅂ 多一筆，變成送氣的 p。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "피읖",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_h",
+          "korean": "ㅎ",
+          "romanization": "h",
+          "english": "히읗（hieut）",
+          "exampleSentence": "하",
+          "exampleTranslation": "ha",
+          "memoryHook": "像戴帽子的人，帶著氣息發 h 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "히읗",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㄱ 的柔和感",
+          "description": "韓文的 ㄱ 沒有英文硬 g 或 k 那麼重，它通常落在兩者之間。",
+          "englishComparison": "可以想成一個比較柔和的 g，比起 kite 裡的 k，更接近 ago 裡中間那種輕輕的 g。",
+          "commonMistake": "不要一次送太多氣。真正強烈的噴氣要留給 ㅋ。"
+        },
+        {
+          "sound": "ㄹ（r / l）",
+          "description": "ㄹ 在母音之間比較像輕輕一彈的 r，在音節尾比較像 l。",
+          "englishComparison": "它像美式英語 butter 中間那個很快的 d，不是大舌音 R，也不是很重的 L。",
+          "commonMistake": "不要用太重的英文 R 或 L，舌頭輕輕點一下就好。"
+        },
+        {
+          "sound": "ㅇ（無聲 / ng）",
+          "description": "ㅇ 放在音節開頭時不發音，但放在尾音位置時會發成 ng。",
+          "englishComparison": "放在開頭時等於零聲音，只是占位；放在結尾時就像 sing 裡的 ng。",
+          "commonMistake": "不要硬把開頭的 ㅇ 唸出來，它只是因為韓文字塊一定要有子音格才出現。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "子音字形",
+          "story": "很多韓文子音其實像是嘴巴、舌頭或喉嚨動作的縮圖。ㄱ 像舌後部，ㄴ 像舌尖碰上顎，ㅁ 像閉起來的嘴唇，ㅅ 像牙齒，ㅇ 則像喉嚨。",
+          "visualDescription": "每個字形都暗示了發音時會用到的部位。"
+        },
+        {
+          "targetWord": "送氣家族",
+          "story": "送氣子音（ㅊ ㅋ ㅌ ㅍ）其實就是基本子音（ㅈ ㄱ ㄷ ㅂ）多了一筆。多出來的那一筆，就代表更多氣流。",
+          "visualDescription": "基本字形再加一條線，就是更多的氣。"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s2_intro",
+          "text": "韓文有 14 個基本子音。每個字塊都會先從子音開始，就連純母音也要靠無聲的 ㅇ 來占位。",
+          "romanization": "a hangul block usually starts with a consonant and then joins a vowel",
+          "translation": "在韓文字塊裡，子音永遠站在前面。",
+          "speech": {
+            "speechText": "한글에는 기본 자음이 열네 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s2_families",
+          "text": "子音也有家族：平音（ㄱ ㄷ ㅂ ㅈ）、送氣音（ㅋ ㅌ ㅍ ㅊ），還有其他獨特字形（ㄴ ㄹ ㅁ ㅅ ㅇ ㅎ）。",
+          "romanization": "consonants come in families",
+          "translation": "先記家族，再記十四個子音會輕鬆很多。",
+          "speech": {
+            "speechText": "자음은 가족별로 배우면 쉬워요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s2_aspirated",
+          "text": "送氣音會多一股氣流。把手放在嘴前面試試看：念 ㅋ ㅌ ㅍ ㅊ 時，會感覺到明顯的噴氣。",
+          "romanization": "aspirated consonants add a burst of air",
+          "translation": "把手放在嘴前，就能感覺差別。",
+          "speech": {
+            "speechText": "격음은 숨이 많이 나와요. 손을 입 앞에 대 보세요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "consonant_giyeok",
+          "prompt": "描一遍 ㄱ：從上方開始，先往右，再直直往下。",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_nieun",
+          "prompt": "描一遍 ㄴ：先往下，再沿著底部往右。",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_digeut",
+          "prompt": "描一遍 ㄷ：先畫上橫，再往下收成桌子形。",
+          "speech": {
+            "speechText": "디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_rieul",
+          "prompt": "描一遍 ㄹ：畫出彎折的鋸齒形。",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_mieum",
+          "prompt": "描一遍 ㅁ：一個簡單的封閉方框。",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_bieup",
+          "prompt": "描一遍 ㅂ：像有兩側和底部的桶子。",
+          "speech": {
+            "speechText": "비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_siot",
+          "prompt": "描一遍 ㅅ：兩條線在頂端交會。",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ieung",
+          "prompt": "描一遍 ㅇ：一個簡單的圓。",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_jieut",
+          "prompt": "描一遍 ㅈ：像 ㅅ 上面加了一條平頂。",
+          "speech": {
+            "speechText": "지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_chieut",
+          "prompt": "描一遍 ㅊ：像 ㅈ 再多一條頂部橫線。",
+          "speech": {
+            "speechText": "치읓",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_kieuk",
+          "prompt": "描一遍 ㅋ：像 ㄱ 再加一條橫線。",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_tieut",
+          "prompt": "描一遍 ㅌ：像 ㄷ 再多一條橫線。",
+          "speech": {
+            "speechText": "티읕",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_pieup",
+          "prompt": "描一遍 ㅍ：像 ㅂ 再加一條穿過上方的橫線。",
+          "speech": {
+            "speechText": "피읖",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_hieut",
+          "prompt": "描一遍 ㅎ：上面像帽子，下面是一個圓。",
+          "speech": {
+            "speechText": "히읗",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s2_1",
+          "prompt": "讀出這個子音名稱",
+          "displayText": "ㄱ",
+          "romanization": "g/k",
+          "translation": "기역",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_2",
+          "prompt": "讀出這個子音名稱",
+          "displayText": "ㅁ",
+          "romanization": "m",
+          "translation": "니은",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_3",
+          "prompt": "讀出這個子音名稱",
+          "displayText": "ㅁ",
+          "romanization": "m",
+          "translation": "미음",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_4",
+          "prompt": "讀出這個子音名稱",
+          "displayText": "ㅅ",
+          "romanization": "s",
+          "translation": "시옷",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_5",
+          "prompt": "哪個是 ㄱ 的送氣音版本？",
+          "displayText": "ㅋ",
+          "romanization": "k",
+          "translation": "키읔",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s2_1",
+          "title": "說出字母名稱",
+          "lines": [
+            {
+              "id": "dlg_s2_1_l1",
+              "speaker": "教練",
+              "text": "이 글자는 뭐예요?",
+              "romanization": "i geuljaneun mwoyeyo",
+              "translation": "這個字母是什麼？",
+              "speech": {
+                "speechText": "이 글자는 뭐예요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s2_1_l2",
+              "speaker": "你",
+              "text": "기역이에요.",
+              "romanization": "giyeog-ieyo",
+              "translation": "這是 기역。",
+              "speech": {
+                "speechText": "기역이에요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "剛剛回答的是哪個字母名稱？",
+          "comprehensionAnswer": "기역"
+        },
+        {
+          "id": "dlg_s2_2",
+          "title": "平音和送氣音",
+          "lines": [
+            {
+              "id": "dlg_s2_2_l1",
+              "speaker": "教練",
+              "text": "ㄷ하고 ㅌ는 어떻게 달라요?",
+              "romanization": "digeut-hago tieut-eun eotteoke dallayo?",
+              "translation": "ㄷ 和 ㅌ 有什麼不同？",
+              "speech": {
+                "speechText": "디귿하고 티읕은 어떻게 달라요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s2_2_l2",
+              "speaker": "你",
+              "text": "ㅌ는 숨이 더 많이 나와요.",
+              "romanization": "tieut-eun sumi deo mani nawayo",
+              "translation": "ㅌ 的氣流比較多。",
+              "speech": {
+                "speechText": "티읕은 숨이 더 많이 나와요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "ㄷ 和 ㅌ 哪一個氣流比較強？",
+          "comprehensionAnswer": "ㅌ"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s2_1",
+          "prompt": "哪個子音像閉起來的方形嘴唇？",
+          "options": [
+            "ㄱ",
+            "ㄴ",
+            "ㅁ",
+            "ㅅ"
+          ],
+          "correctAnswer": "ㅁ",
+          "explanation": "ㅁ（미음）像一個方框，可以聯想到閉起來發 m 音的嘴唇。",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_2",
+          "prompt": "ㅇ 在音節開頭時扮演什麼角色？",
+          "options": [
+            "發 ng 音",
+            "發 oh 音",
+            "不發音",
+            "發 g 音"
+          ],
+          "correctAnswer": "不發音",
+          "explanation": "ㅇ（이응）放在開頭時只是占位，不發音；只有在尾音位置時才會變成 ng。",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_3",
+          "prompt": "哪個子音是 ㅂ 的送氣版本？",
+          "options": [
+            "ㄱ",
+            "ㅍ",
+            "ㅋ",
+            "ㅊ"
+          ],
+          "correctAnswer": "ㅍ",
+          "explanation": "ㅍ（피읖）就是 ㅂ（비읍）多了一筆，表示更多氣流。",
+          "speech": {
+            "speechText": "피읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_4",
+          "prompt": "哪個子音在母音之間像 r，在尾音時像 l？",
+          "options": [
+            "ㄴ",
+            "ㄹ",
+            "ㅁ",
+            "ㅇ"
+          ],
+          "correctAnswer": "ㄹ",
+          "explanation": "ㄹ（리을）是韓文裡很特別的聲音，會依位置在 r 和 l 之間變化。",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_3",
+      "trackId": "hangul_sprint",
+      "stageOrder": 3,
+      "title": "第 3 階段 · 拼出音節",
+      "subtitle": "把子音和母音組成可讀的音節方塊",
+      "emoji": "🧩",
+      "estimatedMinutes": 15,
+      "learningObjective": "把前兩階段學過的字母組起來，讀出並寫出 CV（子音 + 母音）音節方塊。",
+      "unlockTargetIds": [
+        "hangul_stage_4"
+      ],
+      "vocabulary": [
+        {
+          "id": "hs_ga",
+          "korean": "가",
+          "romanization": "ga",
+          "english": "가 音節",
+          "exampleSentence": "가다",
+          "exampleTranslation": "去",
+          "memoryHook": "ㄱ 加上 ㅏ 就是 가，先子音、再母音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_na",
+          "korean": "나",
+          "romanization": "na",
+          "english": "나 音節",
+          "exampleSentence": "나",
+          "exampleTranslation": "我",
+          "memoryHook": "ㄴ 加上 ㅏ 就是 나，也是韓文的「我」。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_da",
+          "korean": "다",
+          "romanization": "da",
+          "english": "다 音節",
+          "exampleSentence": "다리",
+          "exampleTranslation": "腿／橋",
+          "memoryHook": "ㄷ 加上 ㅏ 就是 다。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "다",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ra",
+          "korean": "라",
+          "romanization": "ra",
+          "english": "라 音節",
+          "exampleSentence": "라면",
+          "exampleTranslation": "如果（文法型）",
+          "memoryHook": "ㄹ 加上 ㅏ 就是 라。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "라",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ma",
+          "korean": "마",
+          "romanization": "ma",
+          "english": "마 音節",
+          "exampleSentence": "엄마",
+          "exampleTranslation": "媽媽",
+          "memoryHook": "ㅁ 加上 ㅏ 就是 마。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "마",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ba",
+          "korean": "바",
+          "romanization": "ba",
+          "english": "바 音節",
+          "exampleSentence": "바다",
+          "exampleTranslation": "海",
+          "memoryHook": "ㅂ 加上 ㅏ 就是 바。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "바",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_sa",
+          "korean": "사",
+          "romanization": "sa",
+          "english": "사 音節",
+          "exampleSentence": "사람",
+          "exampleTranslation": "人",
+          "memoryHook": "ㅅ 加上 ㅏ 就是 사。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_a",
+          "korean": "아",
+          "romanization": "a",
+          "english": "아 音節",
+          "exampleSentence": "아기",
+          "exampleTranslation": "嬰兒",
+          "memoryHook": "ㅇ 加上 ㅏ 就是 아，這裡的 ㅇ 只是占位，不發音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ja",
+          "korean": "자",
+          "romanization": "ja",
+          "english": "자 音節",
+          "exampleSentence": "자다",
+          "exampleTranslation": "睡覺",
+          "memoryHook": "ㅈ 加上 ㅏ 就是 자。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "자",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ha",
+          "korean": "하",
+          "romanization": "ha",
+          "english": "하 音節",
+          "exampleSentence": "하다",
+          "exampleTranslation": "做",
+          "memoryHook": "ㅎ 加上 ㅏ 就是 하。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "하",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "CV 音節方塊",
+          "description": "讀的時候要把子音和母音當成一個順順的拍子，不要拆成兩段。",
+          "englishComparison": "把 ga 想成一個完整音節，像 garage 裡的一拍，而不是把 g 和 ah 分開唸。",
+          "commonMistake": "不要在子音和母音中間停頓，它們是一個字塊，也是一個拍子。"
+        },
+        {
+          "sound": "縱向與橫向母音的位置",
+          "description": "縱向母音（像 ㅏ、ㅓ）會放在子音右邊，橫向母音（像 ㅗ、ㅜ）會放在子音下面。",
+          "englishComparison": "雖然字塊排法會因母音方向不同而改變，但閱讀順序一樣是先子音、再母音。",
+          "commonMistake": "看到橫向母音時，不要從上到下誤讀成兩個音節。고 只有一拍，就是 go。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "音節方塊",
+          "story": "韓文不是像英文那樣一長串排開，而是每個音節都會卡進一個緊湊的小方塊，像用積木蓋出來的小建築。",
+          "visualDescription": "子音加母音，鎖進一個可以直接讀的單位。"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s3_intro",
+          "text": "現在我們不再只是叫出字母名稱，而是開始讀整個字塊。每個韓文字塊至少都有一個子音和一個母音。",
+          "romanization": "now we stop naming letters and start reading blocks",
+          "translation": "韓文就是從這裡開始變得實用。",
+          "speech": {
+            "speechText": "이제는 글자 이름보다 글자 블록을 읽기 시작해요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s3_layout",
+          "text": "縱向母音會放在子音旁邊：가 나 다。橫向母音會放在子音下面：고 누 두。",
+          "romanization": "vertical vowels sit beside, horizontal vowels sit below",
+          "translation": "母音的形狀決定字塊要怎麼排。",
+          "speech": {
+            "speechText": "세로 모음은 옐에, 가로 모음은 아래에 위치해요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "syllable_ga",
+          "prompt": "寫出 가：左邊放 ㄱ，右邊放 ㅏ。",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_na",
+          "prompt": "寫出 나：左邊放 ㄴ，右邊放 ㅏ。",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_da",
+          "prompt": "寫出 다：左邊放 ㄷ，右邊放 ㅏ。",
+          "speech": {
+            "speechText": "다",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_ma",
+          "prompt": "寫出 마：左邊放 ㅁ，右邊放 ㅏ。",
+          "speech": {
+            "speechText": "마",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_sa",
+          "prompt": "寫出 사：左邊放 ㅅ，右邊放 ㅏ。",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s3_1",
+          "prompt": "讀出整個字塊",
+          "displayText": "가",
+          "romanization": "ga",
+          "translation": "ga",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_2",
+          "prompt": "讀出整個字塊",
+          "displayText": "사",
+          "romanization": "sa",
+          "translation": "sa",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_3",
+          "prompt": "讀出這個橫向母音字塊",
+          "displayText": "고",
+          "romanization": "go",
+          "translation": "go",
+          "speech": {
+            "speechText": "고",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_4",
+          "prompt": "讀出這個字塊",
+          "displayText": "누",
+          "romanization": "nu",
+          "translation": "nu",
+          "speech": {
+            "speechText": "누",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_5",
+          "prompt": "讀出這個字塊",
+          "displayText": "미",
+          "romanization": "mi",
+          "translation": "mi",
+          "speech": {
+            "speechText": "미",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_6",
+          "prompt": "讀出這個字塊",
+          "displayText": "서",
+          "romanization": "seo",
+          "translation": "seo",
+          "speech": {
+            "speechText": "서",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_7",
+          "prompt": "讀出這個字塊",
+          "displayText": "주",
+          "romanization": "ju",
+          "translation": "ju",
+          "speech": {
+            "speechText": "주",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s3_1",
+          "title": "拼出簡單字塊",
+          "lines": [
+            {
+              "id": "dlg_s3_1_l1",
+              "speaker": "教練",
+              "text": "ㄱ + ㅏ",
+              "romanization": "g + a",
+              "translation": "把這個字塊拼起來。",
+              "speech": {
+                "speechText": "기역, 아",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s3_1_l2",
+              "speaker": "你",
+              "text": "가",
+              "romanization": "ga",
+              "translation": "把它當成一拍唸出來。",
+              "speech": {
+                "speechText": "가",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "你剛剛拼出的是哪個字塊？",
+          "comprehensionAnswer": "가"
+        },
+        {
+          "id": "dlg_s3_2",
+          "title": "橫向母音字塊",
+          "lines": [
+            {
+              "id": "dlg_s3_2_l1",
+              "speaker": "教練",
+              "text": "ㅁ + ㅗ",
+              "romanization": "m + o",
+              "translation": "把這個字塊拼起來，母音會放在下面。",
+              "speech": {
+                "speechText": "미음, 오",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s3_2_l2",
+              "speaker": "你",
+              "text": "모",
+              "romanization": "mo",
+              "translation": "子音在上，母音在下。",
+              "speech": {
+                "speechText": "모",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "ㅁ + ㅗ 會變成哪個字塊？",
+          "comprehensionAnswer": "모"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s3_1",
+          "prompt": "哪個字塊是 ㄴ + ㅏ？",
+          "options": [
+            "마",
+            "나",
+            "사",
+            "다"
+          ],
+          "correctAnswer": "나",
+          "explanation": "ㄴ（니은）和 ㅏ（a）組合起來就是 나。",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_2",
+          "prompt": "哪個字塊是 ㅁ + ㅗ？",
+          "options": [
+            "모",
+            "바",
+            "부",
+            "무"
+          ],
+          "correctAnswer": "모",
+          "explanation": "ㅁ 在上、ㅗ 在下，就會組成 모。",
+          "speech": {
+            "speechText": "모",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_3",
+          "prompt": "像 ㅗ 這樣的橫向母音在字塊裡放哪裡？",
+          "options": [
+            "在子音右邊",
+            "在子音下面",
+            "在子音上面",
+            "在左邊"
+          ],
+          "correctAnswer": "在子音下面",
+          "explanation": "橫向母音（ㅗ、ㅜ、ㅡ 等）會放在音節塊裡的子音下方。",
+          "speech": {
+            "speechText": "모음이 아래에 와요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_4",
+          "prompt": "讀出這個字塊：하",
+          "options": [
+            "sa",
+            "ha",
+            "ga",
+            "na"
+          ],
+          "correctAnswer": "ha",
+          "explanation": "ㅎ（히읗）+ ㅏ（a）= 하（ha）。",
+          "speech": {
+            "speechText": "하",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_4",
+      "trackId": "hangul_sprint",
+      "stageOrder": 4,
+      "title": "第 4 階段 · 雙子音",
+      "subtitle": "學會 5 個緊音（쌍자음）並複習送氣對比",
+      "emoji": "💨",
+      "estimatedMinutes": 15,
+      "learningObjective": "認出 5 個雙子音（緊音），並分辨它們與平音、送氣音的差別。",
+      "unlockTargetIds": [
+        "hangul_stage_5",
+        "w1d1"
+      ],
+      "vocabulary": [
+        {
+          "id": "ht_kk",
+          "korean": "ㄲ",
+          "romanization": "kk",
+          "english": "쌍기역（ssang-giyeok）",
+          "exampleSentence": "까",
+          "exampleTranslation": "kka",
+          "memoryHook": "兩個 ㄱ 緊緊靠在一起，發緊的 kk。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_tt",
+          "korean": "ㄸ",
+          "romanization": "tt",
+          "english": "쌍디귿（ssang-digeut）",
+          "exampleSentence": "따",
+          "exampleTranslation": "tta",
+          "memoryHook": "兩個 ㄷ 疊在一起，發緊的 tt。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_pp",
+          "korean": "ㅃ",
+          "romanization": "pp",
+          "english": "쌍비읍（ssang-bieup）",
+          "exampleSentence": "빠",
+          "exampleTranslation": "ppa",
+          "memoryHook": "兩個 ㅂ 合在一起，發緊的 pp。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_ss",
+          "korean": "ㅆ",
+          "romanization": "ss",
+          "english": "쌍시옷（ssang-siot）",
+          "exampleSentence": "싸",
+          "exampleTranslation": "ssa",
+          "memoryHook": "兩個 ㅅ 的尖角排在一起，發緊的 ss。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_jj",
+          "korean": "ㅉ",
+          "romanization": "jj",
+          "english": "쌍지읒（ssang-jieut）",
+          "exampleSentence": "짜",
+          "exampleTranslation": "jja",
+          "memoryHook": "兩個 ㅈ 的帽子疊在一起，發緊的 jj。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "緊音、平音、送氣音",
+          "description": "很多韓文子音都有三個層次：平音（較柔和）、緊音（喉嚨收緊、不加氣）、送氣音（明顯噴氣）。",
+          "englishComparison": "例如平音 ㄱ 介於英文 g/k 之間；緊音 ㄲ 是收得很緊、沒有氣的 kk；送氣音 ㅋ 則像 kite 裡那種強烈的 k。",
+          "commonMistake": "不要把緊音理解成大聲。緊音是喉嚨更緊，不是音量更大。"
+        },
+        {
+          "sound": "怎麼發緊音",
+          "description": "發緊音時，喉嚨要稍微收緊，氣流要被切短，聲音會有壓縮、俐落的感覺。",
+          "englishComparison": "可以想像你說 uh-oh 時中間那個卡住的感覺，有點像緊音的張力。",
+          "commonMistake": "不要像送氣音那樣把氣噴出來。緊音剛好和送氣音相反。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "緊音子音",
+          "story": "5 個緊音在字形上都是基本子音的加倍版本。字形加倍，聲音也更收緊。",
+          "visualDescription": "ㄱ→ㄲ，ㄷ→ㄸ，ㅂ→ㅃ，ㅅ→ㅆ，ㅈ→ㅉ"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s4_intro",
+          "text": "韓文有 5 個雙子音，也就是 쌍（雙）子音。它們看起來像兩個基本子音黏在一起，發音則更緊、更俐落。",
+          "romanization": "korean often distinguishes softness tension and breath within one consonant family",
+          "translation": "字形雙寫，聲音也會更緊。",
+          "speech": {
+            "speechText": "한글에는 쌍자음이 다섯 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s4_contrast",
+          "text": "比較三種起音：가（平音 ga）vs 까（緊音 kka）vs 카（送氣音 ka）。每一種開頭都不一樣。",
+          "romanization": "ga vs kka vs ka",
+          "translation": "把耳朵訓練成能聽出三種不同開頭。",
+          "speech": {
+            "speechText": "가, 까, 카. 세 가지 시작 소리가 다 달라요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "consonant_ssang_giyeok",
+          "prompt": "描一遍 ㄲ：把兩個 ㄱ 緊緊排在一起。",
+          "speech": {
+            "speechText": "쌍기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_digeut",
+          "prompt": "描一遍 ㄸ：把兩個 ㄷ 疊在一起。",
+          "speech": {
+            "speechText": "쌍디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_bieup",
+          "prompt": "描一遍 ㅃ：把兩個 ㅂ 合成一個字形。",
+          "speech": {
+            "speechText": "쌍비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_siot",
+          "prompt": "描一遍 ㅆ：兩個 ㅅ 並排站著。",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_jieut",
+          "prompt": "描一遍 ㅉ：把兩個 ㅈ 的帽子合在一起。",
+          "speech": {
+            "speechText": "쌍지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s4_1",
+          "prompt": "先讀平音，再讀緊音",
+          "displayText": "까",
+          "romanization": "kka",
+          "translation": "平音 vs 緊音",
+          "speech": {
+            "speechText": "가, 까",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_2",
+          "prompt": "先讀平音，再讀緊音",
+          "displayText": "카",
+          "romanization": "ka",
+          "translation": "平音 vs 緊音",
+          "speech": {
+            "speechText": "다, 따",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_3",
+          "prompt": "先讀平音，再讀緊音",
+          "displayText": "바 vs 빠",
+          "romanization": "ba vs ppa",
+          "translation": "平音 vs 緊音",
+          "speech": {
+            "speechText": "바, 빠",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_4",
+          "prompt": "先讀平音，再讀緊音",
+          "displayText": "사 vs 싸",
+          "romanization": "sa vs ssa",
+          "translation": "平音 vs 緊音",
+          "speech": {
+            "speechText": "사, 싸",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s4_1",
+          "title": "聽出三種起音",
+          "lines": [
+            {
+              "id": "dlg_s4_1_l1",
+              "speaker": "教練",
+              "text": "가 · 까 · 카",
+              "romanization": "ga · kka · ka",
+              "translation": "平音、緊音、送氣音。",
+              "speech": {
+                "speechText": "가, 까, 카",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s4_1_l2",
+              "speaker": "你",
+              "text": "세 가지 시작 소리가 다 달라요.",
+              "romanization": "se gaji sijak soriga da dallayo",
+              "translation": "我聽得出三種不同的起音。",
+              "speech": {
+                "speechText": "세 가지 시작 소리가 다 달라요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "哪個起音最緊、最俐落，而且沒有明顯噴氣？",
+          "comprehensionAnswer": "까"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s4_1",
+          "prompt": "哪個是 ㅅ 的緊音（雙子音）版本？",
+          "options": [
+            "ㅆ",
+            "ㅊ",
+            "ㅉ",
+            "ㅋ"
+          ],
+          "correctAnswer": "ㅆ",
+          "explanation": "ㅆ（쌍시옷）是兩個 ㅅ 合在一起，會發出更緊的 ss 音。",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s4_2",
+          "prompt": "韓文一共有幾個緊音（雙子音）？",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "7"
+          ],
+          "correctAnswer": "5",
+          "explanation": "韓文剛好有 5 個緊音：ㄲ ㄸ ㅃ ㅆ ㅉ。",
+          "speech": {
+            "speechText": "쌍자음은 다섯 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s4_3",
+          "prompt": "哪個音節用了緊音子音 ㄸ？",
+          "options": [
+            "다",
+            "따",
+            "타",
+            "라"
+          ],
+          "correctAnswer": "따",
+          "explanation": "ㄸ + ㅏ = 따（tta）。다 用的是平音 ㄷ，타 用的是送氣音 ㅌ。",
+          "speech": {
+            "speechText": "따",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_5",
+      "trackId": "hangul_sprint",
+      "stageOrder": 5,
+      "title": "第 5 階段 · 複合母音",
+      "subtitle": "拆解 11 個由母音混合而成的組合",
+      "emoji": "🌊",
+      "estimatedMinutes": 18,
+      "learningObjective": "透過理解基本母音怎麼組合，認出並唸出 11 個複合母音。",
+      "unlockTargetIds": [
+        "hangul_stage_6"
+      ],
+      "vocabulary": [
+        {
+          "id": "hcv_ae",
+          "korean": "ㅐ",
+          "romanization": "ae",
+          "english": "ae 母音",
+          "exampleSentence": "애",
+          "exampleTranslation": "ae",
+          "memoryHook": "ㅏ 和 ㅣ 合起來就是 ae。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_yae",
+          "korean": "ㅒ",
+          "romanization": "yae",
+          "english": "yae 母音",
+          "exampleSentence": "얘",
+          "exampleTranslation": "yae",
+          "memoryHook": "ㅑ 和 ㅣ 合起來就是 yae。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "얘",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_e",
+          "korean": "ㅔ",
+          "romanization": "e",
+          "english": "e 母音",
+          "exampleSentence": "에",
+          "exampleTranslation": "e",
+          "memoryHook": "ㅓ 和 ㅣ 合起來就是 e。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "에",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_ye",
+          "korean": "ㅖ",
+          "romanization": "ye",
+          "english": "ye 母音",
+          "exampleSentence": "예",
+          "exampleTranslation": "ye",
+          "memoryHook": "ㅕ 和 ㅣ 合起來就是 ye。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "예",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wa",
+          "korean": "ㅘ",
+          "romanization": "wa",
+          "english": "wa 母音",
+          "exampleSentence": "와",
+          "exampleTranslation": "wa",
+          "memoryHook": "ㅗ 加上 ㅏ，滑成 wa。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wae",
+          "korean": "ㅙ",
+          "romanization": "wae",
+          "english": "wae 母音",
+          "exampleSentence": "왜",
+          "exampleTranslation": "wae",
+          "memoryHook": "ㅗ 加上 ㅐ，滑成 wae。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "왜",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_oe",
+          "korean": "ㅚ",
+          "romanization": "oe",
+          "english": "oe 母音",
+          "exampleSentence": "외",
+          "exampleTranslation": "oe",
+          "memoryHook": "ㅗ 加上 ㅣ，滑成 oe。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "외",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wo",
+          "korean": "ㅝ",
+          "romanization": "wo",
+          "english": "wo 母音",
+          "exampleSentence": "워",
+          "exampleTranslation": "wo",
+          "memoryHook": "ㅜ 加上 ㅓ，滑成 wo。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_we",
+          "korean": "ㅞ",
+          "romanization": "we",
+          "english": "we 母音",
+          "exampleSentence": "웨",
+          "exampleTranslation": "we",
+          "memoryHook": "ㅜ 加上 ㅔ，滑成 we。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "웨",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wi",
+          "korean": "ㅟ",
+          "romanization": "wi",
+          "english": "wi 母音",
+          "exampleSentence": "위",
+          "exampleTranslation": "wi",
+          "memoryHook": "ㅜ 加上 ㅣ，滑成 wi。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "위",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_ui",
+          "korean": "ㅢ",
+          "romanization": "ui",
+          "english": "ui 母音",
+          "exampleSentence": "의",
+          "exampleTranslation": "ui",
+          "memoryHook": "ㅡ 加上 ㅣ，滑成 ui，這個最容易卡住。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㅐ / ㅔ",
+          "description": "現代韓語裡，很多人會把 ㅐ（ae）和 ㅔ（e）念得幾乎一樣。就算你暫時聽不出來，也很正常。",
+          "englishComparison": "兩者都接近英文 bed 裡的 e。歷史上 ㅐ 比較開，較接近 cat。",
+          "commonMistake": "不要太執著一定要靠耳朵分出來，先把拼寫記熟更重要，很多母語者也會靠上下文判斷。"
+        },
+        {
+          "sound": "ㅢ (ui)",
+          "description": "ㅢ 是最麻煩的複合母音。它會因為位置不同而改變發音：字首常讀 ui，子音後常接近 i，作為助詞 의 時常接近 e。",
+          "englishComparison": "英語裡沒有完全對應音，可以把它想成一個很快從 eu 滑向 ee 的聲音。",
+          "commonMistake": "不要把 ㅢ 固定成一種念法，要多聽它在不同位置的變化。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "複合母音邏輯",
+          "story": "每個複合母音，都是你已經學過的兩個基本母音混在一起。只要看得出原料，就能把混音讀出來。",
+          "visualDescription": "像混色一樣：ㅗ（藍）+ ㅏ（黃）= ㅘ（綠）。"
+        },
+        {
+          "targetWord": "w 滑音母音",
+          "story": "以 ㅗ 或 ㅜ 開頭的複合母音，通常都會帶出 w 滑音：ㅘ（wa）、ㅙ（wae）、ㅚ（oe）、ㅝ（wo）、ㅞ（we）、ㅟ（wi）。",
+          "visualDescription": "先從圓唇母音出發，再滑進下一個母音。"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s5_intro",
+          "text": "複合母音看起來很忙，但其實只是把熟悉的部件組在一起。先看組成，再讀結果，字形就沒那麼可怕了。",
+          "romanization": "compound vowels look busy but most of them are just familiar pieces combined",
+          "translation": "先拆材料，再讀結果。",
+          "speech": {
+            "speechText": "복합 모음은 복잡해 보여도 이미 배운 조각이 합쳐진 거예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s5_two_groups",
+          "text": "第一組：ㅏ／ㅓ 系列和 ㅣ 合起來，會變成 ㅐ（ae）、ㅒ（yae）、ㅔ（e）、ㅖ（ye）。第二組：ㅗ 或 ㅜ 加上 w 滑音，會變成 ㅘ、ㅙ、ㅚ、ㅝ、ㅞ、ㅟ。最後還有特別的 ㅢ（ui）。",
+          "romanization": "two groups of compound vowels",
+          "translation": "先記住家族，再記 11 個複合母音就不難。",
+          "speech": {
+            "speechText": "복합 모음을 두 그룹으로 나눈 수 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "vowel_ae",
+          "prompt": "描一遍 ㅐ：就是 ㅏ 右邊再多一筆 ㅣ。",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_e",
+          "prompt": "描一遍 ㅔ：就是 ㅓ 右邊再多一筆 ㅣ。",
+          "speech": {
+            "speechText": "에",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_wa",
+          "prompt": "描一遍 ㅘ：下面是 ㅗ，右邊接 ㅏ。",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_weo",
+          "prompt": "描一遍 ㅝ：下面是 ㅜ，右邊接 ㅓ。",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_wi",
+          "prompt": "描一遍 ㅟ：把 ㅜ 和右邊的 ㅣ 合在一起。",
+          "speech": {
+            "speechText": "위",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_ui",
+          "prompt": "描一遍 ㅢ：把橫向的 ㅡ 和直向的 ㅣ 放在一起。",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s5_1",
+          "prompt": "讀出這個複合母音音節",
+          "displayText": "왜",
+          "romanization": "wae",
+          "translation": "ae",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_2",
+          "prompt": "讀出這個複合母音音節",
+          "displayText": "워",
+          "romanization": "wo",
+          "translation": "ye（例子／禮節中的 ye）",
+          "speech": {
+            "speechText": "예",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_3",
+          "prompt": "讀出這個真正的單字",
+          "displayText": "왜",
+          "romanization": "wae",
+          "translation": "為什麼",
+          "speech": {
+            "speechText": "왜",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_4",
+          "prompt": "讀出這個複合母音音節",
+          "displayText": "워",
+          "romanization": "wo",
+          "translation": "wo",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_5",
+          "prompt": "讀出這個比較刁鑽的複合母音",
+          "displayText": "의",
+          "romanization": "ui",
+          "translation": "的／意思（所有格助詞）",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s5_1",
+          "title": "把字形混合起來",
+          "lines": [
+            {
+              "id": "dlg_s5_1_l1",
+              "speaker": "教練",
+              "text": "ㅗ + ㅏ = ?",
+              "romanization": "o + a = ?",
+              "translation": "把這個組合拼起來。",
+              "speech": {
+                "speechText": "오, 아",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s5_1_l2",
+              "speaker": "你",
+              "text": "ㅘ, 와!",
+              "romanization": "wa!",
+              "translation": "這個組合就是 ㅘ，而且 와 也有「哇」的感覺。",
+              "speech": {
+                "speechText": "와!",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "ㅗ + ㅏ 會組成哪個複合母音？",
+          "comprehensionAnswer": "ㅘ"
+        },
+        {
+          "id": "dlg_s5_2",
+          "title": "ㅐ 和 ㅔ 的混淆",
+          "lines": [
+            {
+              "id": "dlg_s5_2_l1",
+              "speaker": "教練",
+              "text": "ㅐ하고 ㅔ는 소리가 비슷해요.",
+              "romanization": "ae-hago e-neun soriga biseutaeyo",
+              "translation": "ㅐ 和 ㅔ 的聲音很接近。",
+              "speech": {
+                "speechText": "ㅐ하고 ㅔ는 소리가 비슷해요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s5_2_l2",
+              "speaker": "你",
+              "text": "맞아요. 철자로 구별해야 돼요.",
+              "romanization": "majayo. cheoljaro gubyeolhaeya dwoeyo",
+              "translation": "沒錯，所以要靠拼寫把它們分清楚。",
+              "speech": {
+                "speechText": "맞아요. 철자로 구별해야 돼요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "現代韓語使用者通常怎麼區分 ㅐ 和 ㅔ？",
+          "comprehensionAnswer": "By spelling, not sound"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s5_1",
+          "prompt": "哪個複合母音是由 ㅗ + ㅏ 組成的？",
+          "options": [
+            "ㅔ",
+            "ㅘ",
+            "ㅚ",
+            "ㅢ"
+          ],
+          "correctAnswer": "ㅘ",
+          "explanation": "ㅘ（wa）是圓唇的 ㅗ 加上 ㅏ，形成一個 w 滑音。",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s5_2",
+          "prompt": "哪個複合母音最麻煩，會因為位置不同而改變發音？",
+          "options": [
+            "ㅐ",
+            "ㅘ",
+            "ㅢ",
+            "ㅞ"
+          ],
+          "correctAnswer": "ㅢ",
+          "explanation": "ㅢ（ui）會依照出現位置不同，聽起來像 ui、i 或 e。",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s5_3",
+          "prompt": "韓文一共有幾個複合母音？",
+          "options": [
+            "7",
+            "9",
+            "10",
+            "11"
+          ],
+          "correctAnswer": "11",
+          "explanation": "韓文共有 11 個複合母音：ㅐ ㅒ ㅔ ㅖ ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ。",
+          "speech": {
+            "speechText": "복합 모음은 열한 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_6",
+      "trackId": "hangul_sprint",
+      "stageOrder": 6,
+      "title": "第 6 階段 · 받침 基礎",
+      "subtitle": "讀懂底部有尾音的音節",
+      "emoji": "🏁",
+      "estimatedMinutes": 15,
+      "learningObjective": "理解 7 種代表性的 받침（尾音）聲音，並讀出常見的初學者單字。",
+      "vocabulary": [
+        {
+          "id": "hb_bap",
+          "korean": "밥",
+          "romanization": "bap",
+          "english": "飯／一餐",
+          "exampleSentence": "밥 먹었어요?",
+          "exampleTranslation": "你吃飯了嗎？",
+          "memoryHook": "底部的 ㅂ 會把聲音收成短短的 p。밥 是初學者很快就會遇到的字。",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_mul",
+          "korean": "물",
+          "romanization": "mul",
+          "english": "水",
+          "exampleSentence": "물 주세요.",
+          "exampleTranslation": "請給我水。",
+          "memoryHook": "ㄹ 放在底部時會收成柔和的 l 音。",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "물",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_mun",
+          "korean": "문",
+          "romanization": "mun",
+          "english": "門",
+          "exampleSentence": "문 열어 주세요.",
+          "exampleTranslation": "請把門打開。",
+          "memoryHook": "ㄴ 放在底部時會收成輕輕的 n 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "문",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_guk",
+          "korean": "국",
+          "romanization": "guk",
+          "english": "湯",
+          "exampleSentence": "국이 맛있어요.",
+          "exampleTranslation": "湯很好喝。",
+          "memoryHook": "底部的 ㄱ 會把結尾收成短短的 k 音。",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_gang",
+          "korean": "강",
+          "romanization": "gang",
+          "english": "河",
+          "exampleSentence": "한강",
+          "exampleTranslation": "漢江",
+          "memoryHook": "ㅇ 放在底部時終於會真的發出 ng 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "강",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_nun",
+          "korean": "눈",
+          "romanization": "nun",
+          "english": "眼睛／雪",
+          "exampleSentence": "눈이 와요.",
+          "exampleTranslation": "下雪了。",
+          "memoryHook": "又是一個 ㄴ 받침，這個詞同時也可以表示「眼睛」和「雪」。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "눈",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_gom",
+          "korean": "곰",
+          "romanization": "gom",
+          "english": "熊",
+          "exampleSentence": "곰 세 마리",
+          "exampleTranslation": "三隻熊",
+          "memoryHook": "底部的 ㅁ 會讓嘴唇閉起來，收成柔和的 m 音。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "곰",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_ot",
+          "korean": "옷",
+          "romanization": "ot",
+          "english": "衣服",
+          "exampleSentence": "옷이 예뻐요.",
+          "exampleTranslation": "衣服很漂亮。",
+          "memoryHook": "ㅅ 當 받침 時會收成 t，不會念成 s。很多不同子音到了尾音位置都會中和成 t。",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "받침（尾音）",
+          "description": "尾音會改變整個音節的收尾方式。在韓語裡，尾音通常是不完全釋放的，你只要把嘴型就位，不必把聲音整個推出去。",
+          "englishComparison": "有點像英文 stop 裡的 p，如果你把字突然收住、不再送氣。",
+          "commonMistake": "不要在尾音後面自己再補一個母音。밥 是 bap，不是 ba-peu。"
+        },
+        {
+          "sound": "7 種代表聲音",
+          "description": "雖然很多不同的子音都能當 받침，但最後都會收斂成 7 種聲音：ㄱ(k)、ㄴ(n)、ㄷ(t)、ㄹ(l)、ㅁ(m)、ㅂ(p)、ㅇ(ng)。",
+          "englishComparison": "例如 ㅅ、ㅈ、ㅊ、ㅌ、ㅎ 放在尾音位置時，最後都會像 t。",
+          "commonMistake": "不要把每一個 받침 字母都念成不同聲音，先記住這 7 種代表聲音。"
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "받침",
+          "story": "받침 原意有「支撐」或「地板」的意思。尾音就像支撐整個字塊的底梁，放在最下面。",
+          "visualDescription": "像一個音節方塊底下的地板梁。"
+        },
+        {
+          "targetWord": "7 聲規則",
+          "story": "不管底部出現多少不同字母，最後都會從 7 個出口音離開。可以把它想成 7 扇門，每個 받침 都得從其中一扇門出去。",
+          "visualDescription": "7 扇門，分別標著 k、n、t、l、m、p、ng。"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s6_intro",
+          "text": "當你看得出字塊底部的尾音，很多初學單字就會突然變得能讀。這是閱讀信心的一大跳。",
+          "romanization": "once you see the final consonant at the bottom many beginner words suddenly become readable",
+          "translation": "學會 받침，就能開始真正讀韓文。",
+          "speech": {
+            "speechText": "받침이 보이기 시작하면 초급 단어가 훨씬 잘 읽혀요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s6_seven",
+          "text": "記住：所有 받침 最後都會收斂成 7 種代表聲音。ㄱ 類（k）、ㄴ（n）、ㄷ 類（t）、ㄹ（l）、ㅁ（m）、ㅂ 類（p）、ㅇ（ng）。",
+          "romanization": "seven representative batchim sounds",
+          "translation": "只要記住 7 種尾音，就能涵蓋所有結尾。",
+          "speech": {
+            "speechText": "받침 소리는 일곱 가지로 줄어들어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "syllable_bap",
+          "prompt": "寫出 밥：左邊是 ㅂ，右邊是 ㅏ，底下再收一個 ㅂ。",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_mul",
+          "prompt": "寫出 물：上面是 ㅁ，下面是 ㅜ，底部再放 ㄹ。",
+          "speech": {
+            "speechText": "물",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_guk",
+          "prompt": "寫出 국：上面是 ㄱ，下面是 ㅜ，底部再收一個 ㄱ。",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s6_1",
+          "prompt": "讀出這個單字，並指出 받침",
+          "displayText": "밥",
+          "romanization": "bap",
+          "translation": "飯／一餐",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_2",
+          "prompt": "讀出這個單字，並指出 받침",
+          "displayText": "문",
+          "romanization": "mun",
+          "translation": "門",
+          "speech": {
+            "speechText": "문",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_3",
+          "prompt": "讀出這個單字，並指出 받침",
+          "displayText": "국",
+          "romanization": "guk",
+          "translation": "湯／國",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_4",
+          "prompt": "讀出這個單字，注意 ㅇ 終於發音了",
+          "displayText": "강",
+          "romanization": "gang",
+          "translation": "江／河",
+          "speech": {
+            "speechText": "강",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_5",
+          "prompt": "讀出這個單字，注意 ㅅ 當 받침 時會變成 t",
+          "displayText": "옷",
+          "romanization": "ot",
+          "translation": "衣服",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s6_1",
+          "title": "點水喝",
+          "lines": [
+            {
+              "id": "dlg_s6_1_l1",
+              "speaker": "教練",
+              "text": "물 주세요.",
+              "romanization": "mul juseyo",
+              "translation": "請給我水。",
+              "speech": {
+                "speechText": "물 주세요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s6_1_l2",
+              "speaker": "你",
+              "text": "네, 여기요.",
+              "romanization": "ne, yeogiyo",
+              "translation": "好的，這裡。",
+              "speech": {
+                "speechText": "네, 여기요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "這段對話裡哪個字帶有 ㄹ 받침？",
+          "comprehensionAnswer": "물"
+        },
+        {
+          "id": "dlg_s6_2",
+          "title": "聊食物",
+          "lines": [
+            {
+              "id": "dlg_s6_2_l1",
+              "speaker": "教練",
+              "text": "밥 먹었어요?",
+              "romanization": "bap meogeosseoyo?",
+              "translation": "你吃飯了嗎？",
+              "speech": {
+                "speechText": "밥 먹었어요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s6_2_l2",
+              "speaker": "你",
+              "text": "네, 국도 먹었어요.",
+              "romanization": "ne, gukdo meogeosseoyo",
+              "translation": "有，我也喝了湯。",
+              "speech": {
+                "speechText": "네, 국도 먹었어요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "這段對話裡哪兩個單字有 받침？",
+          "comprehensionAnswer": "밥, 국"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s6_1",
+          "prompt": "下面哪個單字有 받침（尾音）？",
+          "options": [
+            "가",
+            "나",
+            "밥",
+            "사"
+          ],
+          "correctAnswer": "밥",
+          "explanation": "밥 的底部有 ㅂ 받침，所以結尾會收成短短的 p 音。",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s6_2",
+          "prompt": "ㅅ 出現在 받침 位置時會發什麼聲音？",
+          "options": [
+            "s",
+            "t",
+            "n",
+            "ng"
+          ],
+          "correctAnswer": "t",
+          "explanation": "ㅅ 放在尾音位置時會中和成 t 音，所以 옷 會讀成 ot，而不是 os。",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s6_3",
+          "prompt": "韓文有幾種代表性的 받침 聲音？",
+          "options": [
+            "5",
+            "7",
+            "10",
+            "14"
+          ],
+          "correctAnswer": "7",
+          "explanation": "所有尾音最後都會收斂成 7 種代表聲音：k、n、t、l、m、p、ng。",
+          "speech": {
+            "speechText": "받침 소리는 일곱 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    }
+  ]
+}

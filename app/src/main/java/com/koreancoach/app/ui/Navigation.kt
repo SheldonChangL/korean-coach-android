@@ -44,7 +44,10 @@ sealed class Screen(val route: String) {
     object PronunciationPractice : Screen("pronunciation/{lessonId}") {
         fun createRoute(lessonId: String) = "pronunciation/$lessonId"
     }
-    object HangulWriting : Screen("hangul_writing")
+    object HangulWriting : Screen("hangul_writing?characterId={characterId}") {
+        fun createRoute(characterId: String? = null) =
+            if (characterId.isNullOrBlank()) "hangul_writing" else "hangul_writing?characterId=$characterId"
+    }
     object Review : Screen("review")
     object Settings : Screen("settings")
     object Analytics : Screen("analytics")
@@ -55,6 +58,14 @@ fun KoreanCoachNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController()
 ) {
+    fun navigateToHangulPath() {
+        if (!navController.popBackStack(Screen.HangulPath.route, false)) {
+            navController.navigate(Screen.HangulPath.route) {
+                launchSingleTop = true
+            }
+        }
+    }
+
     NavHost(
         navController = navController,
         startDestination = Screen.Onboarding.route,
@@ -82,13 +93,14 @@ fun KoreanCoachNavHost(
                 onNavigateToLesson = { id -> navController.navigate(Screen.LessonDetail.createRoute(id)) },
                 onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
                 onNavigateToAnalytics = { navController.navigate(Screen.Analytics.route) },
-                onNavigateToHangulWriting = { navController.navigate(Screen.HangulWriting.route) },
+                onNavigateToHangulWriting = { navController.navigate(Screen.HangulWriting.createRoute()) },
                 onNavigateToHangulPath = { navController.navigate(Screen.HangulPath.route) },
                 onNavigateToHangulExplore = { navController.navigate(Screen.HangulExplore.route) }
             )
         }
         composable(Screen.HangulPath.route) {
             HangulPathScreen(
+                showBackButton = navController.previousBackStackEntry != null,
                 onBack = { navController.popBackStack() },
                 onExplore = { navController.navigate(Screen.HangulExplore.route) },
                 onOpenLesson = { lessonId -> navController.navigate(Screen.HangulStage.createRoute(lessonId)) }
@@ -96,7 +108,12 @@ fun KoreanCoachNavHost(
         }
         composable(Screen.HangulExplore.route) {
             HangulExploreScreen(
-                onBack = { navController.popBackStack() },
+                showBackButton = navController.previousBackStackEntry != null,
+                onBack = {
+                    if (!navController.popBackStack()) {
+                        navigateToHangulPath()
+                    }
+                },
                 onOpenStage = { lessonId -> navController.navigate(Screen.HangulStage.createRoute(lessonId)) }
             )
         }
@@ -106,8 +123,16 @@ fun KoreanCoachNavHost(
         ) { backStack ->
             val lessonId = backStack.arguments?.getString("lessonId") ?: return@composable
             HangulStageScreen(
-                onBack = { navController.popBackStack() },
-                onOpenWriting = { navController.navigate(Screen.HangulWriting.route) }
+                showBackButton = navController.previousBackStackEntry != null,
+                onBack = {
+                    if (!navController.popBackStack()) {
+                        navigateToHangulPath()
+                    }
+                },
+                onBackToPath = { navigateToHangulPath() },
+                onOpenWriting = { characterId ->
+                    navController.navigate(Screen.HangulWriting.createRoute(characterId))
+                }
             )
         }
         composable(Screen.LessonList.route) {
@@ -164,7 +189,16 @@ fun KoreanCoachNavHost(
                 onBack = { navController.popBackStack() }
             )
         }
-        composable(Screen.HangulWriting.route) {
+        composable(
+            route = Screen.HangulWriting.route,
+            arguments = listOf(
+                navArgument("characterId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) {
             HangulWritingScreen(onBack = { navController.popBackStack() })
         }
         composable(Screen.Review.route) {

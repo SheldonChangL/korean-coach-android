@@ -3,6 +3,7 @@ package com.koreancoach.app.ui.feature.hangul
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.koreancoach.app.data.curriculum.HangulCharacterData
 import com.koreancoach.app.data.curriculum.CurriculumBootstrapper
 import com.koreancoach.app.data.datastore.UserPreferencesDataStore
 import com.koreancoach.app.data.repository.LessonRepository
@@ -38,6 +39,7 @@ class HangulStageViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val lessonId: String = checkNotNull(savedStateHandle["lessonId"])
+    private val autoPlayedLessonIds = mutableSetOf<String>()
     private val selectedAnswers = MutableStateFlow<Map<String, String>>(emptyMap())
     private val completedCheckpoints = MutableStateFlow<Set<String>>(emptySet())
     private val isBootstrapping = MutableStateFlow(true)
@@ -88,9 +90,20 @@ class HangulStageViewModel @Inject constructor(
 
     fun maybeAutoPlay() {
         val current = state.value
+        val lesson = current.lesson ?: return
         if (!current.autoPlayHangul) return
-        val firstScript = current.lesson?.scriptItems?.firstOrNull() ?: return
-        play(firstScript.speech, firstScript.text)
+        if (!autoPlayedLessonIds.add(lesson.id)) return
+
+        val firstReadingDrill = lesson.readingDrills.firstOrNull()
+        if (firstReadingDrill != null) {
+            play(firstReadingDrill.speech, firstReadingDrill.displayText)
+            return
+        }
+
+        val firstWritingTarget = lesson.writingTargets.firstOrNull() ?: return
+        val fallback = HangulCharacterData.findById(firstWritingTarget.characterId)?.character
+            ?: firstWritingTarget.characterId
+        play(firstWritingTarget.speech, fallback)
     }
 
     fun answerCheckpoint(item: CheckpointItem, answer: String) {

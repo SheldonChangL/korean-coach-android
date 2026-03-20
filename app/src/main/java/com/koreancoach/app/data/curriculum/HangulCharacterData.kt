@@ -61,7 +61,16 @@ object HangulCharacterData {
 
     val consonants: List<HangulCharacter> = basicConsonants + doubleConsonants
     val vowels: List<HangulCharacter> = basicVowels + compoundVowels
-    val syllables: List<HangulCharacter> = listOf(exampleGa(), exampleNa(), exampleDa(), exampleMa(), exampleSa())
+    val syllables: List<HangulCharacter> = listOf(
+        exampleGa(),
+        exampleNa(),
+        exampleDa(),
+        exampleMa(),
+        exampleSa(),
+        exampleBap(),
+        exampleMul(),
+        exampleGuk()
+    )
 
     val allCharacters: List<HangulCharacter> = basicVowels + basicConsonants + doubleConsonants + compoundVowels
 
@@ -414,6 +423,25 @@ object HangulCharacterData {
             Stroke(
                 points = stroke.points.map { point ->
                     StrokePoint((point.x + dx).coerceIn(0f, 1f), point.y)
+                },
+                hint = stroke.hint
+            )
+        }
+
+    private fun transform(
+        strokes: List<Stroke>,
+        scaleX: Float,
+        scaleY: Float,
+        dx: Float,
+        dy: Float
+    ): List<Stroke> =
+        strokes.map { stroke ->
+            Stroke(
+                points = stroke.points.map { point ->
+                    StrokePoint(
+                        x = (point.x * scaleX + dx).coerceIn(0f, 1f),
+                        y = (point.y * scaleY + dy).coerceIn(0f, 1f)
+                    )
                 },
                 hint = stroke.hint
             )
@@ -855,6 +883,42 @@ object HangulCharacterData {
         description = "ㅅ + ㅏ",
         strokes = siot().strokes + offset(vowelA().strokes, 0.08f),
         memoryHook = "One of the first blocks you can decode by sound."
+    )
+
+    private fun exampleBap() = exampleSyllable(
+        id = "syllable_bap",
+        character = "밥",
+        romanization = "bap",
+        name = "밥",
+        description = "ㅂ + ㅏ + ㅂ",
+        strokes = transform(bieup().strokes, scaleX = 0.42f, scaleY = 0.34f, dx = 0.04f, dy = 0.08f) +
+            transform(vowelA().strokes, scaleX = 0.32f, scaleY = 0.38f, dx = 0.50f, dy = 0.06f) +
+            transform(bieup().strokes, scaleX = 0.56f, scaleY = 0.20f, dx = 0.22f, dy = 0.64f),
+        memoryHook = "The final ㅂ closes the sound quickly for the common beginner word 밥."
+    )
+
+    private fun exampleMul() = exampleSyllable(
+        id = "syllable_mul",
+        character = "물",
+        romanization = "mul",
+        name = "물",
+        description = "ㅁ + ㅜ + ㄹ",
+        strokes = transform(mieum().strokes, scaleX = 0.48f, scaleY = 0.22f, dx = 0.24f, dy = 0.08f) +
+            transform(vowelU().strokes, scaleX = 0.56f, scaleY = 0.20f, dx = 0.22f, dy = 0.36f) +
+            transform(rieul().strokes, scaleX = 0.54f, scaleY = 0.22f, dx = 0.20f, dy = 0.60f),
+        memoryHook = "물 stacks a top consonant, a horizontal vowel, and a final rieul at the bottom."
+    )
+
+    private fun exampleGuk() = exampleSyllable(
+        id = "syllable_guk",
+        character = "국",
+        romanization = "guk",
+        name = "국",
+        description = "ㄱ + ㅜ + ㄱ",
+        strokes = transform(giyeok().strokes, scaleX = 0.50f, scaleY = 0.22f, dx = 0.24f, dy = 0.10f) +
+            transform(vowelU().strokes, scaleX = 0.56f, scaleY = 0.20f, dx = 0.22f, dy = 0.36f) +
+            transform(giyeok().strokes, scaleX = 0.54f, scaleY = 0.22f, dx = 0.22f, dy = 0.64f),
+        memoryHook = "국 repeats ㄱ at the top and bottom so you can feel the batchim snap shut."
     )
 
     private enum class ArmDirection { LEFT, RIGHT }

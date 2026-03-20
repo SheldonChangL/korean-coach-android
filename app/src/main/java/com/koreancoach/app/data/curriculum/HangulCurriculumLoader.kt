@@ -141,8 +141,8 @@ class HangulCurriculumLoader @Inject constructor(
     )
 
     companion object {
-        private const val HANGUL_ASSET_PATH_ZH = "curriculum/hangul_sprint_v1.json"
-        private const val HANGUL_ASSET_PATH_EN = "curriculum/hangul_sprint_v2.json"
+        private const val HANGUL_ASSET_PATH_ZH = "curriculum/hangul_sprint_zh_tw.json"
+        private const val HANGUL_ASSET_PATH_EN = "curriculum/hangul_sprint_en.json"
     }
 }
 

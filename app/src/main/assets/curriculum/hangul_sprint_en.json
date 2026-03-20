@@ -1,0 +1,2794 @@
+{
+  "version": "hangul-sprint-v4-en",
+  "lessons": [
+    {
+      "lessonId": "hangul_stage_1",
+      "trackId": "hangul_sprint",
+      "stageOrder": 1,
+      "title": "Stage 1 · Basic Vowels",
+      "subtitle": "Learn all 10 Korean vowels by shape and sound",
+      "emoji": "🔤",
+      "estimatedMinutes": 15,
+      "learningObjective": "Recognize and pronounce all 10 basic Korean vowels, grouping them by shape family.",
+      "initiallyUnlocked": true,
+      "unlockTargetIds": [
+        "hangul_stage_2"
+      ],
+      "vocabulary": [
+        {
+          "id": "hv_a",
+          "korean": "ㅏ",
+          "romanization": "a",
+          "english": "a vowel",
+          "exampleSentence": "아",
+          "exampleTranslation": "a",
+          "memoryHook": "A vertical line with one right arm — mouth opens wide to say 'ah'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_ya",
+          "korean": "ㅑ",
+          "romanization": "ya",
+          "english": "ya vowel",
+          "exampleSentence": "야",
+          "exampleTranslation": "ya",
+          "memoryHook": "Two right arms — double the arms, add a Y: 'yah'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_eo",
+          "korean": "ㅓ",
+          "romanization": "eo",
+          "english": "eo vowel",
+          "exampleSentence": "어",
+          "exampleTranslation": "eo",
+          "memoryHook": "One left arm — mirror of ㅏ, like saying 'uh' with surprise",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yeo",
+          "korean": "ㅕ",
+          "romanization": "yeo",
+          "english": "yeo vowel",
+          "exampleSentence": "여",
+          "exampleTranslation": "yeo",
+          "memoryHook": "Two left arms — double the arms, add a Y: 'yuh'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "여",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_o",
+          "korean": "ㅗ",
+          "romanization": "o",
+          "english": "o vowel",
+          "exampleSentence": "오",
+          "exampleTranslation": "o",
+          "memoryHook": "Short line reaching UP — lips round up to say 'oh'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yo",
+          "korean": "ㅛ",
+          "romanization": "yo",
+          "english": "yo vowel",
+          "exampleSentence": "요",
+          "exampleTranslation": "yo",
+          "memoryHook": "Two lines reaching up — double up, add Y: 'yo'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "요",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_u",
+          "korean": "ㅜ",
+          "romanization": "u",
+          "english": "u vowel",
+          "exampleSentence": "우",
+          "exampleTranslation": "u",
+          "memoryHook": "Short line hanging DOWN — lips push down to say 'oo'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_yu",
+          "korean": "ㅠ",
+          "romanization": "yu",
+          "english": "yu vowel",
+          "exampleSentence": "유",
+          "exampleTranslation": "yu",
+          "memoryHook": "Two lines hanging down — double down, add Y: 'yoo'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "유",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_eu",
+          "korean": "ㅡ",
+          "romanization": "eu",
+          "english": "eu vowel",
+          "exampleSentence": "으",
+          "exampleTranslation": "eu",
+          "memoryHook": "A single flat line — flat mouth, flat sound: 'eu'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hv_i",
+          "korean": "ㅣ",
+          "romanization": "i",
+          "english": "i vowel",
+          "exampleSentence": "이",
+          "exampleTranslation": "i",
+          "memoryHook": "A single vertical line — smile shape, say 'ee'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "이",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㅓ vs ㅗ",
+          "description": "These two vowels confuse many beginners because both involve rounded lips.",
+          "englishComparison": "ㅓ (eo) is closer to the 'u' in English 'sun' or 'uh', while ㅗ (o) is a clean round 'oh' like in 'go'.",
+          "commonMistake": "Do not pronounce ㅓ as 'oh'. Keep your mouth more open and relaxed for ㅓ."
+        },
+        {
+          "sound": "ㅡ vs ㅣ",
+          "description": "Both are simple shapes but produce very different sounds.",
+          "englishComparison": "ㅡ (eu) has no direct English equivalent — keep your lips flat and unsmiling. ㅣ (i) is 'ee' as in 'see'.",
+          "commonMistake": "Do not smile when saying ㅡ. Keep your jaw slightly open and lips neutral."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "Vowel families",
+          "story": "Korean vowels split into two families: vertical vowels (ㅏ ㅑ ㅓ ㅕ ㅣ) grow arms left or right from a vertical stem, while horizontal vowels (ㅗ ㅛ ㅜ ㅠ ㅡ) grow branches up or down from a horizontal beam.",
+          "visualDescription": "Imagine a tree trunk standing tall for vertical vowels, and a bridge lying flat for horizontal vowels."
+        },
+        {
+          "targetWord": "Y-vowels",
+          "story": "Any vowel with two branches instead of one adds a Y sound at the start. One arm = plain, two arms = Y-version.",
+          "visualDescription": "Single branch: ㅏ ㅓ ㅗ ㅜ. Double branch: ㅑ ㅕ ㅛ ㅠ."
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s1_intro",
+          "text": "Korean has exactly 10 basic vowels. They split neatly into shape families that tell you how to move your mouth.",
+          "romanization": "korean has exactly 10 basic vowels",
+          "translation": "Learn the shape pattern and the sounds will follow.",
+          "emphasis": "Shape first, then sound.",
+          "speech": {
+            "speechText": "한글에는 기본 모음이 열 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s1_vertical",
+          "text": "Vertical vowels: ㅏ (a), ㅑ (ya), ㅓ (eo), ㅕ (yeo), ㅣ (i). These have a tall vertical stroke with arms pointing left or right.",
+          "romanization": "vertical vowels a ya eo yeo i",
+          "translation": "The direction of the arm changes the sound.",
+          "speech": {
+            "speechText": "세로 모음: 아, 야, 어, 여, 이.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s1_horizontal",
+          "text": "Horizontal vowels: ㅗ (o), ㅛ (yo), ㅜ (u), ㅠ (yu), ㅡ (eu). These have a flat horizontal stroke with branches above or below.",
+          "romanization": "horizontal vowels o yo u yu eu",
+          "translation": "Up means brighter, down means deeper.",
+          "speech": {
+            "speechText": "가로 모음: 오, 요, 우, 유, 으.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "vowel_a",
+          "prompt": "Trace ㅏ: draw a vertical line, then one short horizontal stroke to the right.",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_ya",
+          "prompt": "Trace ㅑ: vertical line with two short strokes to the right.",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_eo",
+          "prompt": "Trace ㅓ: vertical line with one short stroke to the left.",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yeo",
+          "prompt": "Trace ㅕ: vertical line with two short strokes to the left.",
+          "speech": {
+            "speechText": "여",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_o",
+          "prompt": "Trace ㅗ: horizontal line with one short stroke going up.",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yo",
+          "prompt": "Trace ㅛ: horizontal line with two short strokes going up.",
+          "speech": {
+            "speechText": "요",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_u",
+          "prompt": "Trace ㅜ: horizontal line with one short stroke going down.",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_yu",
+          "prompt": "Trace ㅠ: horizontal line with two short strokes going down.",
+          "speech": {
+            "speechText": "유",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_eu",
+          "prompt": "Trace ㅡ: a single flat horizontal line.",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_i",
+          "prompt": "Trace ㅣ: a single vertical line.",
+          "speech": {
+            "speechText": "이",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s1_1",
+          "prompt": "Read this vowel aloud",
+          "displayText": "ㅏ",
+          "romanization": "a",
+          "translation": "ah",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_2",
+          "prompt": "Read this vowel aloud",
+          "displayText": "ㅓ",
+          "romanization": "eo",
+          "translation": "uh",
+          "speech": {
+            "speechText": "어",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_3",
+          "prompt": "Read this vowel aloud",
+          "displayText": "ㅗ",
+          "romanization": "o",
+          "translation": "oh",
+          "speech": {
+            "speechText": "오",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_4",
+          "prompt": "Read this vowel aloud",
+          "displayText": "ㅜ",
+          "romanization": "u",
+          "translation": "oo",
+          "speech": {
+            "speechText": "우",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_5",
+          "prompt": "Which is the Y-version? Read it",
+          "displayText": "ㅑ",
+          "romanization": "ya",
+          "translation": "yah",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s1_6",
+          "prompt": "Read the flat vowel",
+          "displayText": "ㅡ",
+          "romanization": "eu",
+          "translation": "eu",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s1_1",
+          "title": "Vertical vowel pairs",
+          "lines": [
+            {
+              "id": "dlg_s1_1_l1",
+              "speaker": "Coach",
+              "text": "아, 어",
+              "romanization": "a, eo",
+              "translation": "Listen: one arm right, one arm left.",
+              "speech": {
+                "speechText": "아, 어",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s1_1_l2",
+              "speaker": "You",
+              "text": "ㅏ, ㅓ",
+              "romanization": "a, eo",
+              "translation": "I can see the mirror pattern.",
+              "speech": {
+                "speechText": "아, 어",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which vowel has the arm pointing left?",
+          "comprehensionAnswer": "ㅓ"
+        },
+        {
+          "id": "dlg_s1_2",
+          "title": "Horizontal vowel pairs",
+          "lines": [
+            {
+              "id": "dlg_s1_2_l1",
+              "speaker": "Coach",
+              "text": "오, 우",
+              "romanization": "o, u",
+              "translation": "Listen: one branch up, one branch down.",
+              "speech": {
+                "speechText": "오, 우",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s1_2_l2",
+              "speaker": "You",
+              "text": "ㅗ, ㅜ",
+              "romanization": "o, u",
+              "translation": "Up is oh, down is oo.",
+              "speech": {
+                "speechText": "오, 우",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which vowel has the branch pointing upward?",
+          "comprehensionAnswer": "ㅗ"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s1_1",
+          "prompt": "Which symbol is the vertical vowel with one right arm?",
+          "options": [
+            "ㅏ",
+            "ㅓ",
+            "ㅗ",
+            "ㅜ"
+          ],
+          "correctAnswer": "ㅏ",
+          "explanation": "ㅏ has one horizontal stroke pointing right from a vertical stem, producing the 'a' sound.",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s1_2",
+          "prompt": "How do you add a Y sound to a basic vowel?",
+          "options": [
+            "Add a circle",
+            "Double the branch strokes",
+            "Flip it upside down",
+            "Add a dot"
+          ],
+          "correctAnswer": "Double the branch strokes",
+          "explanation": "One branch = plain vowel, two branches = Y-version. For example ㅏ (a) becomes ㅑ (ya).",
+          "speech": {
+            "speechText": "야",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s1_3",
+          "prompt": "Which vowel makes the 'eu' sound with a flat horizontal shape?",
+          "options": [
+            "ㅣ",
+            "ㅡ",
+            "ㅗ",
+            "ㅏ"
+          ],
+          "correctAnswer": "ㅡ",
+          "explanation": "ㅡ is a single flat horizontal line. Keep your lips neutral and slightly open.",
+          "speech": {
+            "speechText": "으",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_2",
+      "trackId": "hangul_sprint",
+      "stageOrder": 2,
+      "title": "Stage 2 · Basic Consonants",
+      "subtitle": "Meet all 14 consonants that anchor Korean syllables",
+      "emoji": "🧱",
+      "estimatedMinutes": 20,
+      "learningObjective": "Recognize all 14 basic Korean consonants, connect their shapes to mouth movements, and learn their Korean names.",
+      "unlockTargetIds": [
+        "hangul_stage_3"
+      ],
+      "vocabulary": [
+        {
+          "id": "hc_g",
+          "korean": "ㄱ",
+          "romanization": "g/k",
+          "english": "giyeok",
+          "exampleSentence": "가",
+          "exampleTranslation": "ga",
+          "memoryHook": "Looks like the number 7 or a gun — 'g' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_n",
+          "korean": "ㄴ",
+          "romanization": "n",
+          "english": "nieun",
+          "exampleSentence": "나",
+          "exampleTranslation": "na",
+          "memoryHook": "An L-shape or a nose bridge — 'n' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_d",
+          "korean": "ㄷ",
+          "romanization": "d/t",
+          "english": "digeut",
+          "exampleSentence": "다",
+          "exampleTranslation": "da",
+          "memoryHook": "A table or door frame — 'd' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_r",
+          "korean": "ㄹ",
+          "romanization": "r/l",
+          "english": "rieul",
+          "exampleSentence": "라",
+          "exampleTranslation": "ra",
+          "memoryHook": "A winding river or tongue rolling — 'r/l' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_m",
+          "korean": "ㅁ",
+          "romanization": "m",
+          "english": "mieum",
+          "exampleSentence": "마",
+          "exampleTranslation": "ma",
+          "memoryHook": "A square box like closed lips — 'm' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_b",
+          "korean": "ㅂ",
+          "romanization": "b/p",
+          "english": "bieup",
+          "exampleSentence": "바",
+          "exampleTranslation": "ba",
+          "memoryHook": "A bucket shape — 'b' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_s",
+          "korean": "ㅅ",
+          "romanization": "s",
+          "english": "siot",
+          "exampleSentence": "사",
+          "exampleTranslation": "sa",
+          "memoryHook": "A mountain peak or sail — 's' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_ng",
+          "korean": "ㅇ",
+          "romanization": "ng/silent",
+          "english": "ieung",
+          "exampleSentence": "아",
+          "exampleTranslation": "a",
+          "memoryHook": "A zero or circle — silent at start, 'ng' at end",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_j",
+          "korean": "ㅈ",
+          "romanization": "j",
+          "english": "jieut",
+          "exampleSentence": "자",
+          "exampleTranslation": "ja",
+          "memoryHook": "A hat or zigzag — 'j' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_ch",
+          "korean": "ㅊ",
+          "romanization": "ch",
+          "english": "chieut",
+          "exampleSentence": "차",
+          "exampleTranslation": "cha",
+          "memoryHook": "ㅈ with extra stroke — aspirated 'ch' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "치읓",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_k",
+          "korean": "ㅋ",
+          "romanization": "k",
+          "english": "kieuk",
+          "exampleSentence": "카",
+          "exampleTranslation": "ka",
+          "memoryHook": "ㄱ with extra stroke — aspirated 'k' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_t",
+          "korean": "ㅌ",
+          "romanization": "t",
+          "english": "tieut",
+          "exampleSentence": "타",
+          "exampleTranslation": "ta",
+          "memoryHook": "ㄷ with extra stroke — aspirated 't' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "티읕",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_p",
+          "korean": "ㅍ",
+          "romanization": "p",
+          "english": "pieup",
+          "exampleSentence": "파",
+          "exampleTranslation": "pa",
+          "memoryHook": "ㅂ with extra stroke — aspirated 'p' sound",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "피읖",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hc_h",
+          "korean": "ㅎ",
+          "romanization": "h",
+          "english": "hieut",
+          "exampleSentence": "하",
+          "exampleTranslation": "ha",
+          "memoryHook": "A person wearing a hat — 'h' sound with breath",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "히읗",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㄱ softness",
+          "description": "Korean ㄱ is softer than English hard 'g' or 'k'. It sits between the two.",
+          "englishComparison": "Think of a gentle 'g' at the start of a word, closer to the 'g' in 'ago' than the 'k' in 'kite'.",
+          "commonMistake": "Do not blast too much air. Save the strong puff for aspirated ㅋ."
+        },
+        {
+          "sound": "ㄹ (r vs l)",
+          "description": "ㄹ sounds like a light 'r' between vowels and more like an 'l' at the end of a syllable.",
+          "englishComparison": "It is a flap, like the quick 'd' in American English 'butter'. Not a rolling R and not a heavy L.",
+          "commonMistake": "Do not use a strong English R or L. Keep the tongue tap light and quick."
+        },
+        {
+          "sound": "ㅇ (silent vs ng)",
+          "description": "ㅇ is silent when it appears at the start of a syllable block, but becomes 'ng' when it appears as the final consonant (batchim).",
+          "englishComparison": "At the start: zero sound, just a placeholder. At the end: 'ng' as in 'sing'.",
+          "commonMistake": "Do not try to pronounce ㅇ at the beginning of a syllable — it is only there because every Korean block needs a consonant slot."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "Consonant shapes",
+          "story": "Many Hangul consonants are tiny blueprints of what your mouth, tongue, or throat does. ㄱ is the tongue back shape, ㄴ is the tongue tip touching the roof, ㅁ is lips closed, ㅅ is teeth, ㅇ is throat.",
+          "visualDescription": "Each shape hints at the body part that makes the sound."
+        },
+        {
+          "targetWord": "Aspirated family",
+          "story": "The aspirated consonants (ㅊ ㅋ ㅌ ㅍ) are just the basic consonants (ㅈ ㄱ ㄷ ㅂ) with an extra stroke. That extra stroke means extra air.",
+          "visualDescription": "Basic shape + extra line = more breath."
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s2_intro",
+          "text": "Korean has 14 basic consonants. Every syllable block starts with a consonant — even pure vowel sounds use the silent placeholder ㅇ.",
+          "romanization": "korean has 14 basic consonants",
+          "translation": "The consonant always comes first in a block.",
+          "speech": {
+            "speechText": "한글에는 기본 자음이 열네 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s2_families",
+          "text": "Consonants come in families: plain (ㄱ ㄷ ㅂ ㅈ), aspirated (ㅋ ㅌ ㅍ ㅊ), and unique shapes (ㄴ ㄹ ㅁ ㅅ ㅇ ㅎ).",
+          "romanization": "consonants come in families",
+          "translation": "Learning the family structure helps you remember all fourteen.",
+          "speech": {
+            "speechText": "자음은 가족별로 배우면 쉬워요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s2_aspirated",
+          "text": "Aspirated consonants add a burst of air. Hold your hand in front of your mouth: ㅋ ㅌ ㅍ ㅊ should make you feel a strong puff.",
+          "romanization": "aspirated consonants add a burst of air",
+          "translation": "Feel the difference with your hand.",
+          "speech": {
+            "speechText": "격음은 숨이 많이 나와요. 손을 입 앞에 대 보세요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "consonant_giyeok",
+          "prompt": "Trace ㄱ: start at top, go right, then straight down.",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_nieun",
+          "prompt": "Trace ㄴ: go down, then right along the bottom.",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_digeut",
+          "prompt": "Trace ㄷ: a horizontal top, then down-right like a table.",
+          "speech": {
+            "speechText": "디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_rieul",
+          "prompt": "Trace ㄹ: a winding zigzag shape.",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_mieum",
+          "prompt": "Trace ㅁ: a simple closed square.",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_bieup",
+          "prompt": "Trace ㅂ: like a bucket with two sides and a bottom.",
+          "speech": {
+            "speechText": "비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_siot",
+          "prompt": "Trace ㅅ: two lines meeting at a peak.",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ieung",
+          "prompt": "Trace ㅇ: a simple circle.",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_jieut",
+          "prompt": "Trace ㅈ: like ㅅ with a flat top.",
+          "speech": {
+            "speechText": "지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_chieut",
+          "prompt": "Trace ㅊ: like ㅈ with an extra horizontal stroke on top.",
+          "speech": {
+            "speechText": "치읓",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_kieuk",
+          "prompt": "Trace ㅋ: like ㄱ with an extra horizontal stroke.",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_tieut",
+          "prompt": "Trace ㅌ: like ㄷ with an extra horizontal stroke.",
+          "speech": {
+            "speechText": "티읕",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_pieup",
+          "prompt": "Trace ㅍ: like ㅂ with an extra horizontal stroke through the top.",
+          "speech": {
+            "speechText": "피읖",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_hieut",
+          "prompt": "Trace ㅎ: a hat shape with a circle beneath.",
+          "speech": {
+            "speechText": "히읗",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s2_1",
+          "prompt": "Read this consonant's name",
+          "displayText": "ㄱ",
+          "romanization": "g/k",
+          "translation": "giyeok",
+          "speech": {
+            "speechText": "기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_2",
+          "prompt": "Read this consonant's name",
+          "displayText": "ㄴ",
+          "romanization": "n",
+          "translation": "nieun",
+          "speech": {
+            "speechText": "니은",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_3",
+          "prompt": "Read this consonant's name",
+          "displayText": "ㅁ",
+          "romanization": "m",
+          "translation": "mieum",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_4",
+          "prompt": "Read this consonant's name",
+          "displayText": "ㅅ",
+          "romanization": "s",
+          "translation": "siot",
+          "speech": {
+            "speechText": "시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s2_5",
+          "prompt": "Which is the aspirated version of ㄱ?",
+          "displayText": "ㅋ",
+          "romanization": "k",
+          "translation": "kieuk",
+          "speech": {
+            "speechText": "키읔",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s2_1",
+          "title": "Name the letter",
+          "lines": [
+            {
+              "id": "dlg_s2_1_l1",
+              "speaker": "Coach",
+              "text": "이 글자는 뭐예요?",
+              "romanization": "i geuljaneun mwoyeyo",
+              "translation": "What is this letter?",
+              "speech": {
+                "speechText": "이 글자는 뭐예요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s2_1_l2",
+              "speaker": "You",
+              "text": "기역이에요.",
+              "romanization": "giyeog-ieyo",
+              "translation": "It is giyeok.",
+              "speech": {
+                "speechText": "기역이에요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "What was the answer letter name?",
+          "comprehensionAnswer": "기역"
+        },
+        {
+          "id": "dlg_s2_2",
+          "title": "Plain vs aspirated",
+          "lines": [
+            {
+              "id": "dlg_s2_2_l1",
+              "speaker": "Coach",
+              "text": "ㄷ하고 ㅌ는 어떻게 달라요?",
+              "romanization": "digeut-hago tieut-eun eotteoke dallayo?",
+              "translation": "How are ㄷ and ㅌ different?",
+              "speech": {
+                "speechText": "디귿하고 티읕은 어떻게 달라요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s2_2_l2",
+              "speaker": "You",
+              "text": "ㅌ는 숨이 더 많이 나와요.",
+              "romanization": "tieut-eun sumi deo mani nawayo",
+              "translation": "ㅌ has more breath.",
+              "speech": {
+                "speechText": "티읕은 숨이 더 많이 나와요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which consonant has more air: ㄷ or ㅌ?",
+          "comprehensionAnswer": "ㅌ"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s2_1",
+          "prompt": "Which consonant looks like a closed square representing closed lips?",
+          "options": [
+            "ㄱ",
+            "ㄴ",
+            "ㅁ",
+            "ㅅ"
+          ],
+          "correctAnswer": "ㅁ",
+          "explanation": "ㅁ (mieum) looks like a box, representing the lips pressed together for 'm'.",
+          "speech": {
+            "speechText": "미음",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_2",
+          "prompt": "What does ㅇ do at the beginning of a syllable?",
+          "options": [
+            "Makes an 'ng' sound",
+            "Makes an 'oh' sound",
+            "It is silent",
+            "Makes a 'g' sound"
+          ],
+          "correctAnswer": "It is silent",
+          "explanation": "ㅇ (ieung) is a placeholder at the start. It only makes 'ng' when used as a final consonant.",
+          "speech": {
+            "speechText": "이응",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_3",
+          "prompt": "Which consonant is the aspirated version of ㅂ?",
+          "options": [
+            "ㄱ",
+            "ㅍ",
+            "ㅋ",
+            "ㅊ"
+          ],
+          "correctAnswer": "ㅍ",
+          "explanation": "ㅍ (pieup) is ㅂ (bieup) with an extra stroke, adding more air to the sound.",
+          "speech": {
+            "speechText": "피읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s2_4",
+          "prompt": "Which consonant sounds like 'r' between vowels and 'l' at the end?",
+          "options": [
+            "ㄴ",
+            "ㄹ",
+            "ㅁ",
+            "ㅇ"
+          ],
+          "correctAnswer": "ㄹ",
+          "explanation": "ㄹ (rieul) is a unique Korean sound that shifts between r and l depending on position.",
+          "speech": {
+            "speechText": "리을",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_3",
+      "trackId": "hangul_sprint",
+      "stageOrder": 3,
+      "title": "Stage 3 · Build Syllables",
+      "subtitle": "Combine consonants and vowels into readable blocks",
+      "emoji": "🧩",
+      "estimatedMinutes": 15,
+      "learningObjective": "Read and write CV (consonant + vowel) syllable blocks by combining the letters learned in Stages 1 and 2.",
+      "unlockTargetIds": [
+        "hangul_stage_4"
+      ],
+      "vocabulary": [
+        {
+          "id": "hs_ga",
+          "korean": "가",
+          "romanization": "ga",
+          "english": "ga syllable",
+          "exampleSentence": "가다",
+          "exampleTranslation": "to go",
+          "memoryHook": "ㄱ plus ㅏ becomes 가 — the consonant leads, the vowel follows.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_na",
+          "korean": "나",
+          "romanization": "na",
+          "english": "na syllable",
+          "exampleSentence": "나",
+          "exampleTranslation": "me / I",
+          "memoryHook": "ㄴ plus ㅏ becomes 나 — the Korean word for 'I'.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_da",
+          "korean": "다",
+          "romanization": "da",
+          "english": "da syllable",
+          "exampleSentence": "다리",
+          "exampleTranslation": "leg / bridge",
+          "memoryHook": "ㄷ plus ㅏ becomes 다.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "다",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ra",
+          "korean": "라",
+          "romanization": "ra",
+          "english": "ra syllable",
+          "exampleSentence": "라면",
+          "exampleTranslation": "if (grammatical ending)",
+          "memoryHook": "ㄹ plus ㅏ becomes 라.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "라",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ma",
+          "korean": "마",
+          "romanization": "ma",
+          "english": "ma syllable",
+          "exampleSentence": "엄마",
+          "exampleTranslation": "mom",
+          "memoryHook": "ㅁ plus ㅏ becomes 마.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "마",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ba",
+          "korean": "바",
+          "romanization": "ba",
+          "english": "ba syllable",
+          "exampleSentence": "바다",
+          "exampleTranslation": "sea",
+          "memoryHook": "ㅂ plus ㅏ becomes 바.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "바",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_sa",
+          "korean": "사",
+          "romanization": "sa",
+          "english": "sa syllable",
+          "exampleSentence": "사람",
+          "exampleTranslation": "person",
+          "memoryHook": "ㅅ plus ㅏ becomes 사.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_a",
+          "korean": "아",
+          "romanization": "a",
+          "english": "a syllable",
+          "exampleSentence": "아기",
+          "exampleTranslation": "baby",
+          "memoryHook": "ㅇ plus ㅏ becomes 아 — the ㅇ is silent here.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "아",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ja",
+          "korean": "자",
+          "romanization": "ja",
+          "english": "ja syllable",
+          "exampleSentence": "자다",
+          "exampleTranslation": "to sleep",
+          "memoryHook": "ㅈ plus ㅏ becomes 자.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "자",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hs_ha",
+          "korean": "하",
+          "romanization": "ha",
+          "english": "ha syllable",
+          "exampleSentence": "하다",
+          "exampleTranslation": "to do",
+          "memoryHook": "ㅎ plus ㅏ becomes 하.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "하",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "CV blocks",
+          "description": "Read the consonant and vowel as one smooth beat, not two separate sounds.",
+          "englishComparison": "Think of 'ga' as one syllable like in English 'garage', not 'g' + 'ah' spoken separately.",
+          "commonMistake": "Do not pause between the consonant and vowel. They form a single block and a single beat."
+        },
+        {
+          "sound": "Vertical vs horizontal vowel placement",
+          "description": "Vertical vowels (ㅏ ㅓ etc.) sit to the right of the consonant. Horizontal vowels (ㅗ ㅜ etc.) sit below the consonant.",
+          "englishComparison": "The block layout changes based on vowel orientation, but the reading order stays the same: consonant first, then vowel.",
+          "commonMistake": "Do not read horizontal-vowel blocks top-to-bottom as two syllables. 고 is one beat: 'go'."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "Syllable blocks",
+          "story": "Korean is not written in a long chain of letters like English. Each syllable snaps into a compact block, like a tiny building made of Lego pieces.",
+          "visualDescription": "Consonant + vowel locked into one readable unit."
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s3_intro",
+          "text": "Now we stop naming letters and start reading blocks. Every Hangul block has at least one consonant and one vowel.",
+          "romanization": "now we stop naming letters and start reading blocks",
+          "translation": "This is where Hangul starts feeling useful.",
+          "speech": {
+            "speechText": "이제는 글자 이름보다 글자 블록을 읽기 시작해요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s3_layout",
+          "text": "Vertical vowels sit beside the consonant: 가 나 다. Horizontal vowels sit below: 고 누 두.",
+          "romanization": "vertical vowels sit beside, horizontal vowels sit below",
+          "translation": "The vowel shape determines the block layout.",
+          "speech": {
+            "speechText": "세로 모음은 옐에, 가로 모음은 아래에 위치해요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "syllable_ga",
+          "prompt": "Write 가: place ㄱ on the left, ㅏ on the right.",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_na",
+          "prompt": "Write 나: place ㄴ on the left, ㅏ on the right.",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_da",
+          "prompt": "Write 다: place ㄷ on the left, ㅏ on the right.",
+          "speech": {
+            "speechText": "다",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_ma",
+          "prompt": "Write 마: place ㅁ on the left, ㅏ on the right.",
+          "speech": {
+            "speechText": "마",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_sa",
+          "prompt": "Write 사: place ㅅ on the left, ㅏ on the right.",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s3_1",
+          "prompt": "Read the whole block",
+          "displayText": "가",
+          "romanization": "ga",
+          "translation": "ga",
+          "speech": {
+            "speechText": "가",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_2",
+          "prompt": "Read the whole block",
+          "displayText": "사",
+          "romanization": "sa",
+          "translation": "sa",
+          "speech": {
+            "speechText": "사",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_3",
+          "prompt": "Read this block with a horizontal vowel",
+          "displayText": "고",
+          "romanization": "go",
+          "translation": "go",
+          "speech": {
+            "speechText": "고",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_4",
+          "prompt": "Read this block",
+          "displayText": "누",
+          "romanization": "nu",
+          "translation": "nu",
+          "speech": {
+            "speechText": "누",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_5",
+          "prompt": "Read this block",
+          "displayText": "미",
+          "romanization": "mi",
+          "translation": "mi",
+          "speech": {
+            "speechText": "미",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_6",
+          "prompt": "Read this block",
+          "displayText": "서",
+          "romanization": "seo",
+          "translation": "seo",
+          "speech": {
+            "speechText": "서",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s3_7",
+          "prompt": "Read this block",
+          "displayText": "주",
+          "romanization": "ju",
+          "translation": "ju",
+          "speech": {
+            "speechText": "주",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s3_1",
+          "title": "Sound out a simple block",
+          "lines": [
+            {
+              "id": "dlg_s3_1_l1",
+              "speaker": "Coach",
+              "text": "ㄱ + ㅏ",
+              "romanization": "g + a",
+              "translation": "Build the block.",
+              "speech": {
+                "speechText": "기역, 아",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s3_1_l2",
+              "speaker": "You",
+              "text": "가",
+              "romanization": "ga",
+              "translation": "Read it as one beat.",
+              "speech": {
+                "speechText": "가",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "What block did you build?",
+          "comprehensionAnswer": "가"
+        },
+        {
+          "id": "dlg_s3_2",
+          "title": "Horizontal vowel block",
+          "lines": [
+            {
+              "id": "dlg_s3_2_l1",
+              "speaker": "Coach",
+              "text": "ㅁ + ㅗ",
+              "romanization": "m + o",
+              "translation": "Build this block. The vowel goes below.",
+              "speech": {
+                "speechText": "미음, 오",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s3_2_l2",
+              "speaker": "You",
+              "text": "모",
+              "romanization": "mo",
+              "translation": "Consonant on top, vowel below.",
+              "speech": {
+                "speechText": "모",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "What block is ㅁ + ㅗ?",
+          "comprehensionAnswer": "모"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s3_1",
+          "prompt": "Which block is ㄴ + ㅏ?",
+          "options": [
+            "마",
+            "나",
+            "사",
+            "다"
+          ],
+          "correctAnswer": "나",
+          "explanation": "ㄴ (nieun) combined with ㅏ (a) forms 나.",
+          "speech": {
+            "speechText": "나",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_2",
+          "prompt": "Which block is ㅁ + ㅗ?",
+          "options": [
+            "모",
+            "바",
+            "부",
+            "무"
+          ],
+          "correctAnswer": "모",
+          "explanation": "ㅁ on top with ㅗ below forms 모.",
+          "speech": {
+            "speechText": "모",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_3",
+          "prompt": "Where does a horizontal vowel like ㅗ sit in the block?",
+          "options": [
+            "To the right of the consonant",
+            "Below the consonant",
+            "Above the consonant",
+            "To the left"
+          ],
+          "correctAnswer": "Below the consonant",
+          "explanation": "Horizontal vowels (ㅗ, ㅜ, ㅡ, etc.) are placed below the consonant in the syllable block.",
+          "speech": {
+            "speechText": "모음이 아래에 와요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s3_4",
+          "prompt": "Read this block: 하",
+          "options": [
+            "sa",
+            "ha",
+            "ga",
+            "na"
+          ],
+          "correctAnswer": "ha",
+          "explanation": "ㅎ (hieut) + ㅏ (a) = 하 (ha).",
+          "speech": {
+            "speechText": "하",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_4",
+      "trackId": "hangul_sprint",
+      "stageOrder": 4,
+      "title": "Stage 4 · Double Consonants",
+      "subtitle": "Learn the 5 tense (ssang) consonants and review aspirated sounds",
+      "emoji": "💨",
+      "estimatedMinutes": 15,
+      "learningObjective": "Recognize all 5 double (tense) consonants and distinguish them from their plain and aspirated counterparts.",
+      "unlockTargetIds": [
+        "hangul_stage_5",
+        "w1d1"
+      ],
+      "vocabulary": [
+        {
+          "id": "ht_kk",
+          "korean": "ㄲ",
+          "romanization": "kk",
+          "english": "ssang-giyeok",
+          "exampleSentence": "까",
+          "exampleTranslation": "kka",
+          "memoryHook": "Double ㄱ pressed tight — tense 'kk'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_tt",
+          "korean": "ㄸ",
+          "romanization": "tt",
+          "english": "ssang-digeut",
+          "exampleSentence": "따",
+          "exampleTranslation": "tta",
+          "memoryHook": "Double ㄷ stacked — tense 'tt'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_pp",
+          "korean": "ㅃ",
+          "romanization": "pp",
+          "english": "ssang-bieup",
+          "exampleSentence": "빠",
+          "exampleTranslation": "ppa",
+          "memoryHook": "Double ㅂ merged — tense 'pp'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_ss",
+          "korean": "ㅆ",
+          "romanization": "ss",
+          "english": "ssang-siot",
+          "exampleSentence": "싸",
+          "exampleTranslation": "ssa",
+          "memoryHook": "Double ㅅ peaks — tense 'ss'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "ht_jj",
+          "korean": "ㅉ",
+          "romanization": "jj",
+          "english": "ssang-jieut",
+          "exampleSentence": "짜",
+          "exampleTranslation": "jja",
+          "memoryHook": "Double ㅈ hats — tense 'jj'",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "쌍지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "Tense vs plain vs aspirated",
+          "description": "Korean has three levels for many consonants: plain (soft), tense (tight throat, no extra air), and aspirated (strong puff of air).",
+          "englishComparison": "Plain ㄱ is between English g/k. Tense ㄲ is a tight, clipped 'kk' with no air. Aspirated ㅋ is like English 'k' in 'kite' with a big puff.",
+          "commonMistake": "Do not confuse tense with loud. Tense means your throat muscles tighten, not that you shout."
+        },
+        {
+          "sound": "Making tense sounds",
+          "description": "To produce a tense consonant, tighten your throat slightly and cut off airflow. The sound should feel compressed and sharp.",
+          "englishComparison": "Imagine saying 'uh-oh' — the catch in your throat before 'oh' is similar to the tension in tense consonants.",
+          "commonMistake": "Do not release a burst of air. Tense sounds are the opposite of aspirated sounds."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "Tense consonants",
+          "story": "All five tense consonants are visually doubled versions of basic consonants. Double the shape, tighten the sound.",
+          "visualDescription": "ㄱ→ㄲ, ㄷ→ㄸ, ㅂ→ㅃ, ㅅ→ㅆ, ㅈ→ㅉ"
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s4_intro",
+          "text": "Korean has 5 double consonants called ssang (쌍). They look like two copies of a basic consonant merged together, and they produce a tense, sharp sound.",
+          "romanization": "korean has 5 double consonants called ssang",
+          "translation": "Doubled shape means tightened sound.",
+          "speech": {
+            "speechText": "한글에는 쌍자음이 다섯 개 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "s4_contrast",
+          "text": "Compare the three levels: 가 (plain ga) vs 까 (tense kka) vs 카 (aspirated ka). Each starts differently.",
+          "romanization": "ga vs kka vs ka",
+          "translation": "Train your ear to hear three distinct beginnings.",
+          "speech": {
+            "speechText": "가, 까, 카. 세 가지 시작 소리가 다 달라요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "consonant_ssang_giyeok",
+          "prompt": "Trace ㄲ: two ㄱ shapes pressed together.",
+          "speech": {
+            "speechText": "쌍기역",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_digeut",
+          "prompt": "Trace ㄸ: two ㄷ shapes stacked.",
+          "speech": {
+            "speechText": "쌍디귿",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_bieup",
+          "prompt": "Trace ㅃ: two ㅂ shapes merged.",
+          "speech": {
+            "speechText": "쌍비읍",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_siot",
+          "prompt": "Trace ㅆ: two ㅅ peaks side by side.",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "consonant_ssang_jieut",
+          "prompt": "Trace ㅉ: two ㅈ hats merged.",
+          "speech": {
+            "speechText": "쌍지읒",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s4_1",
+          "prompt": "Read the plain sound, then the tense sound",
+          "displayText": "가 vs 까",
+          "romanization": "ga vs kka",
+          "translation": "plain vs tense",
+          "speech": {
+            "speechText": "가, 까",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_2",
+          "prompt": "Read the plain sound, then the tense sound",
+          "displayText": "다 vs 따",
+          "romanization": "da vs tta",
+          "translation": "plain vs tense",
+          "speech": {
+            "speechText": "다, 따",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_3",
+          "prompt": "Read the plain sound, then the tense sound",
+          "displayText": "바 vs 빠",
+          "romanization": "ba vs ppa",
+          "translation": "plain vs tense",
+          "speech": {
+            "speechText": "바, 빠",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "id": "rd_s4_4",
+          "prompt": "Read the plain sound, then the tense sound",
+          "displayText": "사 vs 싸",
+          "romanization": "sa vs ssa",
+          "translation": "plain vs tense",
+          "speech": {
+            "speechText": "사, 싸",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s4_1",
+          "title": "Hear the three-way contrast",
+          "lines": [
+            {
+              "id": "dlg_s4_1_l1",
+              "speaker": "Coach",
+              "text": "가 · 까 · 카",
+              "romanization": "ga · kka · ka",
+              "translation": "Soft, tense, aspirated.",
+              "speech": {
+                "speechText": "가, 까, 카",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s4_1_l2",
+              "speaker": "You",
+              "text": "세 가지 시작 소리가 다 달라요.",
+              "romanization": "se gaji sijak soriga da dallayo",
+              "translation": "I can hear three different starts.",
+              "speech": {
+                "speechText": "세 가지 시작 소리가 다 달라요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which sound had the tightest, sharpest start with no air puff?",
+          "comprehensionAnswer": "까"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s4_1",
+          "prompt": "Which is the tense (double) version of ㅅ?",
+          "options": [
+            "ㅆ",
+            "ㅊ",
+            "ㅉ",
+            "ㅋ"
+          ],
+          "correctAnswer": "ㅆ",
+          "explanation": "ㅆ (ssang-siot) is two ㅅ shapes merged, producing a tense 'ss' sound.",
+          "speech": {
+            "speechText": "쌍시옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s4_2",
+          "prompt": "How many tense (double) consonants does Korean have?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "7"
+          ],
+          "correctAnswer": "5",
+          "explanation": "Korean has exactly 5 tense consonants: ㄲ ㄸ ㅃ ㅆ ㅉ.",
+          "speech": {
+            "speechText": "쌍자음은 다섯 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s4_3",
+          "prompt": "Which syllable uses the tense consonant ㄸ?",
+          "options": [
+            "다",
+            "따",
+            "타",
+            "라"
+          ],
+          "correctAnswer": "따",
+          "explanation": "ㄸ + ㅏ = 따 (tta). 다 uses plain ㄷ, 타 uses aspirated ㅌ.",
+          "speech": {
+            "speechText": "따",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_5",
+      "trackId": "hangul_sprint",
+      "stageOrder": 5,
+      "title": "Stage 5 · Compound Vowels",
+      "subtitle": "Decode all 11 blended vowel combinations",
+      "emoji": "🌊",
+      "estimatedMinutes": 18,
+      "learningObjective": "Recognize and pronounce all 11 compound vowels by understanding which basic vowels combine to form them.",
+      "unlockTargetIds": [
+        "hangul_stage_6"
+      ],
+      "vocabulary": [
+        {
+          "id": "hcv_ae",
+          "korean": "ㅐ",
+          "romanization": "ae",
+          "english": "ae vowel",
+          "exampleSentence": "애",
+          "exampleTranslation": "ae",
+          "memoryHook": "ㅏ + ㅣ merged = ae",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_yae",
+          "korean": "ㅒ",
+          "romanization": "yae",
+          "english": "yae vowel",
+          "exampleSentence": "얘",
+          "exampleTranslation": "yae",
+          "memoryHook": "ㅑ + ㅣ merged = yae",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "얘",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_e",
+          "korean": "ㅔ",
+          "romanization": "e",
+          "english": "e vowel",
+          "exampleSentence": "에",
+          "exampleTranslation": "e",
+          "memoryHook": "ㅓ + ㅣ merged = e",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "에",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_ye",
+          "korean": "ㅖ",
+          "romanization": "ye",
+          "english": "ye vowel",
+          "exampleSentence": "예",
+          "exampleTranslation": "ye",
+          "memoryHook": "ㅕ + ㅣ merged = ye",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "예",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wa",
+          "korean": "ㅘ",
+          "romanization": "wa",
+          "english": "wa vowel",
+          "exampleSentence": "와",
+          "exampleTranslation": "wa",
+          "memoryHook": "ㅗ + ㅏ glide = wa",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wae",
+          "korean": "ㅙ",
+          "romanization": "wae",
+          "english": "wae vowel",
+          "exampleSentence": "왜",
+          "exampleTranslation": "wae",
+          "memoryHook": "ㅗ + ㅐ glide = wae",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "왜",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_oe",
+          "korean": "ㅚ",
+          "romanization": "oe",
+          "english": "oe vowel",
+          "exampleSentence": "외",
+          "exampleTranslation": "oe",
+          "memoryHook": "ㅗ + ㅣ glide = oe (sounds like 'we')",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "외",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wo",
+          "korean": "ㅝ",
+          "romanization": "wo",
+          "english": "wo vowel",
+          "exampleSentence": "워",
+          "exampleTranslation": "wo",
+          "memoryHook": "ㅜ + ㅓ glide = wo",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_we",
+          "korean": "ㅞ",
+          "romanization": "we",
+          "english": "we vowel",
+          "exampleSentence": "웨",
+          "exampleTranslation": "we",
+          "memoryHook": "ㅜ + ㅔ glide = we",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "웨",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_wi",
+          "korean": "ㅟ",
+          "romanization": "wi",
+          "english": "wi vowel",
+          "exampleSentence": "위",
+          "exampleTranslation": "wi",
+          "memoryHook": "ㅜ + ㅣ glide = wi",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "위",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hcv_ui",
+          "korean": "ㅢ",
+          "romanization": "ui",
+          "english": "ui vowel",
+          "exampleSentence": "의",
+          "exampleTranslation": "ui",
+          "memoryHook": "ㅡ + ㅣ glide = ui (the tricky one)",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "ㅐ / ㅔ",
+          "description": "Modern Korean speakers often pronounce ㅐ (ae) and ㅔ (e) almost identically. Do not worry if you cannot hear a difference.",
+          "englishComparison": "Both are close to the 'e' in English 'bed'. Historically ㅐ was more open like 'cat'.",
+          "commonMistake": "Do not stress about distinguishing them by ear. Focus on spelling — many native speakers rely on context too."
+        },
+        {
+          "sound": "ㅢ (ui)",
+          "description": "ㅢ is the trickiest compound vowel. Its pronunciation changes by position: at the start of a word it is 'ui', after a consonant it often sounds like 'i', and in the possessive particle 의 it sounds like 'e'.",
+          "englishComparison": "No single English equivalent. Think of it as a quick 'eu' sliding into 'ee'.",
+          "commonMistake": "Do not always pronounce it the same way. Listen to native speakers in different contexts."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "Compound vowel logic",
+          "story": "Every compound vowel is made from two basic vowels you already know. If you can spot the ingredients, you can read the blend.",
+          "visualDescription": "Like mixing paint colors: ㅗ (blue) + ㅏ (yellow) = ㅘ (green)."
+        },
+        {
+          "targetWord": "W-glide vowels",
+          "story": "Vowels starting with ㅗ or ㅜ create a 'w' glide: ㅘ (wa), ㅙ (wae), ㅚ (oe), ㅝ (wo), ㅞ (we), ㅟ (wi).",
+          "visualDescription": "The round vowel starts the glide, then slides into another vowel."
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s5_intro",
+          "text": "Compound vowels look busy, but they are just familiar pieces combined. Learn the recipe and the shape stops being scary.",
+          "romanization": "compound vowels are familiar pieces combined",
+          "translation": "Decode the ingredients, then read the result.",
+          "speech": {
+            "speechText": "복합 모음은 복잡해 보여도 이미 배운 조각이 합쳐진 거예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s5_two_groups",
+          "text": "Group 1: ㅏ/ㅓ-based merges with ㅣ produce ㅐ (ae), ㅒ (yae), ㅔ (e), ㅖ (ye). Group 2: w-glides from ㅗ or ㅜ produce ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ. Plus the oddball ㅢ (ui).",
+          "romanization": "two groups of compound vowels",
+          "translation": "Knowing the groups makes 11 vowels manageable.",
+          "speech": {
+            "speechText": "복합 모음은 두 그룹으로 나눌 수 있어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "vowel_ae",
+          "prompt": "Trace ㅐ: ㅏ with an extra ㅣ stroke on the right.",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_e",
+          "prompt": "Trace ㅔ: ㅓ with an extra ㅣ stroke on the right.",
+          "speech": {
+            "speechText": "에",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_wa",
+          "prompt": "Trace ㅘ: ㅗ below and ㅏ to the right.",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_weo",
+          "prompt": "Trace ㅝ: ㅜ below and ㅓ to the right.",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_wi",
+          "prompt": "Trace ㅟ: ㅜ with ㅣ added to the right.",
+          "speech": {
+            "speechText": "위",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "vowel_ui",
+          "prompt": "Trace ㅢ: ㅡ horizontal and ㅣ vertical together.",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s5_1",
+          "prompt": "Read this compound vowel syllable",
+          "displayText": "애",
+          "romanization": "ae",
+          "translation": "ae",
+          "speech": {
+            "speechText": "애",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_2",
+          "prompt": "Read this compound vowel syllable",
+          "displayText": "예",
+          "romanization": "ye",
+          "translation": "ye (example / manners)",
+          "speech": {
+            "speechText": "예",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_3",
+          "prompt": "Read this real word with a compound vowel",
+          "displayText": "왜",
+          "romanization": "wae",
+          "translation": "why",
+          "speech": {
+            "speechText": "왜",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_4",
+          "prompt": "Read this compound vowel syllable",
+          "displayText": "워",
+          "romanization": "wo",
+          "translation": "wo",
+          "speech": {
+            "speechText": "워",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s5_5",
+          "prompt": "Read the tricky compound vowel",
+          "displayText": "의",
+          "romanization": "ui",
+          "translation": "of / meaning (possessive particle)",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s5_1",
+          "title": "Blend the shape",
+          "lines": [
+            {
+              "id": "dlg_s5_1_l1",
+              "speaker": "Coach",
+              "text": "ㅗ + ㅏ = ?",
+              "romanization": "o + a = ?",
+              "translation": "Build the blend.",
+              "speech": {
+                "speechText": "오, 아",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "SLOW"
+              }
+            },
+            {
+              "id": "dlg_s5_1_l2",
+              "speaker": "You",
+              "text": "ㅘ, 와!",
+              "romanization": "wa!",
+              "translation": "That blend is ㅘ, and 와 means 'wow'!",
+              "speech": {
+                "speechText": "와!",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "What compound vowel is ㅗ + ㅏ?",
+          "comprehensionAnswer": "ㅘ"
+        },
+        {
+          "id": "dlg_s5_2",
+          "title": "The ae/e confusion",
+          "lines": [
+            {
+              "id": "dlg_s5_2_l1",
+              "speaker": "Coach",
+              "text": "ㅐ하고 ㅔ는 소리가 비슷해요.",
+              "romanization": "ae-hago e-neun soriga biseutaeyo",
+              "translation": "ㅐ and ㅔ sound similar.",
+              "speech": {
+                "speechText": "ㅐ하고 ㅔ는 소리가 비슷해요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s5_2_l2",
+              "speaker": "You",
+              "text": "맞아요. 철자로 구별해야 돼요.",
+              "romanization": "majayo. cheoljaro gubyeolhaeya dwoeyo",
+              "translation": "Right. I need to distinguish them by spelling.",
+              "speech": {
+                "speechText": "맞아요. 철자로 구별해야 돼요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "How do modern Korean speakers usually tell ㅐ and ㅔ apart?",
+          "comprehensionAnswer": "By spelling, not sound"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s5_1",
+          "prompt": "Which compound vowel is built from ㅗ + ㅏ?",
+          "options": [
+            "ㅔ",
+            "ㅘ",
+            "ㅚ",
+            "ㅢ"
+          ],
+          "correctAnswer": "ㅘ",
+          "explanation": "ㅘ (wa) combines the round ㅗ with ㅏ to create a w-glide.",
+          "speech": {
+            "speechText": "와",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s5_2",
+          "prompt": "Which compound vowel is the trickiest, changing pronunciation by position?",
+          "options": [
+            "ㅐ",
+            "ㅘ",
+            "ㅢ",
+            "ㅞ"
+          ],
+          "correctAnswer": "ㅢ",
+          "explanation": "ㅢ (ui) can sound like 'ui', 'i', or 'e' depending on where it appears in a word.",
+          "speech": {
+            "speechText": "의",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s5_3",
+          "prompt": "How many compound vowels does Korean have in total?",
+          "options": [
+            "7",
+            "9",
+            "10",
+            "11"
+          ],
+          "correctAnswer": "11",
+          "explanation": "Korean has 11 compound vowels: ㅐ ㅒ ㅔ ㅖ ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ.",
+          "speech": {
+            "speechText": "복합 모음은 열한 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "hangul_stage_6",
+      "trackId": "hangul_sprint",
+      "stageOrder": 6,
+      "title": "Stage 6 · Batchim Basics",
+      "subtitle": "Read syllables with final consonants at the bottom",
+      "emoji": "🏁",
+      "estimatedMinutes": 15,
+      "learningObjective": "Understand the 7 representative batchim (final consonant) sounds and read common beginner words that use them.",
+      "vocabulary": [
+        {
+          "id": "hb_bap",
+          "korean": "밥",
+          "romanization": "bap",
+          "english": "rice / meal",
+          "exampleSentence": "밥 먹었어요?",
+          "exampleTranslation": "Did you eat?",
+          "memoryHook": "The ㅂ sound closes at the bottom as a final p-like sound. 밥 is one of the first words every learner needs.",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_mul",
+          "korean": "물",
+          "romanization": "mul",
+          "english": "water",
+          "exampleSentence": "물 주세요.",
+          "exampleTranslation": "Water, please.",
+          "memoryHook": "ㄹ sits at the bottom and gives a soft 'l' ending.",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "물",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_mun",
+          "korean": "문",
+          "romanization": "mun",
+          "english": "door",
+          "exampleSentence": "문 열어 주세요.",
+          "exampleTranslation": "Please open the door.",
+          "memoryHook": "ㄴ at the bottom gives a gentle 'n' ending.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "문",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_guk",
+          "korean": "국",
+          "romanization": "guk",
+          "english": "soup",
+          "exampleSentence": "국이 맛있어요.",
+          "exampleTranslation": "The soup is delicious.",
+          "memoryHook": "ㄱ at the bottom gives a clipped 'k' ending.",
+          "category": "FOOD",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_gang",
+          "korean": "강",
+          "romanization": "gang",
+          "english": "river",
+          "exampleSentence": "한강",
+          "exampleTranslation": "Han River",
+          "memoryHook": "ㅇ at the bottom finally makes its 'ng' sound.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "강",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_nun",
+          "korean": "눈",
+          "romanization": "nun",
+          "english": "eye / snow",
+          "exampleSentence": "눈이 와요.",
+          "exampleTranslation": "It is snowing.",
+          "memoryHook": "ㄴ batchim again — same word means both 'eye' and 'snow'.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "눈",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_gom",
+          "korean": "곰",
+          "romanization": "gom",
+          "english": "bear",
+          "exampleSentence": "곰 세 마리",
+          "exampleTranslation": "three bears",
+          "memoryHook": "ㅁ at the bottom closes the lips for a soft 'm' ending.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "곰",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "hb_ot",
+          "korean": "옷",
+          "romanization": "ot",
+          "english": "clothes",
+          "exampleSentence": "옷이 예뻐요.",
+          "exampleTranslation": "The clothes are pretty.",
+          "memoryHook": "ㅅ as batchim sounds like 't' (not 's'). Many different consonants neutralize to a 't' sound in final position.",
+          "category": "HANGUL",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "pronunciationTips": [
+        {
+          "sound": "받침 (batchim)",
+          "description": "A final consonant changes how the syllable ends. In Korean, final consonants are often unreleased — you position your mouth but do not fully push the sound out.",
+          "englishComparison": "Like the 'p' in 'stop' when you cut the word short without a puff of air.",
+          "commonMistake": "Do not add an extra vowel after the final consonant. '밥' is 'bap', not 'ba-peu'."
+        },
+        {
+          "sound": "7 representative sounds",
+          "description": "Although many different consonants can appear as batchim, they all reduce to just 7 sounds: ㄱ(k), ㄴ(n), ㄷ(t), ㄹ(l), ㅁ(m), ㅂ(p), ㅇ(ng).",
+          "englishComparison": "For example, ㅅ ㅈ ㅊ ㅌ ㅎ all sound like 't' in final position.",
+          "commonMistake": "Do not try to pronounce every batchim letter differently. Learn the 7 representative sounds first."
+        }
+      ],
+      "memoryHooks": [
+        {
+          "targetWord": "받침",
+          "story": "Batchim means 'support' or 'floor'. The final consonant sits under the block like a support beam holding the syllable up.",
+          "visualDescription": "A floor beam under a syllable block."
+        },
+        {
+          "targetWord": "7 sounds rule",
+          "story": "No matter how many different letters appear at the bottom, they all collapse into just 7 exit sounds. Think of it as 7 doors — every batchim exits through one of them.",
+          "visualDescription": "7 doors labeled k, n, t, l, m, p, ng."
+        }
+      ],
+      "scriptItems": [
+        {
+          "id": "s6_intro",
+          "text": "Once you see the final consonant at the bottom of a block, many beginner words suddenly become readable. This is a major confidence jump.",
+          "romanization": "once you see the final consonant many words become readable",
+          "translation": "Batchim unlocks real Korean reading.",
+          "speech": {
+            "speechText": "받침이 보이기 시작하면 초급 단어가 훨씬 잘 읽혀요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "s6_seven",
+          "text": "Remember: all batchim sounds reduce to 7 representatives. ㄱ-type (k), ㄴ (n), ㄷ-type (t), ㄹ (l), ㅁ (m), ㅂ-type (p), ㅇ (ng).",
+          "romanization": "seven representative batchim sounds",
+          "translation": "Seven sounds cover every possible ending.",
+          "speech": {
+            "speechText": "받침 소리는 일곱 가지로 줄어들어요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "writingTargets": [
+        {
+          "characterId": "syllable_bap",
+          "prompt": "Write 밥: ㅂ on left, ㅏ on right, ㅂ on bottom.",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_mul",
+          "prompt": "Write 물: ㅁ on top, ㅜ below it, ㄹ on the bottom.",
+          "speech": {
+            "speechText": "물",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        },
+        {
+          "characterId": "syllable_guk",
+          "prompt": "Write 국: ㄱ on top, ㅜ below it, ㄱ on the bottom.",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "SLOW"
+          }
+        }
+      ],
+      "readingDrills": [
+        {
+          "id": "rd_s6_1",
+          "prompt": "Read this word and identify the batchim",
+          "displayText": "밥",
+          "romanization": "bap",
+          "translation": "rice / meal",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_2",
+          "prompt": "Read this word and identify the batchim",
+          "displayText": "문",
+          "romanization": "mun",
+          "translation": "door",
+          "speech": {
+            "speechText": "문",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_3",
+          "prompt": "Read this word and identify the batchim",
+          "displayText": "국",
+          "romanization": "guk",
+          "translation": "soup",
+          "speech": {
+            "speechText": "국",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_4",
+          "prompt": "Read this word — notice ㅇ finally makes a sound!",
+          "displayText": "강",
+          "romanization": "gang",
+          "translation": "river",
+          "speech": {
+            "speechText": "강",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "rd_s6_5",
+          "prompt": "Read this word — ㅅ as batchim sounds like 't'",
+          "displayText": "옷",
+          "romanization": "ot",
+          "translation": "clothes",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ],
+      "dialogueItems": [
+        {
+          "id": "dlg_s6_1",
+          "title": "Ordering water",
+          "lines": [
+            {
+              "id": "dlg_s6_1_l1",
+              "speaker": "Coach",
+              "text": "물 주세요.",
+              "romanization": "mul juseyo",
+              "translation": "Water, please.",
+              "speech": {
+                "speechText": "물 주세요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s6_1_l2",
+              "speaker": "You",
+              "text": "네, 여기요.",
+              "romanization": "ne, yeogiyo",
+              "translation": "Yes, here (calling attention).",
+              "speech": {
+                "speechText": "네, 여기요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which word in the dialogue has a ㄹ batchim?",
+          "comprehensionAnswer": "물"
+        },
+        {
+          "id": "dlg_s6_2",
+          "title": "Talking about food",
+          "lines": [
+            {
+              "id": "dlg_s6_2_l1",
+              "speaker": "Coach",
+              "text": "밥 먹었어요?",
+              "romanization": "bap meogeosseoyo?",
+              "translation": "Did you eat?",
+              "speech": {
+                "speechText": "밥 먹었어요?",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            },
+            {
+              "id": "dlg_s6_2_l2",
+              "speaker": "You",
+              "text": "네, 국도 먹었어요.",
+              "romanization": "ne, gukdo meogeosseoyo",
+              "translation": "Yes, I had soup too.",
+              "speech": {
+                "speechText": "네, 국도 먹었어요.",
+                "speechLocale": "ko-KR",
+                "speechRatePreset": "NORMAL"
+              }
+            }
+          ],
+          "comprehensionQuestion": "Which two words have batchim in this dialogue?",
+          "comprehensionAnswer": "밥, 국"
+        }
+      ],
+      "checkpointItems": [
+        {
+          "id": "cp_s6_1",
+          "prompt": "Which word below has a final consonant (batchim)?",
+          "options": [
+            "가",
+            "나",
+            "밥",
+            "사"
+          ],
+          "correctAnswer": "밥",
+          "explanation": "밥 has ㅂ as its batchim (final consonant), giving a clipped 'p' ending.",
+          "speech": {
+            "speechText": "밥",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s6_2",
+          "prompt": "What sound does ㅅ make when it appears as batchim (final position)?",
+          "options": [
+            "s",
+            "t",
+            "n",
+            "ng"
+          ],
+          "correctAnswer": "t",
+          "explanation": "In final position, ㅅ neutralizes to a 't' sound. That is why 옷 is pronounced 'ot', not 'os'.",
+          "speech": {
+            "speechText": "옷",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        },
+        {
+          "id": "cp_s6_3",
+          "prompt": "How many representative batchim sounds are there in Korean?",
+          "options": [
+            "5",
+            "7",
+            "10",
+            "14"
+          ],
+          "correctAnswer": "7",
+          "explanation": "All final consonants reduce to 7 representative sounds: k, n, t, l, m, p, ng.",
+          "speech": {
+            "speechText": "받침 소리는 일곱 개예요.",
+            "speechLocale": "ko-KR",
+            "speechRatePreset": "NORMAL"
+          }
+        }
+      ]
+    }
+  ]
+}

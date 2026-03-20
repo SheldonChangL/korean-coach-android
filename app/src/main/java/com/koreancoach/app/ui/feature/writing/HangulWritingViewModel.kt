@@ -1,5 +1,7 @@
 package com.koreancoach.app.ui.feature.writing
 
+import androidx.compose.ui.geometry.Offset
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.koreancoach.app.data.curriculum.HangulCharacterData
 import com.koreancoach.app.domain.model.HangulCharacter
@@ -7,11 +9,12 @@ import com.koreancoach.app.domain.model.Stroke
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
-import androidx.compose.ui.geometry.Offset
 import kotlin.math.sqrt
 
+private val DefaultWritingCharacters = HangulCharacterData.allCharacters + HangulCharacterData.syllables
+
 data class WritingUiState(
-    val characters: List<HangulCharacter> = HangulCharacterData.allCharacters + HangulCharacterData.syllables,
+    val characters: List<HangulCharacter> = DefaultWritingCharacters,
     val currentCharacterIndex: Int = 0,
     val currentStrokeIndex: Int = 0,
     val completedStrokes: List<List<Offset>> = emptyList(),
@@ -32,9 +35,22 @@ data class WritingUiState(
 enum class StrokeResult { CORRECT, NEEDS_RETRY }
 
 @HiltViewModel
-class HangulWritingViewModel @Inject constructor() : ViewModel() {
+class HangulWritingViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
 
-    private val _state = MutableStateFlow(WritingUiState())
+    private val initialCharacterId: String? = savedStateHandle["characterId"]
+    private val initialCharacterIndex = DefaultWritingCharacters
+        .indexOfFirst { it.id == initialCharacterId }
+        .takeIf { it >= 0 }
+        ?: 0
+
+    private val _state = MutableStateFlow(
+        WritingUiState(
+            characters = DefaultWritingCharacters,
+            currentCharacterIndex = initialCharacterIndex
+        )
+    )
     val state: StateFlow<WritingUiState> = _state.asStateFlow()
 
     fun addPoint(point: Offset) {
