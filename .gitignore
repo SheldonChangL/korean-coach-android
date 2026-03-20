@@ -1,0 +1,40 @@
+# Gradle files
+.gradle/
+build/
+
+# Android Studio files
+local.properties
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/modules/
+.idea/runConfigurations/
+*.iml
+*.iws
+*.ipr
+
+# Log files
+*.log
+
+# Android App Bundle / APK
+*.apk
+*.apks
+*.aab
+
+# Keystore files
+*.jks
+*.keystore
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# Google Services
+google-services.json
+
+# System files
+.DS_Store
+Thumbs.db
