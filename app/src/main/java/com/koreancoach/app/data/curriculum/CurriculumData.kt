@@ -401,7 +401,7 @@ object CurriculumData {
             vocabulary = listOf(
                 VocabItem(
                     id = "v_menu", korean = "메뉴", romanization = "menyu", english = "menu",
-                    exampleSentence = "메뉴 주세요.", exampleTranslation = "Bill, please.",
+                    exampleSentence = "메뉴 주세요.", exampleTranslation = "Menu, please.",
                     memoryHook = "메뉴 = 'meh-nyu' = menu. Borrowed word — easy!",
                     category = VocabCategory.FOOD
                 ),
@@ -1324,7 +1324,7 @@ object CurriculumData {
             ),
             phrases = listOf(
                 PhraseItem(
-                    id = "p_wifi_password", korean = "와이파이 비밀번호가 뭐예요?",
+                    id = "p_wifi_password", korean = "와파이 비밀번호가 뭐예요?",
                     romanization = "waipai bimilbeonhoga mwoeyo",
                     english = "What is the Wi-Fi password?",
                     context = "Essential phrase at cafés, restaurants, accommodations",
@@ -1729,7 +1729,7 @@ object CurriculumData {
                 VocabItem(
                     id = "v_cheoncheonhi", korean = "천천히", romanization = "cheoncheonhi", english = "Slowly",
                     exampleSentence = "천천히 말해 주세요.", exampleTranslation = "Please speak slowly.",
-                    memoryHook = "'Cheon-cheon-hi' — 'CHUN-CHUN-HEE' — CHUN CHUN (train chugging) slowly — HEE HEY!",
+                    memoryHook = "'Cheon-cheon-hi' — 'CHUN-CHUN-HEE' — CHUN CHUN (train chugging) slowly — HEE HEE!",
                     category = VocabCategory.GENERAL
                 )
             ),
