@@ -12,6 +12,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
@@ -96,9 +99,10 @@ fun FlashCardScreen(
                         Spacer(Modifier.height(spacing.xl))
 
                         // Interaction hint
-                        Box(
+                        Column(
                             modifier = Modifier.height(40.dp).fillMaxWidth(),
-                            contentAlignment = Alignment.Center
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
                         ) {
                             AnimatedVisibility(
                                 visible = !state.isFlipped,
@@ -110,7 +114,7 @@ fun FlashCardScreen(
                                     Text("Tap card to see the answer", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                 }
                             }
-                            
+
                             AnimatedVisibility(
                                 visible = state.isFlipped,
                                 enter = fadeIn() + expandVertically(),

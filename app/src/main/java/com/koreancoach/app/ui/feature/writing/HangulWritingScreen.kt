@@ -298,6 +298,7 @@ private fun TracingCanvas(
     val gridColor = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
     val guideColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.25f)
     val completedColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.85f)
+    val startDotColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
     val userColor = MaterialTheme.colorScheme.tertiary
     val successColor = SuccessGreen
 
@@ -335,7 +336,7 @@ private fun TracingCanvas(
         val currentStrokeRef = character.strokes.getOrNull(completedStrokes.size)
         currentStrokeRef?.points?.firstOrNull()?.let { startPt ->
             drawCircle(
-                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                color = startDotColor,
                 radius = 14f,
                 center = Offset(startPt.x * size.width, startPt.y * size.height)
             )
