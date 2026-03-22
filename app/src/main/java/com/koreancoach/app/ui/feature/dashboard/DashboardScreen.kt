@@ -110,11 +110,26 @@ fun DashboardScreen(
             }
 
             item {
-                HangulSprintCard(
-                    completed = state.hangulCompletedCount,
-                    total = state.hangulTotalCount,
-                    onOpenPath = onNavigateToHangulPath,
+                HangulProgressSection(
+                    state = state,
                     onOpenExplore = onNavigateToHangulExplore
+                )
+            }
+
+            item {
+                SectionHeader(
+                    title = stringResource(R.string.learning_path),
+                    actionText = stringResource(R.string.path),
+                    onActionClick = onNavigateToHangulPath
+                )
+            }
+
+            val hangulLessons = state.allLessons.filter { it.trackId == "hangul_sprint" }
+            itemsIndexed(hangulLessons) { index, lesson ->
+                PathNode(
+                    lesson = lesson,
+                    isLast = index == hangulLessons.size - 1,
+                    onClick = { onNavigateToLesson(lesson.id) }
                 )
             }
 
@@ -224,7 +239,7 @@ private fun TodayFocusCard(
                     Text(if (state.nextHangulLesson != null) stringResource(R.string.open_hangul_sprint) else stringResource(R.string.open_lesson))
                 }
                 OutlinedButton(onClick = onOpenHangulPath) {
-                    Text(stringResource(R.string.path))
+                    Text(stringResource(R.string.continue_path))
                 }
             }
         }
@@ -232,35 +247,46 @@ private fun TodayFocusCard(
 }
 
 @Composable
-private fun HangulSprintCard(
-    completed: Int,
-    total: Int,
-    onOpenPath: () -> Unit,
+private fun HangulProgressSection(
+    state: DashboardUiState,
     onOpenExplore: () -> Unit
 ) {
     ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(stringResource(R.string.hangul_sprint), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                    Text(stringResource(R.string.stages_complete, completed, total), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                Text("한글", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
-            }
-            LinearProgressIndicator(
-                progress = { if (total == 0) 0f else completed.toFloat() / total },
-                modifier = Modifier.fillMaxWidth()
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            HangulProgressRing(
+                masteredVowels = state.masteredVowels,
+                totalVowels = state.totalVowels,
+                masteredConsonants = state.masteredConsonants,
+                totalConsonants = state.totalConsonants,
+                masteredDoubleConsonants = state.masteredDoubleConsonants,
+                totalDoubleConsonants = state.totalDoubleConsonants,
+                masteredCompoundVowels = state.masteredCompoundVowels,
+                totalCompoundVowels = state.totalCompoundVowels,
+                onNavigateToExplore = onOpenExplore,
+                modifier = Modifier.size(120.dp)
             )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = onOpenPath, modifier = Modifier.weight(1f)) {
-                    Text(stringResource(R.string.guided_path))
-                }
-                OutlinedButton(onClick = onOpenExplore, modifier = Modifier.weight(1f)) {
-                    Text(stringResource(R.string.explore_40))
+
+            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    text = stringResource(R.string.hangul_progress),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = stringResource(R.string.stages_complete_v2, state.hangulCompletedStages, state.hangulTotalStages),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Button(
+                    onClick = onOpenExplore,
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
+                ) {
+                    Text(stringResource(R.string.explore_40_sounds), style = MaterialTheme.typography.labelMedium)
                 }
             }
         }

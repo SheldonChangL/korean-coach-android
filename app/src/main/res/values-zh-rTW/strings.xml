@@ -14,6 +14,15 @@
     <!-- Content Descriptions -->
     <string name="cd_progress">進度</string>
     <string name="cd_settings">設定</string>
+    <string name="cd_back">返回</string>
+
+    <!-- Phase 3 Dashboard -->
+    <string name="sounds_mastered">已精通音節</string>
+    <string name="explore_40_sounds">探索 40 音</string>
+    <string name="learning_path">學習路徑</string>
+    <string name="hangul_progress">字母進度</string>
+    <string name="continue_path">繼續路徑</string>
+    <string name="stages_complete_v2">%1$d / %2$d 階段</string>
     <string name="cd_close">關閉</string>
     <string name="cd_play_audio">播放音訊</string>
     <string name="cd_stop_audio">停止音訊</string>
