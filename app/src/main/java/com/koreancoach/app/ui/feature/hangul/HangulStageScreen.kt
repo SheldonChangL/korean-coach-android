@@ -20,8 +20,12 @@ import com.koreancoach.app.domain.model.CheckpointItem
 import com.koreancoach.app.domain.model.DialogueItem
 import com.koreancoach.app.domain.model.ReadingDrill
 import com.koreancoach.app.domain.model.ScriptItem
+import com.koreancoach.app.domain.model.SpeechSpec
 import com.koreancoach.app.domain.model.WritingTarget
 import com.koreancoach.app.ui.common.SpeechIconButton
+import com.koreancoach.app.ui.feature.hangul.components.MatchingGame
+import com.koreancoach.app.ui.feature.hangul.components.SyllableBuilder
+import com.koreancoach.app.ui.feature.hangul.components.syllableOptionsFor
 import com.koreancoach.app.ui.theme.LocalSpacing
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -179,6 +183,49 @@ fun HangulStageScreen(
                         isComplete = checkpoint.id in state.completedCheckpoints,
                         onAnswer = { viewModel.answerCheckpoint(checkpoint, it) }
                     )
+                }
+            }
+
+            // Matching Game: show for Hangul stages with sufficient vocabulary
+            val matchingPairs = lesson.vocabulary
+                .take(4)
+                .map { it.korean to it.romanization }
+            if (matchingPairs.size >= 3) {
+                item {
+                    ElevatedCard {
+                        MatchingGame(
+                            koreanToRomanization = matchingPairs,
+                            onSpeak = { text ->
+                                viewModel.play(SpeechSpec(speechText = text), text)
+                            },
+                            modifier = Modifier.padding(spacing.md)
+                        )
+                    }
+                }
+            }
+
+            // Syllable Builder: show for stages where vocabulary contains full syllable blocks
+            val syllableItems = lesson.vocabulary.filter { v ->
+                v.korean.length == 1 && v.korean[0].code in 0xAC00..0xD7A3
+            }
+            val firstSyllableExercise = syllableItems.firstOrNull()?.let { item ->
+                syllableOptionsFor(item.korean)?.let { (consonants, vowels) ->
+                    Triple(item.korean, consonants, vowels)
+                }
+            }
+            if (firstSyllableExercise != null) {
+                item {
+                    ElevatedCard {
+                        SyllableBuilder(
+                            targetSyllable = firstSyllableExercise.first,
+                            consonantOptions = firstSyllableExercise.second,
+                            vowelOptions = firstSyllableExercise.third,
+                            onSpeak = { text ->
+                                viewModel.play(SpeechSpec(speechText = text), text)
+                            },
+                            modifier = Modifier.padding(spacing.md)
+                        )
+                    }
                 }
             }
         }
