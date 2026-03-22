@@ -1,5 +1,5 @@
 {
-  "version": "hangul-sprint-v4-en",
+  "version": "hangul-sprint-v5-en",
   "lessons": [
     {
       "lessonId": "hangul_stage_1",
@@ -236,7 +236,8 @@
             "speechText": "아",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_a"
         },
         {
           "characterId": "vowel_ya",
@@ -245,7 +246,8 @@
             "speechText": "야",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_ya"
         },
         {
           "characterId": "vowel_eo",
@@ -254,7 +256,8 @@
             "speechText": "어",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_eo"
         },
         {
           "characterId": "vowel_yeo",
@@ -272,7 +275,8 @@
             "speechText": "오",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_o"
         },
         {
           "characterId": "vowel_yo",
@@ -290,7 +294,8 @@
             "speechText": "우",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_u"
         },
         {
           "characterId": "vowel_yu",
@@ -308,7 +313,8 @@
             "speechText": "으",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s1_eu"
         },
         {
           "characterId": "vowel_i",
@@ -331,7 +337,8 @@
             "speechText": "아",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_a"
         },
         {
           "id": "rd_s1_2",
@@ -343,7 +350,8 @@
             "speechText": "어",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_eo"
         },
         {
           "id": "rd_s1_3",
@@ -355,7 +363,8 @@
             "speechText": "오",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_o"
         },
         {
           "id": "rd_s1_4",
@@ -367,7 +376,8 @@
             "speechText": "우",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_u"
         },
         {
           "id": "rd_s1_5",
@@ -379,7 +389,8 @@
             "speechText": "야",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_ya"
         },
         {
           "id": "rd_s1_6",
@@ -391,7 +402,8 @@
             "speechText": "으",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s1_eu"
         }
       ],
       "dialogueItems": [
@@ -813,7 +825,8 @@
             "speechText": "기역",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s2_g"
         },
         {
           "characterId": "consonant_nieun",
@@ -822,7 +835,8 @@
             "speechText": "니은",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s2_n"
         },
         {
           "characterId": "consonant_digeut",
@@ -849,7 +863,8 @@
             "speechText": "미음",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s2_m"
         },
         {
           "characterId": "consonant_bieup",
@@ -867,7 +882,8 @@
             "speechText": "시옷",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s2_s"
         },
         {
           "characterId": "consonant_ieung",
@@ -903,7 +919,8 @@
             "speechText": "키읔",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s2_k"
         },
         {
           "characterId": "consonant_tieut",
@@ -944,7 +961,8 @@
             "speechText": "기역",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s2_g"
         },
         {
           "id": "rd_s2_2",
@@ -956,7 +974,8 @@
             "speechText": "니은",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s2_n"
         },
         {
           "id": "rd_s2_3",
@@ -968,7 +987,8 @@
             "speechText": "미음",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s2_m"
         },
         {
           "id": "rd_s2_4",
@@ -980,7 +1000,8 @@
             "speechText": "시옷",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s2_s"
         },
         {
           "id": "rd_s2_5",
@@ -992,7 +1013,8 @@
             "speechText": "키읔",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s2_k"
         }
       ],
       "dialogueItems": [
@@ -1349,7 +1371,8 @@
             "speechText": "가",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s3_ga"
         },
         {
           "characterId": "syllable_na",
@@ -1385,7 +1408,8 @@
             "speechText": "사",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s3_sa"
         }
       ],
       "readingDrills": [
@@ -1399,7 +1423,8 @@
             "speechText": "가",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s3_ga"
         },
         {
           "id": "rd_s3_2",
@@ -1411,7 +1436,8 @@
             "speechText": "사",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s3_sa"
         },
         {
           "id": "rd_s3_3",
@@ -1754,7 +1780,8 @@
             "speechText": "쌍기역",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_kk"
         },
         {
           "characterId": "consonant_ssang_digeut",
@@ -1763,7 +1790,8 @@
             "speechText": "쌍디귿",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_tt"
         },
         {
           "characterId": "consonant_ssang_bieup",
@@ -1772,7 +1800,8 @@
             "speechText": "쌍비읍",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_pp"
         },
         {
           "characterId": "consonant_ssang_siot",
@@ -1781,7 +1810,8 @@
             "speechText": "쌍시옷",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_ss"
         },
         {
           "characterId": "consonant_ssang_jieut",
@@ -1804,7 +1834,8 @@
             "speechText": "가, 까",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_kk"
         },
         {
           "id": "rd_s4_2",
@@ -1816,7 +1847,8 @@
             "speechText": "다, 따",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_tt"
         },
         {
           "id": "rd_s4_3",
@@ -1828,7 +1860,8 @@
             "speechText": "바, 빠",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_pp"
         },
         {
           "id": "rd_s4_4",
@@ -1840,7 +1873,8 @@
             "speechText": "사, 싸",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s4_ss"
         }
       ],
       "dialogueItems": [
@@ -2168,7 +2202,8 @@
             "speechText": "애",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s5_ae"
         },
         {
           "characterId": "vowel_e",
@@ -2177,7 +2212,8 @@
             "speechText": "에",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s5_e"
         },
         {
           "characterId": "vowel_wa",
@@ -2186,7 +2222,8 @@
             "speechText": "와",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s5_wa"
         },
         {
           "characterId": "vowel_weo",
@@ -2195,7 +2232,8 @@
             "speechText": "워",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s5_weo"
         },
         {
           "characterId": "vowel_wi",
@@ -2213,7 +2251,8 @@
             "speechText": "의",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s5_ui"
         }
       ],
       "readingDrills": [
@@ -2227,7 +2266,8 @@
             "speechText": "애",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s5_ae"
         },
         {
           "id": "rd_s5_2",
@@ -2239,7 +2279,8 @@
             "speechText": "예",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s5_e"
         },
         {
           "id": "rd_s5_3",
@@ -2251,7 +2292,8 @@
             "speechText": "왜",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s5_wa"
         },
         {
           "id": "rd_s5_4",
@@ -2263,7 +2305,8 @@
             "speechText": "워",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s5_weo"
         },
         {
           "id": "rd_s5_5",
@@ -2275,7 +2318,8 @@
             "speechText": "의",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s5_ui"
         }
       ],
       "dialogueItems": [
@@ -2587,7 +2631,8 @@
             "speechText": "밥",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s6_bap"
         },
         {
           "characterId": "syllable_mul",
@@ -2596,7 +2641,8 @@
             "speechText": "물",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s6_mul"
         },
         {
           "characterId": "syllable_guk",
@@ -2605,7 +2651,8 @@
             "speechText": "국",
             "speechLocale": "ko-KR",
             "speechRatePreset": "SLOW"
-          }
+          },
+          "practiceGroupId": "pg_s6_guk"
         }
       ],
       "readingDrills": [
@@ -2619,7 +2666,8 @@
             "speechText": "밥",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s6_bap"
         },
         {
           "id": "rd_s6_2",
@@ -2631,7 +2679,8 @@
             "speechText": "문",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s6_mul"
         },
         {
           "id": "rd_s6_3",
@@ -2643,7 +2692,8 @@
             "speechText": "국",
             "speechLocale": "ko-KR",
             "speechRatePreset": "NORMAL"
-          }
+          },
+          "practiceGroupId": "pg_s6_guk"
         },
         {
           "id": "rd_s6_4",

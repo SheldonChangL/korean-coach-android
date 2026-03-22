@@ -77,7 +77,8 @@ data class SerializableScriptItem(
 data class SerializableWritingTarget(
     val characterId: String = "",
     val prompt: String = "",
-    val speech: SerializableSpeechSpec = SerializableSpeechSpec()
+    val speech: SerializableSpeechSpec = SerializableSpeechSpec(),
+    val practiceGroupId: String = ""
 )
 
 @Serializable
@@ -87,7 +88,8 @@ data class SerializableReadingDrill(
     val displayText: String = "",
     val romanization: String = "",
     val translation: String = "",
-    val speech: SerializableSpeechSpec = SerializableSpeechSpec()
+    val speech: SerializableSpeechSpec = SerializableSpeechSpec(),
+    val practiceGroupId: String = ""
 )
 
 @Serializable

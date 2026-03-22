@@ -95,7 +95,8 @@ class HangulCurriculumLoader @Inject constructor(
     private fun SerializableWritingTarget.toDomain() = WritingTarget(
         characterId = characterId,
         prompt = prompt,
-        speech = speech.toDomain()
+        speech = speech.toDomain(),
+        practiceGroupId = practiceGroupId
     )
 
     private fun SerializableReadingDrill.toDomain() = ReadingDrill(
@@ -104,7 +105,8 @@ class HangulCurriculumLoader @Inject constructor(
         displayText = displayText,
         romanization = romanization,
         translation = translation,
-        speech = speech.toDomain()
+        speech = speech.toDomain(),
+        practiceGroupId = practiceGroupId
     )
 
     private fun SerializableDialogueItem.toDomain() = DialogueItem(

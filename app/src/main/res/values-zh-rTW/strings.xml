@@ -129,7 +129,8 @@
     <string name="error_loading_stage">無法載入此字母階段。</string>
     <string name="error_loading_stage_subtitle">請返回路徑並重新開啟。</string>
     <string name="tts_unavailable">此裝置無法使用 TTS</string>
-    <string name="listen_and_learn">聽 &amp; 學</string>
+    <string name="listen_and_learn">看懂規則</string>
+    <string name="practice_section">練習</string>
     <string name="write_it">寫一寫</string>
     <string name="read_it">讀一讀</string>
     <string name="mini_dialogue">迷你對話</string>
