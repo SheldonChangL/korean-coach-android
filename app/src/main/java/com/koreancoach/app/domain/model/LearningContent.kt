@@ -36,7 +36,8 @@ data class ScriptItem(
 data class WritingTarget(
     val characterId: String,
     val prompt: String,
-    val speech: SpeechSpec = SpeechSpec()
+    val speech: SpeechSpec = SpeechSpec(),
+    val practiceGroupId: String = ""
 )
 
 data class ReadingDrill(
@@ -45,7 +46,8 @@ data class ReadingDrill(
     val displayText: String,
     val romanization: String,
     val translation: String,
-    val speech: SpeechSpec = SpeechSpec()
+    val speech: SpeechSpec = SpeechSpec(),
+    val practiceGroupId: String = ""
 )
 
 data class DialogueItem(

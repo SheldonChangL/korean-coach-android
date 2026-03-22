@@ -23,8 +23,8 @@ class HangulCharacterDataTest {
     }
 
     @Test
-    fun `keeps 5 example syllables`() {
-        assertEquals(5, HangulCharacterData.syllables.size)
+    fun `keeps 8 example syllables`() {
+        assertEquals(8, HangulCharacterData.syllables.size)
     }
 
     @Test

@@ -20,9 +20,41 @@ import com.koreancoach.app.domain.model.CheckpointItem
 import com.koreancoach.app.domain.model.DialogueItem
 import com.koreancoach.app.domain.model.ReadingDrill
 import com.koreancoach.app.domain.model.ScriptItem
+import com.koreancoach.app.domain.model.SpeechSpec
 import com.koreancoach.app.domain.model.WritingTarget
 import com.koreancoach.app.ui.common.SpeechIconButton
 import com.koreancoach.app.ui.theme.LocalSpacing
+
+private sealed class PracticeRow {
+    data class Grouped(val writing: WritingTarget, val reading: ReadingDrill) : PracticeRow()
+    data class WriteOnly(val target: WritingTarget) : PracticeRow()
+    data class ReadOnly(val drill: ReadingDrill) : PracticeRow()
+}
+
+private fun buildPracticeRows(writings: List<WritingTarget>, readings: List<ReadingDrill>): List<PracticeRow> {
+    val readingsByGroup = readings.filter { it.practiceGroupId.isNotBlank() }.associateBy { it.practiceGroupId }
+    val usedReadingIds = mutableSetOf<String>()
+    val rows = mutableListOf<PracticeRow>()
+    for (w in writings) {
+        if (w.practiceGroupId.isNotBlank()) {
+            val r = readingsByGroup[w.practiceGroupId]
+            if (r != null) {
+                rows.add(PracticeRow.Grouped(w, r))
+                usedReadingIds.add(r.id)
+            } else {
+                rows.add(PracticeRow.WriteOnly(w))
+            }
+        } else {
+            rows.add(PracticeRow.WriteOnly(w))
+        }
+    }
+    for (r in readings) {
+        if (r.id !in usedReadingIds) {
+            rows.add(PracticeRow.ReadOnly(r))
+        }
+    }
+    return rows
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -114,6 +146,10 @@ fun HangulStageScreen(
             return@Scaffold
         }
 
+        val practiceRows = remember(lesson.writingTargets, lesson.readingDrills) {
+            buildPracticeRows(lesson.writingTargets, lesson.readingDrills)
+        }
+
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
@@ -143,23 +179,41 @@ fun HangulStageScreen(
                 }
             }
 
-            if (lesson.writingTargets.isNotEmpty()) {
-                item { Text(stringResource(R.string.write_it), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
-                items(lesson.writingTargets, key = { it.characterId }) { target ->
-                    WritingTargetCard(
-                        target = target,
-                        onOpenWriting = { characterId ->
-                            viewModel.stopSpeaking()
-                            onOpenWriting(characterId)
-                        }
-                    )
-                }
-            }
-
-            if (lesson.readingDrills.isNotEmpty()) {
-                item { Text(stringResource(R.string.read_it), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
-                items(lesson.readingDrills, key = { it.id }) { drill ->
-                    ReadingDrillCard(drill = drill, isSpeaking = state.speechState.isSpeaking, onPlay = { viewModel.play(drill.speech, drill.displayText) }, onStop = viewModel::stopSpeaking)
+            if (practiceRows.isNotEmpty()) {
+                item { Text(stringResource(R.string.practice_section), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+                items(practiceRows, key = { row ->
+                    when (row) {
+                        is PracticeRow.Grouped -> "grouped_${row.writing.characterId}"
+                        is PracticeRow.WriteOnly -> "write_${row.target.characterId}"
+                        is PracticeRow.ReadOnly -> "read_${row.drill.id}"
+                    }
+                }) { row ->
+                    when (row) {
+                        is PracticeRow.Grouped -> GroupedPracticeCard(
+                            writing = row.writing,
+                            reading = row.reading,
+                            isSpeaking = state.speechState.isSpeaking,
+                            onPlay = { viewModel.play(row.reading.speech, row.reading.displayText) },
+                            onStop = viewModel::stopSpeaking,
+                            onOpenWriting = { characterId ->
+                                viewModel.stopSpeaking()
+                                onOpenWriting(characterId)
+                            }
+                        )
+                        is PracticeRow.WriteOnly -> WritingTargetCard(
+                            target = row.target,
+                            onOpenWriting = { characterId ->
+                                viewModel.stopSpeaking()
+                                onOpenWriting(characterId)
+                            }
+                        )
+                        is PracticeRow.ReadOnly -> ReadingDrillCard(
+                            drill = row.drill,
+                            isSpeaking = state.speechState.isSpeaking,
+                            onPlay = { viewModel.play(row.drill.speech, row.drill.displayText) },
+                            onStop = viewModel::stopSpeaking
+                        )
+                    }
                 }
             }
 
@@ -201,6 +255,45 @@ private fun ScriptCard(
                 if (item.emphasis.isNotBlank()) {
                     Text(item.emphasis, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
+        }
+    }
+}
+
+@Composable
+private fun GroupedPracticeCard(
+    writing: WritingTarget,
+    reading: ReadingDrill,
+    isSpeaking: Boolean,
+    onPlay: () -> Unit,
+    onStop: () -> Unit,
+    onOpenWriting: (String) -> Unit
+) {
+    ElevatedCard {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(reading.prompt, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.primary)
+                    Text(reading.displayText, style = MaterialTheme.typography.headlineMedium)
+                    if (reading.romanization.isNotBlank() || reading.translation.isNotBlank()) {
+                        Text("${reading.romanization} · ${reading.translation}", style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+                SpeechIconButton(isPlaying = isSpeaking, onClick = if (isSpeaking) onStop else onPlay)
+            }
+            HorizontalDivider()
+            Text(writing.prompt, style = MaterialTheme.typography.bodyMedium)
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                FilledTonalButton(onClick = { onOpenWriting(writing.characterId) }) {
+                    Icon(Icons.Default.Edit, contentDescription = null)
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.practice))
+                }
+            }
         }
     }
 }
@@ -263,7 +356,7 @@ private fun ReadingDrillCard(
 private fun DialogueCard(
     dialogue: DialogueItem,
     isSpeaking: Boolean,
-    onPlay: (com.koreancoach.app.domain.model.SpeechSpec, String) -> Unit,
+    onPlay: (SpeechSpec, String) -> Unit,
     onStop: () -> Unit
 ) {
     ElevatedCard {

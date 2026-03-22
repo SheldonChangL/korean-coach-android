@@ -129,7 +129,8 @@
     <string name="error_loading_stage">This Hangul stage could not be loaded.</string>
     <string name="error_loading_stage_subtitle">Please go back to the path and open it again.</string>
     <string name="tts_unavailable">TTS unavailable on this device</string>
-    <string name="listen_and_learn">Listen &amp; Learn</string>
+    <string name="listen_and_learn">See the Rules</string>
+    <string name="practice_section">Practice</string>
     <string name="write_it">Write It</string>
     <string name="read_it">Read It</string>
     <string name="mini_dialogue">Mini Dialogue</string>
