@@ -261,4 +261,19 @@
     <string name="theme_system">Follow System</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
+
+    <!-- Matching Game -->
+    <string name="matching_game_title">Match the Pairs</string>
+    <string name="matching_game_score">%1$d / %2$d matched</string>
+    <string name="matching_game_complete">All pairs matched!</string>
+    <string name="matching_game_hint">Tap cards to flip them. Find each Korean ↔ romanization pair.</string>
+
+    <!-- Syllable Builder -->
+    <string name="syllable_builder_title">Build the Syllable</string>
+    <string name="syllable_builder_target">Pick a consonant and vowel to build this syllable:</string>
+    <string name="syllable_builder_pick_consonant">Consonant:</string>
+    <string name="syllable_builder_pick_vowel">Vowel:</string>
+    <string name="syllable_builder_correct">Correct! 잘했어요!</string>
+    <string name="syllable_builder_wrong">Not quite — try a different combination.</string>
+    <string name="syllable_builder_try_again">Try Again</string>
 </resources>

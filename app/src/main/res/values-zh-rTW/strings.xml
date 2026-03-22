@@ -261,4 +261,19 @@
     <string name="theme_system">跟隨系統</string>
     <string name="theme_light">淺色</string>
     <string name="theme_dark">深色</string>
+
+    <!-- Matching Game -->
+    <string name="matching_game_title">配對練習</string>
+    <string name="matching_game_score">%1$d / %2$d 已配對</string>
+    <string name="matching_game_complete">全部配對完成！</string>
+    <string name="matching_game_hint">點擊卡片翻面，找出每組韓文與羅馬拼音的配對。</string>
+
+    <!-- Syllable Builder -->
+    <string name="syllable_builder_title">拼出音節</string>
+    <string name="syllable_builder_target">選一個子音與母音，拼出這個音節：</string>
+    <string name="syllable_builder_pick_consonant">子音：</string>
+    <string name="syllable_builder_pick_vowel">母音：</string>
+    <string name="syllable_builder_correct">正確！잘했어요！</string>
+    <string name="syllable_builder_wrong">不對喔，試試別的組合。</string>
+    <string name="syllable_builder_try_again">再試一次</string>
 </resources>
