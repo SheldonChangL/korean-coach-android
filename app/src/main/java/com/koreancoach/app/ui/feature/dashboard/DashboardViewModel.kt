@@ -41,30 +41,53 @@ class DashboardViewModel @Inject constructor(
                 lessonRepository.getAllLessons(),
                 prefs.currentStreak,
                 analyticsRepository.getWeeklyTotalMinutes(),
-                isBootstrapping
+                isBootstrapping,
+                reviewRepository.getMasteredIds()
             ) { args ->
                 @Suppress("UNCHECKED_CAST")
                 val onboarding = args[0] as OnboardingData
-                val completed = args[1] as Int
+                val completedCount = args[1] as Int
                 val dueCount = args[2] as Int
-                val mastered = args[3] as Int
+                val totalMastered = args[3] as Int
                 @Suppress("UNCHECKED_CAST")
                 val lessons = args[4] as List<Lesson>
                 val streak = args[5] as Int
                 val weeklyMinutes = args[6] as Int
                 val bootstrapping = args[7] as Boolean
+                @Suppress("UNCHECKED_CAST")
+                val masteredIds = args[8] as List<String>
+
                 val hangulLessons = lessons.filter { it.trackId == "hangul_sprint" }
                 val survivalLessons = lessons.filter { it.trackId == "survival_korean" }
+
+                val stage1Vocab = hangulLessons.find { it.id == "hangul_stage_1" }?.vocabulary ?: emptyList()
+                val stage2Vocab = hangulLessons.find { it.id == "hangul_stage_2" }?.vocabulary ?: emptyList()
+                val stage4Vocab = hangulLessons.find { it.id == "hangul_stage_4" }?.vocabulary ?: emptyList()
+                val stage5Vocab = hangulLessons.find { it.id == "hangul_stage_5" }?.vocabulary ?: emptyList()
+
+                val stage1Mastered = stage1Vocab.count { masteredIds.contains("fc_hangul_stage_1_${it.id}") }
+                val stage2Mastered = stage2Vocab.count { masteredIds.contains("fc_hangul_stage_2_${it.id}") }
+                val stage4Mastered = stage4Vocab.count { masteredIds.contains("fc_hangul_stage_4_${it.id}") }
+                val stage5Mastered = stage5Vocab.count { masteredIds.contains("fc_hangul_stage_5_${it.id}") }
+
                 DashboardUiState(
                     onboarding = onboarding,
-                    completedLessons = completed,
+                    completedLessons = completedCount,
                     reviewDueCount = dueCount,
-                    masteredCards = mastered,
+                    masteredCards = totalMastered,
                     recentLessons = survivalLessons.filter { it.isUnlocked }.take(3),
                     allLessons = lessons,
                     nextHangulLesson = hangulLessons.firstOrNull { it.isUnlocked && !it.isCompleted },
-                    hangulCompletedCount = hangulLessons.count { it.isCompleted },
-                    hangulTotalCount = hangulLessons.size,
+                    hangulCompletedStages = hangulLessons.count { it.isCompleted },
+                    hangulTotalStages = hangulLessons.size,
+                    masteredVowels = stage1Mastered,
+                    totalVowels = stage1Vocab.size.coerceAtLeast(10),
+                    masteredConsonants = stage2Mastered,
+                    totalConsonants = stage2Vocab.size.coerceAtLeast(14),
+                    masteredDoubleConsonants = stage4Mastered,
+                    totalDoubleConsonants = stage4Vocab.size.coerceAtLeast(5),
+                    masteredCompoundVowels = stage5Mastered,
+                    totalCompoundVowels = stage5Vocab.size.coerceAtLeast(11),
                     nextSurvivalLesson = survivalLessons.firstOrNull { it.isUnlocked && !it.isCompleted },
                     currentStreak = streak,
                     weeklyMinutes = weeklyMinutes,
@@ -86,8 +109,16 @@ data class DashboardUiState(
     val allLessons: List<Lesson> = emptyList(),
     val nextHangulLesson: Lesson? = null,
     val nextSurvivalLesson: Lesson? = null,
-    val hangulCompletedCount: Int = 0,
-    val hangulTotalCount: Int = 0,
+    val hangulCompletedStages: Int = 0,
+    val hangulTotalStages: Int = 0,
+    val masteredVowels: Int = 0,
+    val totalVowels: Int = 10,
+    val masteredConsonants: Int = 0,
+    val totalConsonants: Int = 14,
+    val masteredDoubleConsonants: Int = 0,
+    val totalDoubleConsonants: Int = 5,
+    val masteredCompoundVowels: Int = 0,
+    val totalCompoundVowels: Int = 11,
     val currentStreak: Int = 0,
     val weeklyMinutes: Int = 0,
     val isLoading: Boolean = true

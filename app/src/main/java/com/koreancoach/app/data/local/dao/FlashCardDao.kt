@@ -21,6 +21,9 @@ interface FlashCardDao {
     @Query("SELECT COUNT(*) FROM flashcards WHERE reviewState = 'MASTERED'")
     fun getMasteredCount(): Flow<Int>
 
+    @Query("SELECT id FROM flashcards WHERE reviewState = 'MASTERED'")
+    fun getMasteredIds(): Flow<List<String>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCards(cards: List<FlashCardEntity>)
 

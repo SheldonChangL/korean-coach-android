@@ -14,6 +14,15 @@
     <!-- Content Descriptions -->
     <string name="cd_progress">Progress</string>
     <string name="cd_settings">Settings</string>
+    <string name="cd_back">Back</string>
+
+    <!-- Phase 3 Dashboard -->
+    <string name="sounds_mastered">Sounds Mastered</string>
+    <string name="explore_40_sounds">Explore 40 Sounds</string>
+    <string name="learning_path">Learning Path</string>
+    <string name="hangul_progress">Hangul Progress</string>
+    <string name="continue_path">Continue Path</string>
+    <string name="stages_complete_v2">%1$d / %2$d Stages</string>
     <string name="cd_close">Close</string>
     <string name="cd_play_audio">Play audio</string>
     <string name="cd_stop_audio">Stop audio</string>

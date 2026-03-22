@@ -22,6 +22,8 @@ class ReviewRepository @Inject constructor(
 
     fun getMasteredCount(): Flow<Int> = flashCardDao.getMasteredCount()
 
+    fun getMasteredIds(): Flow<List<String>> = flashCardDao.getMasteredIds()
+
     fun getCardsByLesson(lessonId: String): Flow<List<FlashCard>> =
         flashCardDao.getCardsByLesson(lessonId).map { it.map { e -> e.toDomain() } }
 
